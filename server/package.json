@@ -5,7 +5,8 @@
   "description": "blood donation project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "db-push" : "npx prisma db push"
   },
   "author": "a.shakour",
   "license": "ISC",

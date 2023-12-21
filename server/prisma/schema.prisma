@@ -26,9 +26,9 @@ model Donar {
   phone     String   @unique
   age       Int
   weight    Int
-  Address  String
-  MotherName String
-  FatherName String
+  address  String
+  motherName String
+  fatherName String
   bloodType     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

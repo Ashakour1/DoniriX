@@ -2,7 +2,7 @@ import asyncHandler from "express-async-handler";
 
 import prisma from "../config/prisma.js";
 
-export const getAlldonates = asyncHandler(async (req, res) => {
+export const getAllDonars = asyncHandler(async (req, res) => {
   // get all donates
   const donates = await prisma.donar.findMany();
 

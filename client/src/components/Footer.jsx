@@ -8,7 +8,7 @@ const Footer = () => {
         <p className="text-white text-center">
           Developed with ❤️ by {""}
           <Link className="underline" to="https://github.com/Ashakour1">
-            Abdishakur
+            Ashakur
           </Link>
         </p>
       </div>

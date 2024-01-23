@@ -35,7 +35,8 @@ export const updateDonar =  asyncHandler(async (req,res) => {
             address,
             motherName,
             fatherName,
-            bloodType
+            bloodType,
+            status : "Donated"
         }
     })
 

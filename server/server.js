@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/donars",Donars)
-app.use("/api/admins",Admin)
+app.use("/api/donar",Donars)
+app.use("/api/auth/admin",Admin)
 
 app.get("*", (req, res) => {
   res.status(404);

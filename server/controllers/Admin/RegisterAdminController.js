@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import prisma from "../../config/prisma.js";
 import bcrypt from "bcrypt"
+import { generateToken } from "../tokens/GenerateToken.js";
 
 export const RegisterAdmin = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;

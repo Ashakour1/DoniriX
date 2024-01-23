@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import prisma from "../../config/prisma.js";
 import bcrypt from "bcrypt";
+import { generateToken } from "../tokens/GenerateToken.js";
 
 export const loginAdmin = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -36,5 +37,6 @@ export const loginAdmin = asyncHandler(async (req, res) => {
         success : true,
         error : null,
         message : "Admin logged in successfully",
+        token : generateToken(adminExists.id)
     })
 });

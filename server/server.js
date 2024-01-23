@@ -11,12 +11,12 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/donar",Donars)
-app.use("/api/auth/admin",Admin)
+app.use("/api/donar", Donars);
+app.use("/api/auth/admin", Admin);
 
 app.get("*", (req, res) => {
   res.status(404);
-  throw new Error("Page not found")
+  throw new Error("Page not found");
 });
 
 app.use(ErrorHandler);

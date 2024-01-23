@@ -67,7 +67,7 @@ export const setDonar = asyncHandler(async (req, res) => {
       motherName,
       fatherName,
       bloodType,
-      status : "pending"
+      status: "pending",
     },
   });
 
@@ -76,7 +76,7 @@ export const setDonar = asyncHandler(async (req, res) => {
     success: true,
     error: false,
     results: {
-      data: Donar,
+      data: "Donar register successfully",
     },
   });
 });

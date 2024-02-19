@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <main className="max-w-[1040px] mx-auto mt-12">
-      <div className="flex justify-between gap-20 ">
+      <div className="flex justify-between gap-20">
         <div className="flex flex-col gap-4">
           <h1 className="text-3xl max-w-xl font-bold">
             At <span className="text-green-600">LifeCord</span> we're dedicated

@@ -28,12 +28,12 @@ const Header = () => {
         <TiThMenuOutline className="text-2xl" />
       </button>
 
-      <div className="md:hidden absolute top-10 right-0 bg-black h-52 text-center text-white">
+      <div className="md:hidden absolute top-10 right-0 bg-black h-58  text-white">
         <ul className="font-bold">
           <li className="p-4">Home</li>
           <li className="p-4">Contact</li>
           <li className="p-4">Become partner</li>
-          <li className="">
+          <li className="p-4">
             <a
               className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md"
               href=""

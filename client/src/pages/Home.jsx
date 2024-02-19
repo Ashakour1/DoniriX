@@ -9,11 +9,12 @@ const Home = () => {
             At <span className="text-green-600">LifeCord</span> we're dedicated
             to saving lives through the power of LifeCord.
           </h1>
-          <p className="max-w-md text-md ">
-            our mission is to save lives by connecting donors with those in need
-            of life-saving blood transfusions. We believe that every drop of
-            blood counts and can make a significant difference in someone's
-            life..
+          <p className="max-w-[550px] text-md text-justify ">
+            Our mission is to safeguard lives by facilitating the vital
+            connection between compassionate donors and individuals in critical
+            need of life-saving blood transfusions. We firmly believe that every
+            single drop of blood holds the power to make a profound and positive
+            impact in someone's life.
           </p>
           <div className="flex gap-4">
             <a

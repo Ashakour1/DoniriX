@@ -24,6 +24,7 @@ const Header = () => {
           </a>
         </div>
       </div>
+      <TiThMenuOutline/>
 
     </header>
   );

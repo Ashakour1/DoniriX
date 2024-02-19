@@ -2,8 +2,8 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className=" text-green-600">
-      <div className=" max-w-[1040px] mx-auto flex justify-between items-center">
+    <header className=" text-green-600 w-full fixed top-0">
+      <div className=" max-w-[1040px] mx-auto flex justify-between items-center relative ">
         <div>
           <h1 className="text-2xl font-bold">Life Cord</h1>
         </div>

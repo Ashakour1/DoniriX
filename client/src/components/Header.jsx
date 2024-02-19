@@ -9,13 +9,13 @@ const Header = () => {
           <h1 className="text-2xl font-bold">Life Cord</h1>
         </div>
         <div>
-          <ul className="flex font-bold">
+          <ul className="md:flex font-bold hidden">
             <li className="p-4">Home</li>
             <li className="p-4">Contact</li>
             <li className="p-4">Become partner</li>
           </ul>
         </div>
-        <div>
+        <div className="hidden md:flex">
           <a
             className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md"
             href=""
@@ -24,8 +24,9 @@ const Header = () => {
           </a>
         </div>
       </div>
-      <TiThMenuOutline/>
-
+      <button className="md:hidden absolute top-4 right-4">
+        <TiThMenuOutline className="text-2xl" />
+      </button>
     </header>
   );
 };

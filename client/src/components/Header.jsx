@@ -1,4 +1,5 @@
 import React from "react";
+import { TiThMenuOutline } from "react-icons/ti";
 
 const Header = () => {
   return (
@@ -23,7 +24,7 @@ const Header = () => {
           </a>
         </div>
       </div>
-      
+
     </header>
   );
 };

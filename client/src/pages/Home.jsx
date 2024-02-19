@@ -5,9 +5,9 @@ const Home = () => {
     <main className="max-w-[1040px] mx-auto mt-12">
       <div className="flex justify-between gap-20">
         <div className="flex flex-col gap-4">
-          <h1 className="text-3xl max-w-xl font-bold">
+          <h1 className="text-4xl max-w-[550px] font-bold">
             At <span className="text-green-600">LifeCord</span> we're dedicated
-            to saving lives through the power of blood donation.
+            to saving lives through the power of LifeCord.
           </h1>
           <p className="max-w-md text-md ">
             our mission is to save lives by connecting donors with those in need
@@ -29,6 +29,7 @@ const Home = () => {
               Contact Us
             </a>
           </div>
+          <img className="w-32" src="/arrow.png" alt="" />
         </div>
         <div className="">
           <img

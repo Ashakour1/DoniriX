@@ -1,6 +1,6 @@
 import React from "react";
 import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
-
+import { showModal } from "../utils/modal";
 const Header = () => {
   const [navIsOpen, setNavIsOpen] = React.useState(false);
 
@@ -21,12 +21,9 @@ const Header = () => {
           </ul>
         </div>
         <div className="hidden md:flex">
-          <a
-            className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md"
-            href=""
-          >
-            Donate Now
-          </a>
+          <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
+            Donate now
+          </button>
         </div>
       </div>
 
@@ -48,12 +45,9 @@ const Header = () => {
               <li className="p-4">Contact</li>
               <li className="p-4">Become partner</li>
               <li className="p-4">
-                <a
-                  className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md"
-                  href=""
-                >
+                <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
                   Donate Now
-                </a>
+                </button>
               </li>
             </ul>
           </div>

@@ -34,7 +34,7 @@ const Home = () => {
         </div>
         <div className="">
           <img
-            className="w-96 h-80 border-2 rounded-md border-green-500 object-cover"
+            className="w-[430px] h-96 border-2 rounded-lg border-green-500 object-cover"
             src="/donate.png"
             alt="placeholder"
           />

@@ -17,18 +17,15 @@ const Home = () => {
             impact in someone's life.
           </p>
           <div className="flex gap-4">
-            <a
-              href=""
-              className="bg-black text-green-600 font-bold py-2 px-4 rounded-md mt-4"
+            <button
+              onClick={() => document.getElementById("my_modal_2").showModal()}
+              className="bg-black text-green-400 font-bold py-2 px-4 rounded mt-4"
             >
-              Donate Now
-            </a>
-            <a
-              href=""
-              className="bg-green-600 text-white font-bold py-2 px-4 rounded-md mt-4"
-            >
+              donate Now
+            </button>
+            <button className="bg-green-600 text-white font-bold py-2 px-4 rounded mt-4">
               Contact Us
-            </a>
+            </button>
           </div>
           <img className="w-32" src="/arrow.png" alt="" />
         </div>
@@ -40,6 +37,17 @@ const Home = () => {
           />
         </div>
       </div>
+
+      <dialog id="my_modal_2" className="modal">
+  <div className="modal-box">
+    <form method="dialog">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click on ✕ button to close</p>
+  </div>
+</dialog>
     </main>
   );
 };

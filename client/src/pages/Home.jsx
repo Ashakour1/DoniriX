@@ -1,14 +1,9 @@
 import React from "react";
+import { showModal } from "../utils/modal";
 
 const Home = () => {
   const modal = React.useRef(null);
 
-  const showModal = () => {
-    if (!modal.current) {
-      return;
-    }
-    modal.current.showModal();
-  };
   return (
     <main className="max-w-[1040px] mx-auto mt-12">
       <div className="flex justify-between gap-20">
@@ -26,7 +21,7 @@ const Home = () => {
           </p>
           <div className="flex gap-4">
             <button
-              onClick={showModal}
+              onClick={() => showModal(modal)}
               className="bg-black text-green-400 font-bold py-2 px-4 rounded mt-4"
             >
               donate Now
@@ -37,7 +32,7 @@ const Home = () => {
           </div>
           <img className="w-32" src="/arrow.png" alt="" />
         </div>
-        <div className="">
+        <div className="over-hidden">
           <img
             className="w-[430px] h-96 border-2 rounded-lg border-green-500 object-cover"
             src="/donate.png"

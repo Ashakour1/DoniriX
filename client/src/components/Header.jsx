@@ -1,6 +1,7 @@
 import React from "react";
 import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
 import { showModal } from "../utils/modal";
+import { Link } from "react-router-dom";
 const Header = () => {
   const [navIsOpen, setNavIsOpen] = React.useState(false);
 
@@ -14,11 +15,17 @@ const Header = () => {
           <h1 className="text-2xl font-bold">Life Cord</h1>
         </div>
         <div>
-          <ul className="md:flex font-bold hidden">
-            <li className="p-4">Home</li>
-            <li className="p-4">Contact</li>
-            <li className="p-4">Become partner</li>
-          </ul>
+          <div className="md:flex font-bold hidden">
+            <Link className="p-4" to="/">
+              Home
+            </Link>
+            <Link className="p-4" to="/contact">
+              Contact
+            </Link>
+            <Link className="p-4" to="/become_partner">
+              Become partner
+            </Link>
+          </div>
         </div>
         <div className="hidden md:flex">
           <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">

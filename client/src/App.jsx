@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Contact from "./pages/Contact";
-import { Toaster, Toast } from "sonner";
+import { Toaster, toast } from "sonner";
 
 function App() {
   return (

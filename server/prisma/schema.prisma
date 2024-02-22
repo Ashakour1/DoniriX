@@ -24,12 +24,11 @@ model Donar {
   id        Int      @id @default(autoincrement())
   fullname      String
   email     String   @unique
-  phone     String   @unique
+  phone     Int   @unique
   age       Int
   weight    Int
   address  String
-  motherName String
-  fatherName String
+  motherNumber Int
   bloodType     String
   status    String
   createdAt DateTime @default(now())

@@ -2,45 +2,44 @@ import asyncHandler from "express-async-handler";
 import prisma from "../config/prisma.js";
 
 export const setDonar = asyncHandler(async (req, res) => {
+  console.log(req.body);
   const {
-    name,
+    fullname,
     email,
     phone,
     age,
     weight,
     address,
-    motherName,
-    fatherName,
+    motherNumber,
     bloodType,
   } = req.body;
 
   if (
-    !name ||
+    !fullname ||
     !email ||
     !phone ||
     !age ||
     !weight ||
     !address ||
-    !motherName ||
-    !fatherName ||
+    !motherNumber ||
     !bloodType
   ) {
-    res.status(400);
+    res.status(404);
     throw new Error("Please fill all the fields");
   }
 
   // checking phone exists
-  const phoneCount = await prisma.donar.count({
-    where: {
-      phone: phone,
-    },
-  });
+  // const phoneCount = await prisma.donar.count({
+  //   where: {
+  //     phone: phone,
+  //   },
+  // });
 
-  // if exists phone
-  if (phoneCount) {
-    res.status(400);
-    throw new Error("your phone is Already exists");
-  }
+  // // if exists phone
+  // if (phoneCount) {
+  //   res.status(400);
+  //   throw new Error("your phone is Already exists");
+  // }
 
   // check if donar exists
   const donarExists = await prisma.donar.findUnique({
@@ -58,14 +57,13 @@ export const setDonar = asyncHandler(async (req, res) => {
   // create donar
   const Donar = await prisma.donar.create({
     data: {
-      name,
+      fullname,
       email,
-      phone,
-      age: parseInt(age),
-      weight: parseInt(weight),
+      phone: Number(phone),
+      age: Number(age),
+      weight: Number(weight),
       address,
-      motherName,
-      fatherName,
+      motherNumber: Number(motherNumber),
       bloodType,
       status: "pending",
     },
@@ -75,8 +73,6 @@ export const setDonar = asyncHandler(async (req, res) => {
   res.status(201).json({
     success: true,
     error: false,
-    results: {
-      data: "Donar register successfully",
-    },
+    message: "You are successfully registered as a donar",
   });
 });

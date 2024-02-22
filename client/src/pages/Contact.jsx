@@ -6,6 +6,30 @@ const Contact = () => {
     <div>
       <div>
         <form >
+          <div>
+            <label htmlFor="">
+              Name
+            </label>
+            <input type="text" />
+          </div>
+          <div>
+            <label htmlFor="">
+              Name
+            </label>
+            <input type="text" />
+          </div>
+          <div>
+            <label htmlFor="">
+              Name
+            </label>
+            <input type="text" />
+          </div>
+          <div>
+            <label htmlFor="">
+              Name
+            </label>
+            <input type="text" />
+          </div>
           
         </form>
       </div>

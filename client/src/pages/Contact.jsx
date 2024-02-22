@@ -1,41 +1,15 @@
-import React from 'react'
+import React from "react";
 
 const Contact = () => {
   return (
-   <main>
-    <div>
+    <main>
       <div>
-        <form >
-          <div>
-            <label htmlFor="">
-              Name
-            </label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">
-              Name
-            </label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">
-              Name
-            </label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">
-              Name
-            </label>
-            <input type="text" />
-          </div>
-          
-        </form>
+        <div>
+          <form></form>
+        </div>
       </div>
-    </div>
-   </main>
-  )
-}
+    </main>
+  );
+};
 
-export default Contact
+export default Contact;

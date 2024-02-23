@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { showModal } from "../utils/modal";
 import { publicRequest } from "../requestMethod";
 import axios from "axios";
+import { toast } from "sonner";
 
 const Home = () => {
   const modal = React.useRef(null);
@@ -25,21 +26,24 @@ const Home = () => {
         "http://localhost:5000/api/donar/",
         formData
       );
-
       console.log(response.data);
 
-     if(formData){
-      if(response.data && response.data.message){
-        alert(response.data.message)
-      }else{
-        alert("An error occurred. Please try again later.");
+      if (formData) {
+        if (response.data && response.data.message) {
+          toast.success(response.data.message);
+        } else {
+          toast.error("An error occurred. Please try again later.");
+        }
       }
-     }
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.message) {
-        alert(error.response.data.message);
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        toast.error(error.response.data.message);
       } else {
-        alert("An error occurred. Please try again later.");
+        toast.error("An error occurred. Please try again later.");
       }
     }
   };
@@ -91,7 +95,7 @@ const Home = () => {
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
             </button>
-            <div className="">
+            <div>
               <h1 className="font-bold text-2xl">Donate Blood</h1>
               <p className="text-md pt-2">
                 Please fill in the form below to donate blood
@@ -178,6 +182,9 @@ const Home = () => {
                     className="w-52  p-2 border border-gray-300 rounded mt-2"
                     onChange={handleChange}
                   >
+                    <option disabled selected>
+                      Select Blood Type
+                    </option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
                     <option value="B+">B+</option>

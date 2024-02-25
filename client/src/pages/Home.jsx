@@ -54,7 +54,7 @@ const Home = () => {
 
   return (
     <main className="max-w-[1040px] mx-auto mt-12">
-      <div className="flex justify-between gap-20">
+      <div className="flex justify-between md:gap-20 gap-0 md:px-0 px-2 md:flex-row flex-col">
         <div className="max-w-[550px] flex flex-col gap-4">
           <h1 className="text-4xl font-bold">
             At <span className="text-green-600">LifeCord</span> we're dedicated
@@ -80,9 +80,9 @@ const Home = () => {
           </div>
           <img className="w-32" src="/arrow.png" alt="" />
         </div>
-        <div className="over-hidden">
+        <div className="over-hidden md:px-0 px-2">
           <img
-            className="w-[430px] h-96 border-2 rounded-lg border-green-500 object-cover"
+            className="md:w-[430px] w-full h-96 border-2 rounded-lg border-green-500 object-cover"
             src="/donate.png"
             alt="placeholder"
           />

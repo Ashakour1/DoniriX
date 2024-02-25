@@ -55,12 +55,12 @@ const Home = () => {
   return (
     <main className="max-w-[1040px] mx-auto mt-12">
       <div className="flex justify-between gap-20">
-        <div className="flex flex-col gap-4">
-          <h1 className="text-4xl max-w-[550px] font-bold">
+        <div className="max-w-[550px] flex flex-col gap-4">
+          <h1 className="text-4xl font-bold">
             At <span className="text-green-600">LifeCord</span> we're dedicated
             to saving lives through the power of LifeCord.
           </h1>
-          <p className="max-w-[550px] text-md text-justify ">
+          <p className=" text-md text-justify ">
             Our mission is to safeguard lives by facilitating the vital
             connection between compassionate donors and individuals in critical
             need of life-saving blood transfusions. We firmly believe that every

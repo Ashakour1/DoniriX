@@ -1,6 +1,7 @@
 import React from "react";
 import { CiFaceSmile } from "react-icons/ci";
 const NotFound = () => {
+  
   const location = window.location.pathname.split("/");
 
   return (

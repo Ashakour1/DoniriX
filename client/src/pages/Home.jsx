@@ -197,7 +197,10 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <button className="w-full mt-4 bg-green-600 p-2.5 rounded text-white font-bold">
+            <button
+              type="button"
+              className="w-full mt-4 bg-green-600 p-2.5 rounded text-white font-bold"
+            >
               Submit
             </button>
           </form>

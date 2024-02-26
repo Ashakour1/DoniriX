@@ -54,8 +54,8 @@ const Header = () => {
               <Link className="p-4" to="/contact">
                 Contact
               </Link>
-              <Link className="p-4" to="/become_partner">
-                Become partner
+              <Link className="p-4" to="/about">
+                About
               </Link>
               <Link className="p-4" to="/">
                 <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">

@@ -10,7 +10,7 @@ const Header = () => {
   };
   return (
     <header className=" text-green-600  p-2 ">
-      <div className=" max-w-[1040px] mx-auto flex justify-between items-center  ">
+      <div className=" max-w-[1040px] mx-auto flex justify-between items-center md:px-0 px-2">
         <div>
           <h1 className="text-2xl font-bold">Life Cord</h1>
         </div>
@@ -46,7 +46,7 @@ const Header = () => {
         )}
 
         {navIsOpen ? (
-          <div className="md:hidden absolute top-10 right-0 bg-black h-58  text-white">
+          <div className="md:hidden absolute top-10 right-0 bg-black h-58  text-white ">
             <div className="font-bold flex flex-col">
               <Link className="p-4" to="/">
                 Home

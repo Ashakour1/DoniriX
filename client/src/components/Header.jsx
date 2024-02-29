@@ -12,10 +12,10 @@ const Header = () => {
     <header className=" text-green-600  p-2 ">
       <div className=" max-w-[1040px] mx-auto flex justify-between items-center md:px-0 px-2">
         <div>
-          <h1 className="text-2xl font-bold">Life Cord</h1>
+          <h1 className="text-lg font-bold">Life Cord</h1>
         </div>
         <div>
-          <div className="md:flex font-bold hidden">
+          <div className=" text-sm md:flex font-bold hidden">
             <Link className="p-4" to="/">
               Home
             </Link>

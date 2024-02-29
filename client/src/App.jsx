@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import { Toaster, toast } from "sonner";
 import About from "./pages/About";
 import Admin from "./pages/Admin/adminDashboard";
+import DonarList from "./pages/Admin/DonarList";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
             }
           />
           <Route path="/auth/admin" element={<Admin />} />
+          <Route path="/donars" element={<DonarList />} />
         </Routes>
       </Router>
     </>

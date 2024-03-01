@@ -35,7 +35,10 @@ export const setDonar = asyncHandler(async (req, res) => {
     throw new Error("Please enter a valid phone number");
   }
 
-  
+  if (motherNumber.length < 15) {
+    res.status(400);
+    throw new Error("Please enter a valid mother phone number");
+  }
 
   // check if donar exists
   const donarExists = await prisma.donar.findUnique({

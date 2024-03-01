@@ -5,11 +5,11 @@ import prisma from "../config/prisma.js";
 export const getAllDonars = asyncHandler(async (req, res) => {
   // get all donates
 
-  const bloodType = req.query.bloodType;
+  const qBlood = req.query.bloodType;
   let donars;
 
   try {
-    if (bloodType) {
+    if (qBlood) {
       donars = await prisma.donar.findMany({
         where: {
           bloodType,
@@ -29,7 +29,7 @@ export const getAllDonars = asyncHandler(async (req, res) => {
     error: null,
     results: {
       data: {
-        donates,
+        donars,
       },
     },
   });

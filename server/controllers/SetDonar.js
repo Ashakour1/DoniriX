@@ -37,12 +37,12 @@ export const setDonar = asyncHandler(async (req, res) => {
     throw new Error("You are underweight");
   }
 
-  if (phone.length < 15) {
+  if (phone.length < 0) {
     res.status(400);
     throw new Error("Please enter a valid phone number");
   }
 
-  if (motherNumber.length < 15) {
+  if (motherNumber.length < 0) {
     res.status(400);
     throw new Error("Please enter a valid mother phone number");
   }

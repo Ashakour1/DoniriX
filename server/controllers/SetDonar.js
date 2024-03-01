@@ -28,18 +28,14 @@ export const setDonar = asyncHandler(async (req, res) => {
     throw new Error("Please fill all the fields");
   }
 
-  // checking phone exists
-  // const phoneCount = await prisma.donar.count({
-  //   where: {
-  //     phone: phone,
-  //   },
-  // });
+  
 
-  // // if exists phone
-  // if (phoneCount) {
-  //   res.status(400);
-  //   throw new Error("your phone is Already exists");
-  // }
+  if (phone.length < 15) {
+    res.status(400);
+    throw new Error("Please enter a valid phone number");
+  }
+
+  
 
   // check if donar exists
   const donarExists = await prisma.donar.findUnique({

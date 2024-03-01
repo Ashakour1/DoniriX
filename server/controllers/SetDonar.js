@@ -29,6 +29,10 @@ export const setDonar = asyncHandler(async (req, res) => {
   }
 
   
+  if (weight < 50) {
+    res.status(400);
+    throw new Error("You are underweight");
+  }
 
   if (phone.length < 15) {
     res.status(400);

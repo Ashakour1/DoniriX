@@ -28,7 +28,10 @@ export const setDonar = asyncHandler(async (req, res) => {
     throw new Error("Please fill all the fields");
   }
 
-  
+  if (age < 18) {
+    res.status(400);
+    throw new Error("You are under age");
+  }
   if (weight < 50) {
     res.status(400);
     throw new Error("You are underweight");

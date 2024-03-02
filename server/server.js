@@ -3,6 +3,7 @@ import Donars from "./routes/DonarRoutes.js";
 import Admin from "./routes/AdminRoutes.js";
 import ErrorHandler from "./middlewares/errorMiddleware.js";
 import dotenv from "dotenv";
+import sendEmail from "./routes/sendEmailRoutes.js";
 import cors from "cors"
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/donar", Donars);
+app.use("/api/send", sendEmail);
 app.use("/api/auth/admin", Admin);
 
 app.get("*", (req, res) => {

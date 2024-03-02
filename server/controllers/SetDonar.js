@@ -2,7 +2,7 @@ import asyncHandler from "express-async-handler";
 import prisma from "../config/prisma.js";
 
 export const setDonar = asyncHandler(async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const {
     fullname,
     email,

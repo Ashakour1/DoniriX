@@ -9,7 +9,7 @@ const Contact = () => {
             <span className="text-green-600">LifeCord</span> Contact
           </h1>
           <p className="text-2xl">
-            blood donation website. Together, we can elevate our collective
+            life  website. Together, we can elevate our collective
             influence and offer unparalleled experiences to donors, recipients,
             and healthcare providers. Join hands with us and be a part of this
             noble cause.

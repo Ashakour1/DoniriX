@@ -18,7 +18,8 @@ const Home = () => {
   const modal = React.useRef(null);
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [modalPlacement, setModalPlacement] = React.useState("auto");
+  const [modalPlacement, setModalPlacement] = useState("auto");
+
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -118,7 +119,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
+      
         <Modal
           isOpen={isOpen}
           placement={modalPlacement}
@@ -256,7 +257,7 @@ const Home = () => {
             )}
           </ModalContent>
         </Modal>
-      </div>
+      
     </main>
   );
 };

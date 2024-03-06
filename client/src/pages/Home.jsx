@@ -18,7 +18,7 @@ const Home = () => {
   const modal = React.useRef(null);
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [modalPlacement, setModalPlacement] = useState("auto");
+  const [modalPlacement, setModalPlacement] = useState("center");
 
   const [formData, setFormData] = useState({
     fullname: "",

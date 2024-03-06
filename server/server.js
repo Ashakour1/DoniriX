@@ -4,17 +4,18 @@ import Admin from "./routes/AdminRoutes.js";
 import ErrorHandler from "./middlewares/errorMiddleware.js";
 import dotenv from "dotenv";
 import sendEmail from "./routes/sendEmailRoutes.js";
-import cors from "cors"
+import cors from "cors";
 dotenv.config();
 const app = express();
 
-app.use(cors({
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-}))
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  })
+);
 
 const PORT = process.env.PORT || 5000;
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -49,7 +49,7 @@ const Home = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:22000/api/donar/",
+        "https://lifecord.onrender.com/api/donar/",
         formData
       );
       console.log(response.data);

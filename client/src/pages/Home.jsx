@@ -3,10 +3,22 @@ import { showModal } from "../utils/modal";
 import { publicRequest } from "../requestMethod";
 import axios from "axios";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
 
 const Home = () => {
   const modal = React.useRef(null);
 
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [modalPlacement, setModalPlacement] = React.useState("auto");
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -18,21 +30,38 @@ const Home = () => {
     bloodType: "",
   });
 
+  const clearText = () => {
+    setFormData({
+      fullname: "",
+      email: "",
+      phone: "",
+      age: "",
+      weight: "",
+      address: "",
+      motherNumber: "",
+      bloodType: "",
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/donar/",
+        "http://localhost:22000/api/donar/",
         formData
       );
       console.log(response.data);
 
       if (formData) {
+        clearText();
         if (response.data && response.data.message) {
           toast.success(response.data.message);
         } else {
-          toast.error("An error occurred. Please try again later.");
+          toast.error(
+            response.data.message ||
+              "An error occurred. Please try again later."
+          );
         }
       }
     } catch (error) {
@@ -68,14 +97,14 @@ const Home = () => {
             impact in someone's life.
           </p>
           <div className="flex gap-4">
-            <button
-              onClick={() => showModal(modal)}
+            <Button
+              onPress={onOpen}
               className="bg-black text-green-400 font-bold py-2 px-4 rounded mt-4"
             >
               donate Now
-            </button>
+            </Button>
             <button className="bg-green-600 text-white font-bold py-2 px-4 rounded mt-4">
-              Contact Us
+              <Link to="/contact">Contact Us</Link>
             </button>
           </div>
           <img className="w-32" src="/arrow.png" alt="" />
@@ -89,123 +118,145 @@ const Home = () => {
         </div>
       </div>
 
-      <dialog id="my_modal_2" className="modal" ref={modal}>
-        <div className="modal-box">
-          <form method="dialog" className="mx-3" onSubmit={handleSubmit}>
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
-            <div>
-              <h1 className="font-bold text-2xl">Donate Blood</h1>
-              <p className="text-md pt-2">
-                Please fill in the form below to donate blood
-              </p>
-              <div className="flex justify-between mt-4">
-                <div>
-                  <label className="block text-sm font-bold">Name</label>
-                  <input
-                    type="text"
-                    className="w-52 p-2 border border-gray-300 rounded mt-2"
-                    name="fullname"
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold">Email</label>
-                  <input
-                    type="email"
-                    className="w-52 p-2 border border-gray-300 rounded mt-2"
-                    name="email"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div className="flex justify-between mt-2 ">
-                <div>
-                  <label className="block text-sm font-bold">Phone</label>
-                  <input
-                    type="Number"
-                    className="w-52 p-2 border border-gray-300 rounded mt-2"
-                    name="phone"
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold">Age</label>
-                  <input
-                    type="number"
-                    className="w-52 p-2 border border-gray-300 rounded mt-2"
-                    name="age"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div className="flex justify-between mt-2 ">
-                <div>
-                  <label className="block text-sm font-bold">Weight</label>
-                  <input
-                    type="Number"
-                    className="w-52 p-2 border border-gray-300 rounded mt-2"
-                    name="weight"
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold">Address</label>
-                  <input
-                    type="text"
-                    className="w-52 p-2 border border-gray-300 rounded mt-2"
-                    name="address"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div className="flex justify-between mt-2 ">
-                <div>
-                  <label className="block text-sm font-bold">
-                    Mother Number
-                  </label>
-                  <input
-                    type="Number"
-                    className="w-52 p-2 border border-gray-300 rounded mt-2"
-                    name="motherNumber"
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="">
-                  <label htmlFor="" className="block text-sm font-bold">
-                    Blood Type
-                  </label>
-                  <select
-                    name="bloodType"
-                    id=""
-                    className="w-52  p-2 border border-gray-300 rounded mt-2"
-                    onChange={handleChange}
-                  >
-                    <option disabled selected>
-                      Select Blood Type
-                    </option>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <button
-              type="button"
-              className="w-full mt-4 bg-green-600 p-2.5 rounded text-white font-bold"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
-      </dialog>
+      <div className="flex flex-col gap-2">
+        <Modal
+          isOpen={isOpen}
+          placement={modalPlacement}
+          onOpenChange={onOpenChange}
+        >
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">
+                  <h2 className="text-2xl font-bold">Donate Blood</h2>
+                  <p className="text-sm text-gray-500">
+                    Please fill the form below to donate blood
+                  </p>
+                </ModalHeader>
+                <ModalBody>
+                  <form action="">
+                    <div className="flex gap-2">
+                      <div>
+                        <label htmlFor="fullname">Full Name</label>
+                        <input
+                          type="text"
+                          name="fullname"
+                          id="fullname"
+                          value={formData.fullname}
+                          onChange={handleChange}
+                          className="w-full border-2 border-gray-300 rounded-md p-2"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email">Full Name</label>
+                        <input
+                          type="text"
+                          name="email"
+                          id="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full border-2 border-gray-300 rounded-md p-2"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <div>
+                        <label htmlFor="phone">Phone</label>
+                        <input
+                          type="text"
+                          name="phone"
+                          id="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full border-2 border-gray-300 rounded-md p-2"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="age">Age</label>
+                        <input
+                          type="text"
+                          name="age"
+                          id="age"
+                          value={formData.age}
+                          onChange={handleChange}
+                          className="w-full border-2 border-gray-300 rounded-md p-2"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex  gap-2">
+                      <div>
+                        <label htmlFor="weight">Weight</label>
+                        <input
+                          type="text"
+                          name="weight"
+                          id="weight"
+                          value={formData.weight}
+                          onChange={handleChange}
+                          className="w-full border-2 border-gray-300 rounded-md p-2"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="address">Address</label>
+                        <input
+                          type="text"
+                          name="address"
+                          id="address"
+                          value={formData.address}
+                          onChange={handleChange}
+                          className="w-full border-2 border-gray-300 rounded-md p-2"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <div>
+                        <label htmlFor="motherNumber">Mother Number</label>
+                        <input
+                          type="text"
+                          name="motherNumber"
+                          id="motherNumber"
+                          value={formData.motherNumber}
+                          onChange={handleChange}
+                          className="w-full border-2 border-gray-300 rounded-md p-2"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="bloodType">BloodType</label>
+                        <select
+                          className="w-full border-2 border-gray-300 rounded-md p-2"
+                          name="bloodType"
+                          value={formData.bloodType}
+                          onChange={handleChange}
+                          id=""
+                        >
+                          <option value="" disabled>
+                            Select Blood Type
+                          </option>
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-">B-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+                  <Button onClick={handleSubmit} color="primary">
+                    Submit
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+      </div>
     </main>
   );
 };

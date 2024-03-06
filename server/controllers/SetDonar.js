@@ -65,7 +65,7 @@ export const setDonar = asyncHandler(async (req, res) => {
     data: {
       fullname,
       email,
-      phone: Number(phone),
+      phone,
       age: Number(age),
       weight: Number(weight),
       address,

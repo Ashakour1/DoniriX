@@ -83,7 +83,7 @@ const Home = () => {
   };
 
   return (
-    <main className="max-w-[1040px] mx-auto mt-12">
+    <main className="max-w-[1040px] mx-auto mt-12 h-screen">
       <div className="flex justify-between md:gap-20 gap-0 md:px-0 px-4 md:flex-row flex-col pb-2">
         <div className="max-w-[550px] flex flex-col gap-4">
           <h1 className="text-4xl font-bold">

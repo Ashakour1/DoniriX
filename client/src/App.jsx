@@ -7,6 +7,7 @@ import { Toaster, toast } from "sonner";
 import About from "./pages/About";
 
 import { NextUIProvider } from "@nextui-org/react";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
                 </>
               }
             />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Router>
       </NextUIProvider>

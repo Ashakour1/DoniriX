@@ -5,6 +5,7 @@ import NotFound from "./components/NotFound";
 import Contact from "./pages/Contact";
 import { Toaster, toast } from "sonner";
 import About from "./pages/About";
+import Footer from "./components/Footer";
 
 import { NextUIProvider } from "@nextui-org/react";
 import Login from "./pages/Login";
@@ -22,6 +23,7 @@ function App() {
                 <>
                   <Header />
                   <Home />
+                  <Footer />
                 </>
               }
             />
@@ -40,6 +42,7 @@ function App() {
                 <>
                   <Header />
                   <About />
+                  <Footer />
                 </>
               }
             />

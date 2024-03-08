@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <main className="min-h-screen flex items-center justify-center">
-      <section className="w-[450px] p-4 bg-white  shadow-xl	 rounded">
+      <section className="w-[450px] p-6 bg-white  shadow-xl	 rounded">
         <header>
           <h2 className="text-2xl font-bold text-green-600">Login</h2>
           <p className="mt-2 text-gray-500">

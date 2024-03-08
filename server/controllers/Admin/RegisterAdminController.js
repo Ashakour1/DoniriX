@@ -1,9 +1,9 @@
 import asyncHandler from "express-async-handler";
 import prisma from "../../config/prisma.js";
-import bcrypt from "bcrypt"
-import { generateToken } from "../tokens/GenerateToken.js";
+import bcrypt from "bcrypt";
 
 export const RegisterAdmin = asyncHandler(async (req, res) => {
+  console.log(req.body);
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
@@ -17,27 +17,27 @@ export const RegisterAdmin = asyncHandler(async (req, res) => {
     },
   });
 
-    if (adminExists) {
-        res.status(400);
-        throw new Error("Admin already exists");
-    }
+  if (adminExists) {
+    res.status(400);
+    throw new Error("Admin already exists");
+  }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 10);
 
-    // create admin
-    const admin = await prisma.admin.create({
-        data : {
-            name,
-            email,
-            password : hashedPassword,
-        }
-    })
+  // create admin
+  const admin = await prisma.admin.create({
+    data: {
+      name,
+      email,
+      password: hashedPassword,
+    },
+  });
 
-    // return response 
+  // return response
 
-    res.status(201).json({
-        success: true,
-        error : null,
-        message : "Admin created successfully",
-    })
+  res.status(201).json({
+    success: true,
+    error: null,
+    message: "Admin created successfully",
+  });
 });

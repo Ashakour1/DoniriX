@@ -10,8 +10,9 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:5173",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
   })
 );
 
@@ -22,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/donar", Donars);
 app.use("/api/send", sendEmail);
-app.use("/api/auth/admin", Admin);
+app.use("/api/admin", Admin);
 
 app.get("*", (req, res) => {
   res.status(404);

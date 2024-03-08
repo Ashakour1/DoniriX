@@ -18,25 +18,38 @@ export const loginAdmin = asyncHandler(async (req, res) => {
     },
   });
 
-  if(!adminExists){
-      res.status(400);
-      throw new Error("Admin does not exists");
+  if (!adminExists) {
+    res.status(400);
+    throw new Error("Admin does not exists");
   }
 
   // check if password matches
 
-  const passwordMatches = await bcrypt.compare(password,adminExists.password);
+  const passwordMatches = await bcrypt.compare(password, adminExists.password);
 
-    if(!passwordMatches){
-        res.status(400);
-        throw new Error("Invalid password");
-    }
+  if (!passwordMatches) {
+    res.status(400);
+    throw new Error("Invalid password");
+  }
 
-    // return response
-    res.status(200).json({
-        success : true,
-        error : null,
-        message : "Admin logged in successfully",
-        token : generateToken(adminExists.id)
-    })
+  const { token, maxAge } = generateToken(adminExists.id);
+
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: false,
+    maxAge,
+  });
+
+  // return response
+  res.status(200).json({
+    success: true,
+    error: null,
+    data: {
+      message: "Admin logged in successfully",
+      id: adminExists.id,
+      name: adminExists.name,
+      email: adminExists.email,
+      token: token,
+    },
+  });
 });

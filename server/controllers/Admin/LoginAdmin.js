@@ -1,7 +1,8 @@
 import asyncHandler from "express-async-handler";
 import prisma from "../../config/prisma.js";
 import bcrypt from "bcrypt";
-import { generateToken } from "../tokens/GenerateToken.js";
+import jwt from "jsonwebtoken";
+// import { generateToken } from "../tokens/GenerateToken.js";
 
 export const loginAdmin = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -31,25 +32,25 @@ export const loginAdmin = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Invalid password");
   }
+  const expiresIn = 7 * 24 * 60 * 60; // 7 days
 
-  const { token, maxAge } = generateToken(adminExists.id);
+  const token = jwt.sign({ _id: adminExists.id }, process.env.JWT_SECRET, {
+    expiresIn,
+  });
 
   res.cookie("token", token, {
     httpOnly: true,
     secure: false,
-    maxAge,
+    maxAge: expiresIn * 1000,
   });
 
   // return response
   res.status(200).json({
     success: true,
     error: null,
-    data: {
-      message: "Admin logged in successfully",
-      id: adminExists.id,
-      name: adminExists.name,
-      email: adminExists.email,
-      token: token,
-    },
+    message: "Admin login successful",
+
+    adminExists,
+    expiresIn,
   });
 });

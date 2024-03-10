@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
 import { showModal } from "../utils/modal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../hooks/useUser";
 const Header = () => {
   const [navIsOpen, setNavIsOpen] = React.useState(false);
 
+  const { user, logOut } = useUser();
+
+  const navigate = useNavigate();
+
+  if (!user) {
+    navigate("/");
+  }
   const openNav = () => {
     setNavIsOpen(!navIsOpen);
   };
@@ -16,21 +24,35 @@ const Header = () => {
         </div>
         <div>
           <div className=" text-sm md:flex font-bold hidden">
-            <Link className="p-4" to="/">
-              Home
-            </Link>
-            <Link className="p-4" to="/contact">
-              Contact
-            </Link>
-            <Link className="p-4" to="/about">
-              About
-            </Link>
+            {user ? (
+              <>
+                <Link className="p-4" to="/dashboard">
+                  Dashboard
+                </Link>
+
+                <button className="p-4 " onClick={logOut}>
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link className="p-4" to="/">
+                  Home
+                </Link>
+                <Link className="p-4" to="/contact">
+                  Contact
+                </Link>
+                <Link className="p-4" to="/about">
+                  About
+                </Link>
+                <div className="hidden md:flex">
+                  <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
+                    Donate now
+                  </button>
+                </div>
+              </>
+            )}
           </div>
-        </div>
-        <div className="hidden md:flex">
-          <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
-            Donate now
-          </button>
         </div>
       </div>
 

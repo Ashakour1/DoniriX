@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { publicRequest } from "../requestMethod";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { useUser } from "../hooks/useUser";
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -10,6 +11,14 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const { login, user } = useUser();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,7 +30,7 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post(
+      const { data } = await axios.post(
         "http://localhost:22000/api/admin/login",
         formData,
         {
@@ -29,7 +38,10 @@ const Login = () => {
         }
       );
 
-      toast.success(response.data.data.message);
+      console.log(data.expiresIn);
+      toast.success(data.message);
+      // console.log(data.expiresIn);
+      login(data, data.expiresIn);
       navigate("/dashboard");
       setLoading(false);
       // if (formData) {
@@ -44,7 +56,8 @@ const Login = () => {
       // }
     } catch (error) {
       setLoading(false);
-      toast.error(error.response.data.data.message);
+      console.log(error);
+      // toast.error(error.data.message);
     }
   };
 

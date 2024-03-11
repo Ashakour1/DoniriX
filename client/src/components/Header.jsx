@@ -1,18 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
 import { showModal } from "../utils/modal";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../hooks/useUser";
 const Header = () => {
-  const [navIsOpen, setNavIsOpen] = React.useState(false);
+  const [navIsOpen, setNavIsOpen] = useState(false);
 
   const { user, logOut } = useUser();
 
   const navigate = useNavigate();
 
-  if (!user) {
-    navigate("/");
-  }
   const openNav = () => {
     setNavIsOpen(!navIsOpen);
   };

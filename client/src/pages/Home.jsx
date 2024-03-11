@@ -137,7 +137,7 @@ const Home = () => {
                 <form action="">
                   <div className="flex gap-2">
                     <div>
-                      <label htmlFor="fullname">Full Name</label>
+                      <label for="">Full Name</label>
                       <input
                         type="text"
                         name="fullname"
@@ -148,7 +148,7 @@ const Home = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email">Full Name</label>
+                      <label for="">Email</label>
                       <input
                         type="text"
                         name="email"
@@ -161,7 +161,7 @@ const Home = () => {
                   </div>
                   <div className="flex gap-2">
                     <div>
-                      <label htmlFor="phone">Phone</label>
+                      <label for="">Phone</label>
                       <input
                         type="text"
                         name="phone"
@@ -172,7 +172,7 @@ const Home = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="age">Age</label>
+                      <label for="">Age</label>
                       <input
                         type="text"
                         name="age"
@@ -185,7 +185,7 @@ const Home = () => {
                   </div>
                   <div className="flex  gap-2">
                     <div>
-                      <label htmlFor="weight">Weight</label>
+                      <label for="">Weight</label>
                       <input
                         type="text"
                         name="weight"
@@ -196,7 +196,7 @@ const Home = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="address">Address</label>
+                      <label for="">Address</label>
                       <input
                         type="text"
                         name="address"
@@ -209,7 +209,7 @@ const Home = () => {
                   </div>
                   <div className="flex gap-2">
                     <div>
-                      <label htmlFor="motherNumber">Mother Number</label>
+                      <label for="">Mother Number</label>
                       <input
                         type="text"
                         name="motherNumber"
@@ -220,7 +220,7 @@ const Home = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="bloodType">BloodType</label>
+                      <label for="">BloodType</label>
                       <select
                         className="w-full border-2 border-gray-300 rounded-md p-2"
                         name="bloodType"
@@ -228,7 +228,7 @@ const Home = () => {
                         onChange={handleChange}
                         id=""
                       >
-                        <option value="" disabled>
+                        <option value={formData.bloodType} disabled>
                           Select Blood Type
                         </option>
                         <option value="A+">A+</option>

@@ -15,7 +15,7 @@ const About = () => {
           noble cause.
         </p>
         <h1 className="text-2xl font-bold">
-          <span className="text-green-600">LifeCord</span> Contact
+          <span className="text-green-600">LifeCord</span> About
         </h1>
         <p className="text-xl">
           blood donation website. Together, we can elevate our collective

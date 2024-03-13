@@ -6,7 +6,7 @@ const About = () => {
     <div className=" md:flex-row flex-col flex md:px-0 px-4 pb-4">
       <div className="max-w-[550px] flex flex-col gap-5 mt-4">
         <h1 className="text-3xl font-bold">
-          <span className="text-green-600">LifeCord</span> Contact
+          <span className="text-green-600">LifeCord</span> About
         </h1>
         <p className="text-xl">
           blood donation  website. Together, we can elevate our collective

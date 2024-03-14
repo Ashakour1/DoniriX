@@ -37,6 +37,7 @@ export const loginAdmin = asyncHandler(async (req, res) => {
   const token = jwt.sign({ _id: adminExists.id }, process.env.JWT_SECRET, {
     expiresIn,
   });
+  // console.log("login", token);
 
   res.cookie("token", token, {
     httpOnly: true,
@@ -49,7 +50,7 @@ export const loginAdmin = asyncHandler(async (req, res) => {
     success: true,
     error: null,
     message: "Admin login successful",
-
+    token,
     adminExists,
     expiresIn,
   });

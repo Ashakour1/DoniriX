@@ -44,20 +44,9 @@ const Login = () => {
       login(data, data.expiresIn);
       navigate("/dashboard");
       setLoading(false);
-      // if (formData) {
-      //   localStorage.setItem("admin", response.data);
-      //   if (response.data && response.data.message) {
-      //     navigate("/dashboard");
-      //   } else {
-      //     toast.error(response.data.message);
-      //   }
-      // } else {
-      //   toast.error("An error occurred. Please try again later.");
-      // }
     } catch (error) {
       setLoading(false);
-      console.log(error);
-      // toast.error(error.data.message);
+      toast.error(error.response.data.message);
     }
   };
 
@@ -79,7 +68,6 @@ const Login = () => {
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
               id="email"
               placeholder="johna@gmail.com"
-              required
               type="email"
               value={formData.email}
               name="email"
@@ -93,7 +81,6 @@ const Login = () => {
             <input
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
               id="password"
-              required
               type="password"
               value={formData.password}
               name="password"

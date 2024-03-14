@@ -21,38 +21,23 @@ const Header = () => {
         </div>
         <div>
           <div className=" text-sm md:flex font-bold hidden">
-            {user ? (
-              <>
-                <Link className="p-4" to="/dashboard">
-                  Dashboard
-                </Link>
-                <Link className="p-2" onClick={logOut}>
-                  <button className="bg-green-600 font-bold text-white items-center px-4 py-2 rounded-md">
-                    Logout
-                  </button>
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link className="p-4" to="/">
-                  Home
-                </Link>
-                <Link className="p-4" to="/contact">
-                  Contact
-                </Link>
-                <Link className="p-4" to="/about">
-                  About
-                </Link>
-                <div className="hidden md:flex">
-                  <Link className="p-2" to="/">
-                    <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
-                      Donate Now
-                    </button>
-                  </Link>
-                </div>
-              </>
-            )}
+            <Link className="p-4" to="/">
+              Home
+            </Link>
+            <Link className="p-4" to="/contact">
+              Contact
+            </Link>
+            <Link className="p-4" to="/about">
+              About
+            </Link>
           </div>
+        </div>
+        <div className="hidden md:flex">
+          <Link className="p-2" to="/">
+            <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
+              Donate Now
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -71,33 +56,18 @@ const Header = () => {
         {navIsOpen ? (
           <div className="md:hidden absolute top-10 right-0 rounded bg-black h-58  text-white ">
             <div className="font-bold flex flex-col">
-              {user ? (
-                <>
-                  <Link className="p-4" to="/dashboard">
-                    Dashboard
-                  </Link>
-
-                  <button className="p-4 " onClick={logOut}>
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link className="p-4" to="/">
-                    Home
-                  </Link>
-                  <Link className="p-4" to="/contact">
-                    Contact
-                  </Link>
-                  <Link className="p-4" to="/about">
-                    About
-                  </Link>
-
-                  <button className="bg-green-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md">
-                    Donate Now
-                  </button>
-                </>
-              )}
+              <Link className="p-4" to="/">
+                Home
+              </Link>
+              <Link className="p-4" to="/contact">
+                Contact
+              </Link>
+              <Link className="p-4" to="/about">
+                About
+              </Link>
+              <button className="bg-green-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md">
+                Donate Now
+              </button>
             </div>
           </div>
         ) : null}

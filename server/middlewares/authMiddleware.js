@@ -5,7 +5,7 @@ import prisma from "../config/prisma.js";
 export const AuthMiddleware = AsyncHandler(async (req, res, next) => {
   // get token from header
   let token;
-
+  
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
@@ -21,9 +21,10 @@ export const AuthMiddleware = AsyncHandler(async (req, res, next) => {
       // find admin
       const admin = await prisma.admin.findUnique({
         where: {
-          id: decoded.id,
+          id: decoded._id,
         },
       });
+      console.log("token decoded",admin);
 
       req.admin = admin;
 
@@ -35,10 +36,10 @@ export const AuthMiddleware = AsyncHandler(async (req, res, next) => {
       }
       next();
     } catch (error) {
+      console.error(error);
       res.status(401).json({
         success: false,
         error: "Not authorized to access this route",
-        adminData: null,
       });
     }
   }

@@ -56,6 +56,7 @@ const Header = () => {
         </div>
       </div>
 
+      {/* mobile */}
       <div onClick={openNav} className="md:hidden block">
         {navIsOpen ? (
           <button className="md:hidden absolute top-4 right-4">
@@ -68,7 +69,7 @@ const Header = () => {
         )}
 
         {navIsOpen ? (
-          <div className="md:hidden absolute top-10 right-0 bg-black h-58  text-white ">
+          <div className="md:hidden absolute top-10 right-0 rounded bg-black h-58  text-white ">
             <div className="font-bold flex flex-col">
               {user ? (
                 <>
@@ -92,7 +93,7 @@ const Header = () => {
                     About
                   </Link>
 
-                  <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
+                  <button className="bg-green-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md">
                     Donate Now
                   </button>
                 </>

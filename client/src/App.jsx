@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import { Toaster, toast } from "sonner";
 import About from "./pages/About";
 import Footer from "./components/Footer";
+import AdminHeader from "./components/AdminHeader";
 
 import { NextUIProvider } from "@nextui-org/react";
 import Login from "./pages/Login";
@@ -62,7 +63,7 @@ function App() {
               path="/dashboard"
               element={
                 <>
-                  <Header />
+                  <AdminHeader />
                   <Dashboard />
                 </>
               }

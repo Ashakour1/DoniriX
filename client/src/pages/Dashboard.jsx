@@ -13,6 +13,8 @@ const Dashboard = () => {
   const redirectTo = location.pathname;
   // console.log(redirectTo);
 
+  const [userData, setUserData] = useState(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,16 +24,40 @@ const Dashboard = () => {
   }, [user, navigate]);
 
   useEffect(() => {
+    // Function to fetch user data and set it in state
+    const fetchUserData = async () => {
+      // Fetch user data from wherever it's stored (e.g., local storage, session storage, etc.)
+      const loginUser = localStorage.getItem("userData");
+      // console.log(JSON.parse(loginUser));
+      if (loginUser) {
+        setUserData(JSON.parse(loginUser));
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  useEffect(() => {
     const getDonars = async () => {
       try {
-        const response = await publicRequest.get("/donar");
-        setDonars(response.data.results.data.donars);
+        if (userData && userData.token) {
+          const config = {
+            headers: {
+              Authorization: `Bearer ${userData?.token}`, // Assuming your backend expects the token in the 'Authorization' header
+            },
+          };
+
+          const response = await publicRequest.get("/donar", config);
+          console.log(response);
+          setDonars(response.data.results.data.donars);
+        }
       } catch (err) {
         console.log(err);
       }
     };
+
     getDonars();
-  });
+  }, [userData]);
 
   return (
     <main className="max-w-[1200px] mx-auto px-4">
@@ -41,7 +67,6 @@ const Dashboard = () => {
           in.
         </h1>
       </div>
-      
     </main>
   );
 };

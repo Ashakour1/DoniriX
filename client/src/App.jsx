@@ -11,6 +11,7 @@ import AdminHeader from "./components/AdminHeader";
 import { NextUIProvider } from "@nextui-org/react";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
               element={
                 <>
                   <AdminHeader />
+                  <Sidebar />
                   <Dashboard />
                 </>
               }

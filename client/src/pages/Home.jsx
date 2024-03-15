@@ -48,10 +48,7 @@ const Home = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://lifecord.onrender.com/api/donar/",
-        formData
-      );
+      const response = await publicRequest.post("/donar/", formData);
       console.log(response.data);
 
       if (formData) {

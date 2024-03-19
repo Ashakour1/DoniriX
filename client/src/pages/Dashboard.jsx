@@ -6,6 +6,7 @@ import { publicRequest } from "../requestMethod";
 const Dashboard = () => {
   const { user } = useUser();
   const [donars, setDonars] = useState();
+  const [loading, setLoading] = useState(true);
 
   // console.log(user);
   const location = useLocation();
@@ -50,14 +51,20 @@ const Dashboard = () => {
           const response = await publicRequest.get("/donar", config);
           console.log(response);
           setDonars(response.data.results.data.donars);
+          setLoading(false);
         }
       } catch (err) {
+        setLoading(false);
         console.log(err);
       }
     };
 
     getDonars();
   }, [userData]);
+
+  if (loading) {
+    return <h1 className="ml-64 pt-40">Loading...</h1>;
+  }
 
   return (
     <main>
@@ -67,7 +74,10 @@ const Dashboard = () => {
             <div className="grid grid-cols-3 gap-6">
               <div className=" bg-gray-500 p-6 rounded-lg shadow">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  {donars?.filter((donar) => donar.status === "finished").length}
+                  {
+                    donars?.filter((donar) => donar.status === "finished")
+                      .length
+                  }
                 </h3>
                 <p className="text-white">Donations</p>
               </div>
@@ -104,7 +114,10 @@ const Dashboard = () => {
                   </thead>
                   <tbody>
                     {donars?.slice(0, 5).map((donar) => (
-                      <tr className="border-b dark:border-gray-700" key={donar.id}>
+                      <tr
+                        className="border-b dark:border-gray-700"
+                        key={donar.id}
+                      >
                         <td className="px-4 py-2 text-gray-900 dark:text-white">
                           {donar.fullname}
                         </td>
@@ -115,7 +128,7 @@ const Dashboard = () => {
                           {donar.status}
                         </td>
                         <td className="px-4 py-2 text-gray-900 dark:text-white">
-                         {donar.createdAt.slice(0, 10)}
+                          {donar.createdAt.slice(0, 10)}
                         </td>
                       </tr>
                     ))}

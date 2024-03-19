@@ -12,6 +12,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
+import DonarList from "./pages/DonarList";
 
 function App() {
   return (
@@ -70,6 +71,13 @@ function App() {
                 </>
               }
             />
+            <Route path="/donars" element={
+              <>
+              <AdminHeader/>
+              <Sidebar/>
+              <DonarList/>
+              </>
+            }/>
           </Routes>
         </Router>
       </NextUIProvider>

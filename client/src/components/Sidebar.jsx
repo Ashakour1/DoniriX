@@ -12,12 +12,12 @@ const Sidebar = () => {
       <nav>
         <ul className="space-y-4">
           <li>
-            <Link className=" text-white hover:text-gray-900" href="#">
+            <Link to="/dashboard" className=" text-white hover:text-gray-900" href="#">
               Home
             </Link>
           </li>
           <li>
-            <Link className="text-white hover:text-gray-900 " href="#">
+            <Link to="/donars" className="text-white hover:text-gray-900 " href="#">
               Donations
             </Link>
           </li>

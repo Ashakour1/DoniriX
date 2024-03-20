@@ -109,7 +109,7 @@ const Home = () => {
         </div>
         <div className="over-hidden md:px-0">
           <img
-            className="md:w-[430px] w-full h-96 border-2 rounded-lg border-green-500 object-cover"
+            className="md:w-[430px] shadow-md w-full h-96 border-2 rounded-lg  object-cover"
             src="/donate.png"
             alt="placeholder"
           />

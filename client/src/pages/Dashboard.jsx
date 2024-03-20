@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useUser } from "../hooks/useUser";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { publicRequest } from "../requestMethod";
+import RecentDonars from "../components/RecentDonars-Table";
 
 const Dashboard = () => {
   const { user } = useUser();
@@ -114,23 +115,7 @@ const Dashboard = () => {
                   </thead>
                   <tbody>
                     {donars?.slice(0, 5).map((donar) => (
-                      <tr
-                        className="border-b dark:border-gray-700"
-                        key={donar.id}
-                      >
-                        <td className="px-4 py-2 text-gray-900 dark:text-white">
-                          {donar.fullname}
-                        </td>
-                        <td className="px-4 py-2 text-gray-900 dark:text-white">
-                          {donar.bloodType}
-                        </td>
-                        <td className="px-4 py-2 text-gray-900 dark:text-white">
-                          {donar.status}
-                        </td>
-                        <td className="px-4 py-2 text-gray-900 dark:text-white">
-                          {donar.createdAt.slice(0, 10)}
-                        </td>
-                      </tr>
+                     <RecentDonars donar={donar} key={donar.id} />
                     ))}
                   </tbody>
                 </table>

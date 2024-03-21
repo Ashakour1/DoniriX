@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <main className="max-w-[1040px] mx-auto mt-5">
+    <main className="max-w-[1040px] mx-auto mt-5 min-h-screen">
       <div className=" md:flex-row flex-col flex">
         <div className="max-w-[550px] flex flex-col gap-5 mt-4 md:px-0 px-4">
           <h1 className="text-3xl font-bold">

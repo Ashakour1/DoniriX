@@ -64,7 +64,7 @@ const Dashboard = () => {
   }, [userData]);
 
   if (loading) {
-    return <h1 className="ml-64 pt-40">Loading...</h1>;
+    return <h1 className="ml-64 text-center pt-20">Loading...</h1>;
   }
 
   return (
@@ -115,7 +115,7 @@ const Dashboard = () => {
                   </thead>
                   <tbody>
                     {donars?.slice(0, 5).map((donar) => (
-                     <RecentDonars donar={donar} key={donar.id} />
+                      <RecentDonars donar={donar} key={donar.id} />
                     ))}
                   </tbody>
                 </table>

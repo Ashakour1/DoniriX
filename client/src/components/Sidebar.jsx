@@ -12,23 +12,31 @@ const Sidebar = () => {
       <nav>
         <ul className="space-y-4">
           <li>
-            <Link to="/dashboard" className=" text-white hover:text-gray-900" href="#">
+            <Link
+              to="/dashboard"
+              className=" text-white hover:text-gray-900"
+              href="#"
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to="/donars" className="text-white hover:text-gray-900 " href="#">
+            <Link
+              to="/donars"
+              className="text-white hover:text-gray-900 "
+              href="#"
+            >
               Donations
             </Link>
           </li>
         </ul>
       </nav>
       <button
-        className="bg-green-600 text-white mt-80 flex items-center py-2 px-8 rounded"
+        className="bg-green-600 text-white mt-80 flex items-center py-3 px-8 font-semibold rounded"
         onClick={logOut}
       >
         <FaSignOutAlt />
-        Logout
+        <span className="pl-2"> Logout</span>
       </button>
     </div>
   );

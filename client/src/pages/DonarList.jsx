@@ -49,16 +49,22 @@ const DonarList = () => {
 
     getDonars();
   }, [userData]);
+
+  if (loading) {
+    return <h1 className="ml-64 text-center pt-20">Loading...</h1>;
+  }
   return (
     <div className="ml-72 mr-5 text-black pt-20">
       <div className="flex justify-between">
         <h1 className="text-2xl font-semibold">Donar List</h1>
-        <button className="px-2 py-2 bg-green-400 rounded text-medium font-semibold">Add donar</button>
+        <button className="px-2 py-2 bg-green-400 rounded text-medium font-semibold">
+          Add donar
+        </button>
       </div>
       <div className="mt-2 border-1 rounded">
         <table className="table-auto  text-black">
           <thead>
-            <tr className="border-b  bg-gray-500">
+            <tr className="border-b">
               <th className="px-2 py-2 text-left">Name</th>
               <th className="px-2 py-2 text-left">Email</th>
               <th className="px-2 py-2 text-left">Phone</th>

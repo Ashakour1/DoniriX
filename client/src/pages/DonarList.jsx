@@ -61,10 +61,10 @@ const DonarList = () => {
           Add donar
         </button>
       </div>
-      <div className="mt-2 border-1 rounded">
+      <div className="mt-2  ">
         <table className="table-auto  text-black">
           <thead>
-            <tr className="border-b">
+            <tr className="border-b bg-slate-300">
               <th className="px-2 py-2 text-left">Name</th>
               <th className="px-2 py-2 text-left">Email</th>
               <th className="px-2 py-2 text-left">Phone</th>

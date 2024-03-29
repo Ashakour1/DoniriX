@@ -30,6 +30,9 @@ const Header = () => {
             <Link className="p-4" to="/about">
               About
             </Link>
+            <Link className="p-4" to="/donars">
+              Donars
+            </Link>
           </div>
         </div>
         <div className="hidden md:flex">
@@ -64,6 +67,9 @@ const Header = () => {
               </Link>
               <Link className="p-4" to="/about">
                 About
+              </Link>
+              <Link className="p-4" to="/donars">
+                Donars
               </Link>
               <button className="bg-green-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md">
                 Donate Now

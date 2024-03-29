@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
 import DonarList from "./pages/DonarList";
+import Donars from "./pages/Donars";
 
 function App() {
   return (
@@ -71,13 +72,26 @@ function App() {
                 </>
               }
             />
-            <Route path="/donars" element={
-              <>
-              <AdminHeader/>
-              <Sidebar/>
-              <DonarList/>
-              </>
-            }/>
+            <Route
+              path="/donar-list"
+              element={
+                <>
+                  <AdminHeader />
+                  <Sidebar />
+                  <DonarList />
+                </>
+              }
+            />
+            <Route
+              path="/donars"
+              element={
+                <>
+                  <Header />
+                  <Donars />
+                  <Footer />
+                </>
+              }
+            />
           </Routes>
         </Router>
       </NextUIProvider>

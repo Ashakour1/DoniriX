@@ -3,17 +3,33 @@ import React from "react";
 const Contact = () => {
   return (
     <main className="max-w-[1040px] mx-auto mt-5 min-h-screen">
-      <div className=" md:flex-row flex-col flex">
-        <div className="max-w-[550px] flex flex-col gap-5 mt-4 md:px-0 px-4">
-          <h1 className="text-3xl font-bold">
-            <span className="text-green-600">LifeCord</span> Contact
-          </h1>
-          <p className="text-2xl">
-            life Cord website. Together, we can elevate our collective influence
-            and offer unparalleled experiences to donors, recipients, and
-            healthcare providers. Join hands with us and be a part of this noble
-            cause.
+      <div className=" md:flex-row flex-col flex mt-5 gap-4">
+        <div className="max-w-[500px] flex flex-col gap-2 mt-5 md:px-0 px-4">
+          <h2 className="text-2xl font-bold text-green-600">
+            Connect with Life Cord - Your Blood Donation Partner
+          </h2>
+          <p className="text-md font-normal text-gray-600">
+            Got questions or need assistance? We're here to provide support
+            every step of the way! Whether you're a donor, recipient, or
+            healthcare provider, we're dedicated to ensuring your experience
+            with Life Cord is seamless and impactful. Reach out to us today, and
+            let's collaborate to make a real difference in the lives of those in
+            need. Together, we can create positive change and leave a lasting
+            impact. Join us in our mission and become a valued part of something
+            truly meaningful.
           </p>
+          <div className="flex items-center gap-4">
+            <img
+              className="w-12 h-12 mt-2"
+              src="https://cdn-icons-png.freepik.com/512/146/146031.png"
+              alt=""
+            />
+            <div className="flex flex-col">
+              <h1 className="text-md font-bold">A.shakour Mohamed </h1>
+              <p className="text-sm">Developer At Life Cord</p>
+            </div>
+            <div></div>
+          </div>
         </div>
         <div className="p-5 w-full">
           <form>

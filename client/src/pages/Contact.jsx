@@ -20,13 +20,13 @@ const Contact = () => {
           </p>
           <div className="flex items-center gap-4">
             <img
-              className="w-12 h-12 mt-2"
-              src="https://cdn-icons-png.freepik.com/512/146/146031.png"
-              alt=""
+              className="w-12 h-12 mt-2 rounded-full object-cover"
+              src="/image.jpg"
+              alt="image"
             />
             <div className="flex flex-col">
-              <h1 className="text-md font-bold">A.shakour Mohamed </h1>
-              <p className="text-sm">Developer At Life Cord</p>
+              <h1 className="text-md font-medium">A.shakour Mohamed </h1>
+              <p className="text-xs">@Founder</p>
             </div>
             <div></div>
           </div>

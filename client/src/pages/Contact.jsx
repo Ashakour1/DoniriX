@@ -24,9 +24,11 @@ const Contact = () => {
               src="/image.jpg"
               alt="image"
             />
-            <div className="flex flex-col">
-              <h1 className="text-md font-medium">A.shakour Mohamed </h1>
-              <p className="text-xs">@Founder</p>
+            <div className="flex flex-col text-left">
+              <h1 className="text-md font-medium">@A.shakour Mohamed </h1>
+              <p className="text-sm font-normal underline pl-1">
+                Creator Of LifeCord
+              </p>
             </div>
             <div></div>
           </div>

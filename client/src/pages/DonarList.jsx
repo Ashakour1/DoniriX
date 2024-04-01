@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { publicRequest } from "../requestMethod";
 import { useUser } from "../hooks/useUser";
 import { Badge } from "@nextui-org/react";
@@ -16,9 +16,19 @@ const DonarList = () => {
   const [donars, setDonars] = useState();
   const [loading, setLoading] = useState(true);
 
+  const location = useLocation();
+
+  const redirectTo = location.pathname;
+
   const [userData, setUserData] = useState(null);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate(`/login?redirectTo=${redirectTo}`);
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
     // Function to fetch user data and set it in state
@@ -63,38 +73,35 @@ const DonarList = () => {
   }
   return (
     <div className="w-full overflow-auto">
-     
-        <div className="container pl-72 pt-20 px-10 grid gap-4">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
-            <div className="grid gap-1">
-              <h1 className="text-2xl font-bold tracking-tight">
-                Donors & Supporters
-              </h1>
-              <p className="text-gray-500 dark:text-gray-400">
-                List of donors.
-              </p>
-            </div>
-
-            <div className="flex gap-4 md:ml-auto">
-              <div className="flex items-center gap-2">
-                <input
-                  className="w-[200px] p-2 border-1 border-black rounded sm:w-[300px]"
-                  id="search"
-                  placeholder="Search"
-                  type="search"
-                />
-              </div>
-              <button
-                onClick={handleModalToggle}
-                className="text-white bg-green-400 px-2 py-2 rounded"
-              >
-                Add Donar
-              </button>
-            </div>
+      <div className="container pl-72 pt-20 px-10 grid gap-4">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
+          <div className="grid gap-1">
+            <h1 className="text-2xl font-bold tracking-tight">
+              Donors & Supporters
+            </h1>
+            <p className="text-gray-500 dark:text-gray-400">List of donors.</p>
           </div>
-          {donars.length === 0 ? (
-        <p className=" items-center text-center">No Donars Available</p>
-      ) : (
+
+          <div className="flex gap-4 md:ml-auto">
+            <div className="flex items-center gap-2">
+              <input
+                className="w-[200px] p-2 border-1 border-black rounded sm:w-[300px]"
+                id="search"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+            <button
+              onClick={handleModalToggle}
+              className="text-white bg-green-400 px-2 py-2 rounded"
+            >
+              Add Donar
+            </button>
+          </div>
+        </div>
+        {donars.length === 0 ? (
+          <p className=" items-center text-center">No Donars Available</p>
+        ) : (
           <div className="flex flex-col gap-4 min-h-[400px]">
             <div className="overflow-auto rounded-md">
               <table className="min-w-full">
@@ -139,10 +146,10 @@ const DonarList = () => {
               </table>
             </div>
           </div>
-           )}
-        </div>
-     
-      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)}/>x
+        )}
+      </div>
+      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
+      x
     </div>
   );
 };

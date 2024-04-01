@@ -1,84 +1,17 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { showModal } from "../utils/modal";
 import { publicRequest } from "../requestMethod";
 import axios from "axios";
-import { toast } from "sonner";
+
 import { Link } from "react-router-dom";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
-
+import { Button } from "@nextui-org/react";
+import ModalComponent from "../components/Modal";
 const Home = () => {
-  const modal = React.useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [modalPlacement, setModalPlacement] = useState("center");
-
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    phone: "",
-    age: "",
-    weight: "",
-    address: "",
-    motherNumber: "",
-    bloodType: "",
-  });
-
-  const clearText = () => {
-    setFormData({
-      fullname: "",
-      email: "",
-      phone: "",
-      age: "",
-      weight: "",
-      address: "",
-      motherNumber: "",
-      bloodType: "",
-    });
+  const handleModalToggle = () => {
+    setIsOpen(!isOpen);
   };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await publicRequest.post("/donar/", formData);
-      console.log(response.data);
-
-      if (formData) {
-        clearText();
-        if (response.data && response.data.message) {
-          toast.success(response.data.message);
-        } else {
-          toast.error(
-            response.data.message ||
-              "An error occurred. Please try again later."
-          );
-        }
-      }
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        toast.error(error.response.data.message);
-      } else {
-        toast.error("An error occurred. Please try again later.");
-      }
-    }
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   return (
     <main className="max-w-[1040px] mx-auto mt-12 min-h-screen">
       <div className="flex justify-between md:gap-20 gap-0 md:px-0 px-4 md:flex-row flex-col pb-2">
@@ -96,7 +29,7 @@ const Home = () => {
           </p>
           <div className="flex gap-4">
             <Button
-              onPress={onOpen}
+              onClick={handleModalToggle}
               className="bg-black text-green-400 font-bold py-2 px-4 rounded mt-4"
             >
               donate Now
@@ -116,7 +49,7 @@ const Home = () => {
         </div>
       </div>
 
-      <Modal
+      {/* <Modal
         isOpen={isOpen}
         placement={modalPlacement}
         onOpenChange={onOpenChange}
@@ -250,7 +183,9 @@ const Home = () => {
             </>
           )}
         </ModalContent>
-      </Modal>
+      </Modal> */}
+
+      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
     </main>
   );
 };

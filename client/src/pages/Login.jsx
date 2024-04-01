@@ -1,28 +1,36 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { publicRequest } from "../requestMethod";
-import { useNavigate } from "react-router-dom";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useUser } from "../hooks/useUser";
 const Login = () => {
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
+  const location = useLocation();
+
+  const redirectTo = location.search.split("/")[1];
+
+  // console.log(redirectTo);
+
   const { login, user } = useUser();
 
   useEffect(() => {
     if (user) {
-      navigate("/dashboard");
+      redirectTo ? navigate(`/${redirectTo}`) : navigate("/dashboard");
     }
-  }, [user]);
+  }, [user, redirectTo]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
+    // console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -42,7 +50,7 @@ const Login = () => {
       toast.success(data.message);
       // console.log(data.expiresIn);
       login(data, data.expiresIn);
-      navigate("/dashboard");
+
       setLoading(false);
     } catch (error) {
       setLoading(false);

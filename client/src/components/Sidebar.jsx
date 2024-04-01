@@ -22,7 +22,7 @@ const Sidebar = () => {
           </li>
           <li>
             <Link
-              to="/donars"
+              to="/donar-list"
               className="text-white hover:text-gray-900 "
               href="#"
             >
@@ -32,7 +32,7 @@ const Sidebar = () => {
         </ul>
       </nav>
       <button
-        className="bg-green-600 text-white mt-80 flex items-center py-3 px-8 font-semibold rounded"
+        className="bg-green-600 text-white mt-80 flex items-center py-3 px-10 font-semibold rounded ml-5"
         onClick={logOut}
       >
         <FaSignOutAlt />

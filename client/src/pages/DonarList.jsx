@@ -163,7 +163,6 @@ const DonarList = () => {
         )}
       </div>
       <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
-      x
     </div>
   );
 };

@@ -9,6 +9,9 @@ import ModalComponent from "../components/Modal";
 const DonarList = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [search, setSearch] = useState("");
+
+  console.log(search);
   const handleModalToggle = () => {
     setIsOpen(!isOpen);
   };
@@ -85,6 +88,7 @@ const DonarList = () => {
           <div className="flex gap-4 md:ml-auto">
             <div className="flex items-center gap-2">
               <input
+                onChange={(e) => setSearch(e.target.value)}
                 className="w-[200px] p-2 border-1 border-black rounded sm:w-[300px]"
                 id="search"
                 placeholder="Search"
@@ -119,29 +123,43 @@ const DonarList = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y">
-                  {donars?.map((donar) => (
-                    <tr className="text-sm" key={donar.id}>
-                      <td className="px-4 py-2">{donar.fullname}</td>
-                      <td className="px-4 py-2">{donar.email}</td>
-                      <td className="px-4 py-2">{donar.phone}</td>
-                      <td className="px-4 py-2">{donar.age}</td>
-                      <td className="px-4 py-2">{donar.weight}</td>
-                      <td className="px-4 py-2">{donar.address}</td>
-                      <td className="px-4 py-2">{donar.motherNumber}</td>
-                      <td className="px-4 py-2">{donar.bloodType}</td>
-                      <td className="px-4 py-2">
-                        {donar.status === "finished" ? (
-                          <span className="text-white bg-green-400 py-1 px-2 rounded">
-                            {donar.status}
-                          </span>
-                        ) : (
-                          <span className="px-2 py-1 rounded text-white bg-red-400">
-                            {donar.status}
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
+                  {donars
+                    .filter((item) => {
+                      if (search == "") {
+                        return item;
+                      } else {
+                        if (
+                          item.bloodType
+                            .toLowerCase()
+                            .includes(search.toLowerCase())
+                        ) {
+                          return item;
+                        }
+                      }
+                    })
+                    .map((donar) => (
+                      <tr className="text-sm" key={donar.id}>
+                        <td className="px-4 py-2">{donar.fullname}</td>
+                        <td className="px-4 py-2">{donar.email}</td>
+                        <td className="px-4 py-2">{donar.phone}</td>
+                        <td className="px-4 py-2">{donar.age}</td>
+                        <td className="px-4 py-2">{donar.weight}</td>
+                        <td className="px-4 py-2">{donar.address}</td>
+                        <td className="px-4 py-2">{donar.motherNumber}</td>
+                        <td className="px-4 py-2">{donar.bloodType}</td>
+                        <td className="px-4 py-2">
+                          {donar.status === "finished" ? (
+                            <span className="text-white bg-green-400 py-1 px-2 rounded">
+                              {donar.status}
+                            </span>
+                          ) : (
+                            <span className="px-2 py-1 rounded text-white bg-red-400">
+                              {donar.status}
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
             </div>

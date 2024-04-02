@@ -115,11 +115,8 @@ const DonarList = () => {
                     <th className="px-2 py-2 text-left">Email</th>
                     <th className="px-2 py-2 text-left">Phone</th>
                     <th className="px-2 py-2 text-left">Age</th>
-                    <th className="px-2 py-2 text-left">Weight</th>
-                    <th className="px-2 py-2 text-left">Address</th>
-                    <th className="px-2 py-2 text-left">MotherNumber</th>
                     <th className="px-2 py-2 text-left">BloodType</th>
-                    <th className="px-2 py-2 text-left">Status</th>
+                    <th className="px-2 py-2 text-left">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y">
@@ -143,20 +140,9 @@ const DonarList = () => {
                         <td className="px-4 py-2">{donar.email}</td>
                         <td className="px-4 py-2">{donar.phone}</td>
                         <td className="px-4 py-2">{donar.age}</td>
-                        <td className="px-4 py-2">{donar.weight}</td>
-                        <td className="px-4 py-2">{donar.address}</td>
-                        <td className="px-4 py-2">{donar.motherNumber}</td>
                         <td className="px-4 py-2">{donar.bloodType}</td>
                         <td className="px-4 py-2">
-                          {donar.status === "finished" ? (
-                            <span className="text-white bg-green-400 py-1 px-2 rounded">
-                              {donar.status}
-                            </span>
-                          ) : (
-                            <span className="px-2 py-1 rounded text-white bg-red-400">
-                              {donar.status}
-                            </span>
-                          )}
+                          
                         </td>
                       </tr>
                     ))}

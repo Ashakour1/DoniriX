@@ -5,6 +5,8 @@ import { useUser } from "../hooks/useUser";
 import { Badge } from "@nextui-org/react";
 import { LuSliders } from "react-icons/lu";
 import ModalComponent from "../components/Modal";
+import { BiEdit } from "react-icons/bi";
+import { MdOutlineDelete } from "react-icons/md";
 
 const DonarList = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -141,7 +143,14 @@ const DonarList = () => {
                         <td className="px-2 py-2">{donar.phone}</td>
                         <td className="px-2 py-2">{donar.age}</td>
                         <td className="px-2 py-2">{donar.bloodType}</td>
-                        <td className="px-2 py-2"></td>
+                        <td className="px-2 py-2">
+                          <button className="text-white bg-green-400 px-2 py-1 rounded">
+                            <BiEdit />
+                          </button>
+                          <button className="text-white bg-green-400 px-2 py-1 rounded mx-2">
+                            <MdOutlineDelete />
+                          </button>
+                        </td>
                       </tr>
                     ))}
                 </tbody>

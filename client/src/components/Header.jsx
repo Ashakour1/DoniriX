@@ -3,12 +3,20 @@ import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
 import { showModal } from "../utils/modal";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../hooks/useUser";
+import ModalComponent from "./Modal";
 const Header = () => {
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   const { user, logOut } = useUser();
 
   const navigate = useNavigate();
+
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleModalToggle = () => {
+    setIsOpen(!isOpen);
+  }
 
   const openNav = () => {
     setNavIsOpen(!navIsOpen);
@@ -37,7 +45,7 @@ const Header = () => {
         </div>
         <div className="hidden md:flex">
           <Link className="p-2" to="/">
-            <button className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
+            <button onClick={handleModalToggle} className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
               Donate Now
             </button>
           </Link>
@@ -71,13 +79,14 @@ const Header = () => {
               <Link className="p-4" to="/donars">
                 Donars
               </Link>
-              <button className="bg-green-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md">
+              <button onClick={handleModalToggle} className="bg-green-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md">
                 Donate Now
               </button>
             </div>
           </div>
         ) : null}
       </div>
+      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)}/>
     </header>
   );
 };

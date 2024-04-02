@@ -136,14 +136,12 @@ const DonarList = () => {
                     })
                     .map((donar) => (
                       <tr className="text-sm" key={donar.id}>
-                        <td className="px-4 py-2">{donar.fullname}</td>
-                        <td className="px-4 py-2">{donar.email}</td>
-                        <td className="px-4 py-2">{donar.phone}</td>
-                        <td className="px-4 py-2">{donar.age}</td>
-                        <td className="px-4 py-2">{donar.bloodType}</td>
-                        <td className="px-4 py-2">
-                          
-                        </td>
+                        <td className="px-2 py-2">{donar.fullname}</td>
+                        <td className="px-2 py-2">{donar.email}</td>
+                        <td className="px-2 py-2">{donar.phone}</td>
+                        <td className="px-2 py-2">{donar.age}</td>
+                        <td className="px-2 py-2">{donar.bloodType}</td>
+                        <td className="px-2 py-2"></td>
                       </tr>
                     ))}
                 </tbody>

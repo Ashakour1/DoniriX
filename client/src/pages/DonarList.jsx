@@ -13,7 +13,7 @@ const DonarList = () => {
 
   const [search, setSearch] = useState("");
 
-  console.log(search);
+  // console.log(search);
   const handleModalToggle = () => {
     setIsOpen(!isOpen);
   };

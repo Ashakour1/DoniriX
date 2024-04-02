@@ -16,7 +16,7 @@ export const AuthMiddleware = AsyncHandler(async (req, res, next) => {
 
       // verify token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      console.log("decod", decoded);
+      // console.log("decod", decoded);
 
       // find admin
       const admin = await prisma.admin.findUnique({
@@ -24,7 +24,7 @@ export const AuthMiddleware = AsyncHandler(async (req, res, next) => {
           id: decoded._id,
         },
       });
-      console.log("token decoded",admin);
+      // console.log("token decoded",admin);
 
       req.admin = admin;
 
@@ -36,7 +36,7 @@ export const AuthMiddleware = AsyncHandler(async (req, res, next) => {
       }
       next();
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       res.status(401).json({
         success: false,
         error: "Not authorized to access this route",

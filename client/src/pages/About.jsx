@@ -23,7 +23,7 @@ const About = () => {
             condimentum. Integer et libero auctor, dignissim nunc nec,
             ullamcorper nunc. Sed nec libero sit amet orci ultricies
             condimentum. Integer et libero auctor, dignissim nunc nec,
-            ullamcorper nunc.
+            ullamcorper nunct.
           </p>
         </div>
       </div>

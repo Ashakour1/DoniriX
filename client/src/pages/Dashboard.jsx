@@ -3,6 +3,7 @@ import { useUser } from "../hooks/useUser";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { publicRequest } from "../requestMethod";
 import RecentDonars from "../components/RecentDonars-Table";
+import Loader from "../components/Spinner";
 const Dashboard = () => {
   const { user } = useUser();
   const [donars, setDonars] = useState();
@@ -63,7 +64,7 @@ const Dashboard = () => {
   }, [userData]);
 
   if (loading) {
-    return <h1 className="ml-64 text-center pt-20">Loading...</h1>;
+    return <Loader />;
   }
 
   return (

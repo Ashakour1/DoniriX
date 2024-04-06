@@ -6,6 +6,8 @@ import { Badge } from "@nextui-org/react";
 import { LuSliders } from "react-icons/lu";
 import ModalComponent from "../components/Modal";
 import { BiEdit } from "react-icons/bi";
+import { Spinner } from "@nextui-org/react";
+
 import { MdOutlineDelete } from "react-icons/md";
 
 const DonarList = () => {
@@ -104,7 +106,7 @@ const DonarList = () => {
     await getDonars();
   };
   if (loading) {
-    return <h1 className="ml-64 text-center pt-20">Loading...</h1>;
+    return <Spinner className="pt-20 pl-72 flex justify-center text-center" />;
   }
   return (
     <div className="w-full overflow-auto">

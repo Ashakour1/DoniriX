@@ -44,7 +44,7 @@ const Header = () => {
           </div>
         </div>
         <div className="hidden md:flex">
-          <Link className="p-2" to="/">
+          <Link className="p-2">
             <button onClick={handleModalToggle} className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
               Donate Now
             </button>

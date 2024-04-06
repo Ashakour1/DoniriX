@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { publicRequest } from "../requestMethod";
 import { useUser } from "../hooks/useUser";
-import { Badge } from "@nextui-org/react";
-import { LuSliders } from "react-icons/lu";
 import ModalComponent from "../components/Modal";
 import { BiEdit } from "react-icons/bi";
-import { Spinner } from "@nextui-org/react";
 import { Tooltip } from "@nextui-org/react";
-
+import Loader from "../components/Spinner";
 import { MdOutlineDelete } from "react-icons/md";
 
 const DonarList = () => {
@@ -107,7 +104,7 @@ const DonarList = () => {
     await getDonars();
   };
   if (loading) {
-    return <Spinner className="pt-20 pl-72 flex justify-center text-center" />;
+    return <Loader />;
   }
   return (
     <div className="w-full overflow-auto">

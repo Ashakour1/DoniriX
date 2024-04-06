@@ -11,7 +11,7 @@ import {
 import { toast } from "sonner";
 import { publicRequest } from "../requestMethod";
 
-const ModalComponent = ({ isOpen, onOpenChange }) => {
+const ModalComponent = ({ isOpen, onOpenChange, updateDonar }) => {
   const modal = useRef(null);
   const [formData, setFormData] = useState({
     fullname: "",
@@ -44,17 +44,10 @@ const ModalComponent = ({ isOpen, onOpenChange }) => {
       const response = await publicRequest.post("/donar/", formData);
       console.log(response.data);
 
-      if (formData) {
-        clearText();
-        if (response.data && response.data.message) {
-          toast.success(response.data.message);
-        } else {
-          toast.error(
-            response.data.message ||
-              "An error occurred. Please try again later."
-          );
-        }
-      }
+      toast.success(response.data.message);
+      clearText();
+      handleModalClose();
+      updateDonar();
     } catch (error) {
       if (
         error.response &&

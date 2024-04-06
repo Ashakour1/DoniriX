@@ -49,7 +49,11 @@ const ModalComponent = ({ isOpen, onOpenChange, updateDonar }) => {
       handleModalClose();
       updateDonar();
     } catch (error) {
+     if(error){
+      toast.error(error.message)
+     }else{
       toast.error(error.response.data.message);
+     }
     }
   };
 

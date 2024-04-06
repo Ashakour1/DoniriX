@@ -26,12 +26,13 @@ const DonarList = () => {
 
   // delete donar
   const handleDelete = async (id) => {
-    try {
-      const confirmDelete = window.confirm(
-        "Are you sure you want to delete this donor?"
-      );
 
-      if (confirmDelete && userData && userData.token) {
+    if(!confirm("Are you sure you want to delete this donar?")) return;
+    const previousDonors = [...donars];
+    const updateDonars = donars.filter((donar) => donar.id !== id);
+    // setDonars(updateDonars);
+    try {
+      if (userData && userData.token) {
         const config = {
           headers: {
             Authorization: `Bearer ${userData?.token}`,
@@ -39,10 +40,12 @@ const DonarList = () => {
         };
         const { data } = await publicRequest.delete("/donar/" + id, config);
 
-        setLoading(true);
-        await getDonars();
+        setLoading(false);
+        setDonars(updateDonars);
+      
       }
     } catch (err) {
+      setDonars(previousDonors);
       console.log(err);
       setLoading(false);
     }

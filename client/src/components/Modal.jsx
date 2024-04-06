@@ -11,7 +11,11 @@ import {
 import { toast } from "sonner";
 import { publicRequest } from "../requestMethod";
 
-const ModalComponent = ({ isOpen, onOpenChange, updateDonar }) => {
+const ModalComponent = ({
+  isOpen,
+  onOpenChange,
+  updateDonar,
+}) => {
   const modal = useRef(null);
   const [formData, setFormData] = useState({
     fullname: "",
@@ -49,11 +53,7 @@ const ModalComponent = ({ isOpen, onOpenChange, updateDonar }) => {
       handleModalClose();
       updateDonar();
     } catch (error) {
-     if(error){
-      toast.error(error.message)
-     }else{
       toast.error(error.response.data.message);
-     }
     }
   };
 

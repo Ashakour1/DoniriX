@@ -183,7 +183,7 @@ const DonarList = () => {
                             </button>
                           </Tooltip>
                           <Tooltip showArrow={true} content="Edit Donar">
-                            <button className="text-white bg-green-400 px-2 py-1.5 rounded">
+                            <button onClick={handleModalToggle} className="text-white bg-green-400 px-2 py-1.5 rounded">
                               <BiEdit />
                             </button>
                           </Tooltip>

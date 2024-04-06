@@ -7,6 +7,7 @@ import { LuSliders } from "react-icons/lu";
 import ModalComponent from "../components/Modal";
 import { BiEdit } from "react-icons/bi";
 import { Spinner } from "@nextui-org/react";
+import { Tooltip } from "@nextui-org/react";
 
 import { MdOutlineDelete } from "react-icons/md";
 
@@ -176,18 +177,24 @@ const DonarList = () => {
                         <td className="px-2 py-2">{donar.age}</td>
                         <td className="px-2 py-2">{donar.bloodType}</td>
                         <td className="px-2 py-2">
-                          <button className="text-white bg-blue-400 px-2 py-1 rounded mx-2">
-                            View All
-                          </button>
-                          <button className="text-white bg-green-400 px-2 py-2 rounded">
-                            <BiEdit />
-                          </button>
-                          <button
-                            onClick={() => handleDelete(donar.id)}
-                            className="text-white bg-red-900 px-2 py-2 rounded mx-2"
-                          >
-                            <MdOutlineDelete />
-                          </button>
+                          <Tooltip showArrow={true} content="View All Info">
+                            <button className="text-white bg-blue-400 px-2 py-1 rounded mx-2">
+                              View All
+                            </button>
+                          </Tooltip>
+                          <Tooltip showArrow={true} content="Edit Donar">
+                            <button className="text-white bg-green-400 px-2 py-1.5 rounded">
+                              <BiEdit />
+                            </button>
+                          </Tooltip>
+                          <Tooltip showArrow={true} content="Delete Donar">
+                            <button
+                              onClick={() => handleDelete(donar.id)}
+                              className="text-white bg-red-900 px-2 py-1.5 rounded mx-2"
+                            >
+                              <MdOutlineDelete />
+                            </button>
+                          </Tooltip>
                         </td>
                       </tr>
                     ))}

@@ -11,30 +11,56 @@ import { MdOutlineDelete } from "react-icons/md";
 const DonarList = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [search, setSearch] = useState("");
-
-  // console.log(search);
-  const handleModalToggle = () => {
-    setIsOpen(!isOpen);
-  };
   const { user } = useUser();
   const [donars, setDonars] = useState();
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  // user data
+  const [userData, setUserData] = useState(null);
+
+  const navigate = useNavigate();
 
   const location = useLocation();
 
   const redirectTo = location.pathname;
 
-  const [userData, setUserData] = useState(null);
+  // delete donar
+  const handleDelete = async (id) => {
+    try {
+      const confirmDelete = window.confirm(
+        "Are you sure you want to delete this donor?"
+      );
 
-  const navigate = useNavigate();
+      if (confirmDelete && userData && userData.token) {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${userData?.token}`,
+          },
+        };
+        const { data } = await publicRequest.delete("/donar/" + id, config);
 
+        setLoading(true);
+        await getDonars();
+      }
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
+  };
+
+  // console.log(search);
+  const handleModalToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // if user is not logged in, redirect to login page
   useEffect(() => {
     if (!user) {
       navigate(`/login?redirectTo=${redirectTo}`);
     }
   }, [user, navigate]);
 
+  // Fetch user data from local storage
   useEffect(() => {
     // Function to fetch user data and set it in state
     const fetchUserData = async () => {
@@ -49,30 +75,34 @@ const DonarList = () => {
     fetchUserData();
   }, []);
 
-  useEffect(() => {
-    const getDonars = async () => {
-      try {
-        if (userData && userData.token) {
-          const config = {
-            headers: {
-              Authorization: `Bearer ${userData?.token}`, // Assuming your backend expects the token in the 'Authorization' header
-            },
-          };
+  // get all donars
+  const getDonars = async () => {
+    try {
+      if (userData && userData.token) {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${userData?.token}`, // Assuming your backend expects the token in the 'Authorization' header
+          },
+        };
 
-          const response = await publicRequest.get("/donar", config);
-          console.log(response);
-          setDonars(response.data.results.data.donars);
-          setLoading(false);
-        }
-      } catch (err) {
+        const response = await publicRequest.get("/donar", config);
+        setDonars(response.data.results.data.donars);
         setLoading(false);
-        console.log(err);
       }
-    };
+    } catch (err) {
+      setLoading(false);
+      console.log(err);
+    }
+  };
 
+  useEffect(() => {
     getDonars();
   }, [userData]);
 
+  // donars geting and passing the modal component
+  const updateDonar = async () => {
+    await getDonars();
+  };
   if (loading) {
     return <h1 className="ml-64 text-center pt-20">Loading...</h1>;
   }
@@ -150,7 +180,10 @@ const DonarList = () => {
                           <button className="text-white bg-green-400 px-2 py-2 rounded">
                             <BiEdit />
                           </button>
-                          <button className="text-white bg-red-900 px-2 py-2 rounded mx-2">
+                          <button
+                            onClick={() => handleDelete(donar.id)}
+                            className="text-white bg-red-900 px-2 py-2 rounded mx-2"
+                          >
                             <MdOutlineDelete />
                           </button>
                         </td>
@@ -162,7 +195,11 @@ const DonarList = () => {
           </div>
         )}
       </div>
-      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
+      <ModalComponent
+        isOpen={isOpen}
+        onOpenChange={() => setIsOpen(!isOpen)}
+        updateDonar={updateDonar}
+      />
     </div>
   );
 };

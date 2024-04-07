@@ -65,6 +65,7 @@ const ModalComponent = ({
     onOpenChange(false);
   };
 
+  
   return (
     <Modal isOpen={isOpen} placement="center" onOpenChange={onOpenChange}>
       <ModalContent>

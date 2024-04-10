@@ -6,7 +6,9 @@ const About = () => {
       <div>
         <div className="p-4">
           <h1 className="text-green-600 underline">About Us</h1>
-          <p className="text-justify mt-4"></p>
+          <p className="text-justify mt-4">
+            About Us Page
+          </p>
         </div>
       </div>
     </main>

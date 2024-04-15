@@ -61,6 +61,9 @@ const ModalComponent = ({ isOpen, onOpenChange, updateDonar, donorData }) => {
   const handleModalClose = () => {
     onOpenChange(false);
   };
+  const handlePrint = () => {
+    window.print(donorData);
+  };
 
   return (
     <Modal isOpen={isOpen} placement="center" onOpenChange={onOpenChange}>
@@ -217,7 +220,9 @@ const ModalComponent = ({ isOpen, onOpenChange, updateDonar, donorData }) => {
                         onChange={handleChange}
                         id=""
                       >
-                        <option disabled>Select Blood Type</option>
+                        <option selected disabled>
+                          Select Blood Type
+                        </option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
                         <option value="B+">B+</option>
@@ -233,8 +238,9 @@ const ModalComponent = ({ isOpen, onOpenChange, updateDonar, donorData }) => {
               </ModalBody>
             )}
             {donorData ? (
-              <Button className="m-5 bg-green-600 " color="" variant="light">
-                Print
+              <Button className="m-5 bg-green-600 text-white " color="" variant="light">
+                <strong>Donation Date : </strong>{" "}
+                {donorData.createdAt.slice(0, 10)}{" "}
               </Button>
             ) : (
               <ModalFooter>

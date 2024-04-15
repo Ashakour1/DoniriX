@@ -95,32 +95,47 @@ const Dashboard = () => {
                 <p className="text-white ">Total</p>
               </div>
             </div>
-            <div className=" bg-gray-500 p-6 rounded-lg shadow mt-8">
-              <h2 className="text-2xl font-bold text-white  mb-4">
-                Recent Donors
-              </h2>
-              <div className="overflow-x-auto">
-                <table className="w-full table-auto">
-                  <thead>
-                    <tr>
-                      <th className="px-4 py-2 text-left text-white ">Name</th>
-                      <th className="px-4 py-2 text-left text-white">
-                        Blood Type
-                      </th>
-                      <th className="px-4 py-2 text-left text-white">Status</th>
-                      <th className="px-4 py-2 text-left text-white">
-                        Donation Date
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {donars?.slice(0, 5).map((donar) => (
-                      <RecentDonars donar={donar} key={donar.id} />
-                    ))}
-                  </tbody>
-                </table>
+            {donars?.length === 0 ? (
+              <div className="bg-gray-500 p-6 rounded-lg shadow mt-8">
+                <h2 className="text-2xl font-bold text-white  mb-4">
+                  No Donations Yet
+                </h2>
+                <p className="text-white">
+                  You have not made any donations yet.
+                </p>
               </div>
-            </div>
+            ) : (
+              <div className=" bg-gray-500 p-6 rounded-lg shadow mt-8">
+                <h2 className="text-2xl font-bold text-white  mb-4">
+                  Recent Donors
+                </h2>
+                <div className="overflow-x-auto">
+                  <table className="w-full table-auto">
+                    <thead>
+                      <tr>
+                        <th className="px-4 py-2 text-left text-white ">
+                          Name
+                        </th>
+                        <th className="px-4 py-2 text-left text-white">
+                          Blood Type
+                        </th>
+                        <th className="px-4 py-2 text-left text-white">
+                          Status
+                        </th>
+                        <th className="px-4 py-2 text-left text-white">
+                          Donation Date
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {donars?.slice(0, 5).map((donar) => (
+                        <RecentDonars donar={donar} key={donar.id} />
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

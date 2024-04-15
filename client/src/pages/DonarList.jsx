@@ -51,7 +51,7 @@ const DonarList = () => {
 
   // console.log(search);
   const handleModalToggle = () => {
-    
+    setSelectedDonor(null);
     setIsOpen(!isOpen);
   };
 

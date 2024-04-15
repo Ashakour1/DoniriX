@@ -23,7 +23,7 @@ const About = () => {
         </p>
       </div>
       <div className="p-4 grid grid-cols-1 gap-10 md:grid-cols-3">
-        <div className="flex flex-col border-r-2 p-4 rounded ">
+        <div className="flex flex-col md:border-r-2 md:border-t-0 border-t-2 p-4 rounded ">
           <div className="flex items-center">
             <BsRocketTakeoffFill className="text-2xl text-green-600" />
             <h2 className="text-2xl font-bold pl-2 ">Our Mission</h2>
@@ -35,7 +35,7 @@ const About = () => {
             quickly.
           </p>
         </div>
-        <div className="flex flex-col border-r-2 p-4 rounded ">
+        <div className="flex flex-col md:border-r-2 md:border-t-0 border-t-2 p-4 rounded ">
           <div className="flex items-center">
             <FaRegEye className="text-2xl text-green-600" />
             <h2 className="text-2xl font-bold pl-2 ">Our Vision</h2>
@@ -46,7 +46,7 @@ const About = () => {
             efficiently.
           </p>
         </div>
-        <div className="flex flex-col border-r-2 p-4 rounded ">
+        <div className="flex flex-col md:border-r-2 md:border-t-0 border-t-2 p-4 rounded ">
           <div>
             <div className="flex items-center">
               <IoMdPersonAdd className="text-2xl text-green-600" />

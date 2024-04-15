@@ -10,7 +10,7 @@ import { MdOutlineDelete } from "react-icons/md";
 
 const DonarList = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [selectedDonor, setSelectedDonor] = useState(null);
   const { user } = useUser();
   const [donars, setDonars] = useState();
   const [loading, setLoading] = useState(true);
@@ -26,8 +26,7 @@ const DonarList = () => {
 
   // delete donar
   const handleDelete = async (id) => {
-
-    if(!confirm("Are you sure you want to delete this donar?")) return;
+    if (!confirm("Are you sure you want to delete this donar?")) return;
     const previousDonors = [...donars];
     const updateDonars = donars.filter((donar) => donar.id !== id);
     // setDonars(updateDonars);
@@ -42,7 +41,6 @@ const DonarList = () => {
 
         setLoading(false);
         setDonars(updateDonars);
-      
       }
     } catch (err) {
       setDonars(previousDonors);
@@ -53,6 +51,7 @@ const DonarList = () => {
 
   // console.log(search);
   const handleModalToggle = () => {
+    
     setIsOpen(!isOpen);
   };
 
@@ -109,6 +108,11 @@ const DonarList = () => {
   if (loading) {
     return <Loader />;
   }
+
+  const handleView = (donor) => {
+    setSelectedDonor(donor);
+    setIsOpen(true);
+  };
   return (
     <div className="w-full overflow-auto">
       <div className="container pl-72 pt-20 px-10 grid gap-4">
@@ -178,12 +182,18 @@ const DonarList = () => {
                         <td className="px-2 py-2">{donar.bloodType}</td>
                         <td className="px-2 py-2">
                           <Tooltip showArrow={true} content="View All Info">
-                            <button className="text-white bg-blue-400 px-2 py-1 rounded mx-2">
+                            <button
+                              onClick={() => handleView(donar)}
+                              className="text-white bg-blue-400 px-2 py-1 rounded mx-2"
+                            >
                               View All
                             </button>
                           </Tooltip>
                           <Tooltip showArrow={true} content="Edit Donar">
-                            <button onClick={handleModalToggle} className="text-white bg-green-400 px-2 py-1.5 rounded">
+                            <button
+                              onClick={handleModalToggle}
+                              className="text-white bg-green-400 px-2 py-1.5 rounded"
+                            >
                               <BiEdit />
                             </button>
                           </Tooltip>
@@ -208,6 +218,7 @@ const DonarList = () => {
         isOpen={isOpen}
         onOpenChange={() => setIsOpen(!isOpen)}
         updateDonar={updateDonar}
+        donorData={selectedDonor}
       />
     </div>
   );

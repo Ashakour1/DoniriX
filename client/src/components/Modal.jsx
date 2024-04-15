@@ -61,9 +61,9 @@ const ModalComponent = ({ isOpen, onOpenChange, updateDonar, donorData }) => {
   const handleModalClose = () => {
     onOpenChange(false);
   };
-  const handlePrint = () => {
-    window.print(donorData);
-  };
+  // const handlePrint = () => {
+  //   window.print(donorData);
+  // };
 
   return (
     <Modal isOpen={isOpen} placement="center" onOpenChange={onOpenChange}>

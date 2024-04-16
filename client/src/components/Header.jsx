@@ -24,9 +24,9 @@ const Header = () => {
   return (
     <header className=" text-green-600  p-2 ">
       <div className=" max-w-[1040px] mx-auto flex justify-between items-center md:px-0 px-2">
-        <div>
+        <Link to="/">
           <h1 className="text-lg font-bold">Life Cord</h1>
-        </div>
+        </Link>
         <div>
           <div className=" text-sm md:flex font-bold hidden">
             <Link className="p-4" to="/">

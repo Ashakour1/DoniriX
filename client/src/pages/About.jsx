@@ -22,7 +22,7 @@ const About = () => {
           our lifesaving mission.
         </p>
       </div>
-      <div className="p-4 grid grid-cols-1 gap-10 md:grid-cols-3">
+      <div className="p-4 grid grid-cols-1 gap-6 md:grid-cols-3">
         <div className="flex flex-col md:border-r-2 md:border-t-0 border-t-2 p-4 rounded ">
           <div className="flex items-center">
             <BsRocketTakeoffFill className="text-2xl text-green-600" />

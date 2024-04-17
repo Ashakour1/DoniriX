@@ -17,7 +17,7 @@ const Home = () => {
       <div className="flex justify-between md:gap-20 gap-0 md:px-0 px-4 md:flex-row flex-col pb-2">
         <div className="max-w-[550px] flex flex-col gap-4">
           <h1 className="text-4xl font-bold">
-            At <span className="text-green-600">LifeCord</span> we're dedicated
+            At <span className="text-blue-500">LifeCord</span> we're dedicated
             to saving lives through the power of LifeCord.
           </h1>
           <p className=" text-md text-justify ">
@@ -30,11 +30,11 @@ const Home = () => {
           <div className="flex gap-4">
             <Button
               onClick={handleModalToggle}
-              className="bg-black text-green-400 font-bold py-2 px-4 rounded mt-4"
+              className="bg-black text-blue-500 font-bold py-2 px-4 rounded mt-4"
             >
               donate Now
             </Button>
-            <button className="bg-green-600 text-white font-bold py-2 px-4 rounded mt-4">
+            <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded mt-4">
               <Link to="/contact">Contact Us</Link>
             </button>
           </div>

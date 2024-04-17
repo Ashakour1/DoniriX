@@ -13,7 +13,7 @@ const HowItworks = () => {
     <main className="max-w-[1140px] mx-auto">
       <div className="min-h-screen">
         <div className="text-center pt-10">
-          <h1 className="text-4xl font-bold text-green-600">
+          <h1 className="text-4xl md:px-0 px-3 font-bold text-green-600">
             How does it Work?
           </h1>
           <p className="pt-4">
@@ -21,11 +21,11 @@ const HowItworks = () => {
           </p>
         </div>
 
-        <div className="grid px-2 grid-cols-1 md:grid-cols-3 gap-5 mt-10 ">
+        <div className="grid px-3 grid-cols-1 md:grid-cols-3 gap-5 mt-10 ">
           <div className="bg-slate-400 p-7 text-center flex flex-col items-center rounded">
             <FaRegAddressCard className="text-4xl" />
 
-            <h2 className="text-2xl font-bold text-green-600 pt-2">
+            <h2 className="md:text-2xl text-xl font-bold text-green-600 pt-2">
               Register as a donor
             </h2>
             <p className="pt-2">
@@ -36,7 +36,7 @@ const HowItworks = () => {
           <div className="bg-slate-400 p-7 rounded text-center flex flex-col items-center">
             <MdContentPasteSearch className="text-4xl" />
 
-            <h2 className="text-2xl font-bold pt-2 text-green-600">
+            <h2 className="md:text-2xl text-xl font-bold pt-2 text-green-600">
               Donor Search
             </h2>
             <p className="pt-2">
@@ -47,7 +47,7 @@ const HowItworks = () => {
           <div className="bg-slate-400 p-7 rounded text-center flex flex-col items-center">
             <MdContactPhone className="text-4xl" />
 
-            <h2 className="text-2xl font-bold pt-2 text-green-600">
+            <h2 className="md:text-2xl text-xl font-bold pt-2 text-green-600">
               Donor Contact
             </h2>
             <p className="pt-2">

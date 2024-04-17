@@ -10,7 +10,7 @@ const NotFound = () => {
       <p className="text-2xl">
         Sorry, the page you are looking for does not exist.
       </p>
-      <CiFaceSmile className="text-green-500 text-5xl" />
+      <CiFaceSmile className="text-blue-500 text-5xl" />
     </div>
   );
 };

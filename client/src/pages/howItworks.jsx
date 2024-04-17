@@ -36,7 +36,7 @@ const HowItworks = () => {
             </h2>
             <p className="pt-2">
               Administrators search the donor database when a patient needs
-              blood,
+              blood.
             </p>
           </div>
           <div className="bg-slate-400 p-7 rounded text-center flex flex-col items-center">

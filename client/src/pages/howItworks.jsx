@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegAddressCard } from "react-icons/fa";
 import { MdContactPhone, MdContentPasteSearch } from "react-icons/md";
-
+import { Button } from "@nextui-org/react";
+import ModalComponent from "../components/Modal";
 const HowItworks = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleModalToggle = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <main className="max-w-[1140px] mx-auto">
       <div className="min-h-screen">
-        <div className="text-center pt-20">
+        <div className="text-center pt-10">
           <h1 className="text-3xl font-bold text-green-600">
             How does it Work?
           </h1>
@@ -40,8 +45,7 @@ const HowItworks = () => {
             </p>
           </div>
           <div className="bg-slate-400 p-7 rounded text-center flex flex-col items-center">
-            <MdContactPhone
- className="text-4xl" />
+            <MdContactPhone className="text-4xl" />
 
             <h2 className="text-2xl font-bold pt-2 text-green-600">
               Donor Contact
@@ -51,7 +55,16 @@ const HowItworks = () => {
             </p>
           </div>
         </div>
+        <div className="text-center mt-10">
+          <Button
+            onClick={handleModalToggle}
+            className="bg-black text-green-400 font-bold py-4 my-10 px-8 rounded mt-4"
+          >
+            donate Now
+          </Button>
+        </div>
       </div>
+      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
     </main>
   );
 };

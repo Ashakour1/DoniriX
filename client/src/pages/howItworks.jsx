@@ -16,7 +16,7 @@ const HowItworks = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-5 mt-10 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 ">
           <div className="bg-slate-400 p-7 text-center flex flex-col items-center rounded">
             <FaRegAddressCard className="text-4xl" />
 

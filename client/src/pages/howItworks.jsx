@@ -13,7 +13,7 @@ const HowItworks = () => {
     <main className="max-w-[1140px] mx-auto">
       <div className="min-h-screen">
         <div className="text-center pt-10">
-          <h1 className="text-4xl md:px-0 px-3 font-bold text-green-600">
+          <h1 className="text-4xl md:px-0 px-3 font-bold text-blue-500">
             How does it Work?
           </h1>
           <p className="pt-4">
@@ -22,10 +22,10 @@ const HowItworks = () => {
         </div>
 
         <div className="grid px-3 grid-cols-1 md:grid-cols-3 gap-5 mt-10 ">
-          <div className="bg-slate-400 p-7 text-center flex flex-col items-center rounded">
-            <FaRegAddressCard className="text-4xl" />
+          <div className="bg-blue-500 p-7 text-center flex flex-col items-center rounded">
+            <FaRegAddressCard className="text-4xl  text-white" />
 
-            <h2 className="md:text-2xl text-xl font-bold text-green-600 pt-2">
+            <h2 className="md:text-2xl text-xl font-bold text-white pt-2">
               Register as a donor
             </h2>
             <p className="pt-2">
@@ -34,9 +34,9 @@ const HowItworks = () => {
             </p>
           </div>
           <div className="bg-slate-400 p-7 rounded text-center flex flex-col items-center">
-            <MdContentPasteSearch className="text-4xl" />
+            <MdContentPasteSearch className="text-4xl text-white" />
 
-            <h2 className="md:text-2xl text-xl font-bold pt-2 text-green-600">
+            <h2 className="md:text-2xl text-xl font-bold pt-2 text-white">
               Donor Search
             </h2>
             <p className="pt-2">
@@ -44,10 +44,10 @@ const HowItworks = () => {
               blood.
             </p>
           </div>
-          <div className="bg-slate-400 p-7 rounded text-center flex flex-col items-center">
-            <MdContactPhone className="text-4xl" />
+          <div className="bg-blue-500 p-7 rounded text-center flex flex-col items-center">
+            <MdContactPhone className="text-4xl text-white" />
 
-            <h2 className="md:text-2xl text-xl font-bold pt-2 text-green-600">
+            <h2 className="md:text-2xl text-xl font-bold pt-2 text-white">
               Donor Contact
             </h2>
             <p className="pt-2">
@@ -58,7 +58,7 @@ const HowItworks = () => {
         <div className="text-center mt-10">
           <Button
             onClick={handleModalToggle}
-            className="bg-black text-green-400 font-bold py-4 my-10 px-8 rounded mt-4"
+            className="bg-blue-500 text-white font-bold py-4 my-10 px-8 rounded mt-4"
           >
             donate Now
           </Button>

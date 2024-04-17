@@ -7,6 +7,7 @@ import { BiEdit } from "react-icons/bi";
 import { Tooltip } from "@nextui-org/react";
 import Loader from "../components/Spinner";
 import { MdOutlineDelete } from "react-icons/md";
+import { toast } from "sonner";
 
 const DonarList = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -92,6 +93,7 @@ const DonarList = () => {
         setLoading(false);
       }
     } catch (err) {
+      toast.error(err.response.data.error)
       setLoading(false);
       console.log(err);
     }
@@ -142,7 +144,7 @@ const DonarList = () => {
             </button>
           </div>
         </div>
-        {donars.length === 0 ? (
+        {donars?.length === 0 ? (
           <p className=" items-center text-center">No Donars Available</p>
         ) : (
           <div className="flex flex-col gap-4 min-h-[400px]">
@@ -159,13 +161,12 @@ const DonarList = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y">
-                  {donars
-                    .filter((item) => {
+                  {donars?.filter((item) => {
                       if (search == "") {
                         return item;
                       } else {
                         if (
-                          item.bloodType
+                          item.bloodType && item.fullname
                             .toLowerCase()
                             .includes(search.toLowerCase())
                         ) {

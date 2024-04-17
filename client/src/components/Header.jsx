@@ -11,18 +11,17 @@ const Header = () => {
 
   const navigate = useNavigate();
 
-
   const [isOpen, setIsOpen] = useState(false);
 
   const handleModalToggle = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
   const openNav = () => {
     setNavIsOpen(!navIsOpen);
   };
   return (
-    <header className=" text-green-600  p-2 ">
+    <header className=" text-blue-500  p-2 ">
       <div className=" max-w-[1040px] mx-auto flex justify-between items-center md:px-0 px-2">
         <Link to="/">
           <h1 className="text-lg font-bold">Life Cord</h1>
@@ -45,7 +44,10 @@ const Header = () => {
         </div>
         <div className="hidden md:flex">
           <Link className="p-2">
-            <button onClick={handleModalToggle} className="bg-green-600 font-bold text-white py-2 items-center px-4 rounded-md">
+            <button
+              onClick={handleModalToggle}
+              className="bg-blue-500 font-bold text-white py-2 items-center px-4 rounded-md"
+            >
               Donate Now
             </button>
           </Link>
@@ -79,14 +81,17 @@ const Header = () => {
               <Link className="p-4" to="/donars">
                 Donars
               </Link>
-              <button onClick={handleModalToggle} className="bg-green-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md">
+              <button
+                onClick={handleModalToggle}
+                className="bg-green-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md"
+              >
                 Donate Now
               </button>
             </div>
           </div>
         ) : null}
       </div>
-      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)}/>
+      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
     </header>
   );
 };

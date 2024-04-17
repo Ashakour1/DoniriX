@@ -7,7 +7,7 @@ import { Toaster, toast } from "sonner";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import AdminHeader from "./components/AdminHeader";
-
+import HowItworks from "./pages/howItworks";
 import { NextUIProvider } from "@nextui-org/react";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -28,6 +28,7 @@ function App() {
                 <>
                   <Header />
                   <Home />
+                  <HowItworks />
                   <Footer />
                 </>
               }

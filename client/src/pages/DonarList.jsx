@@ -144,7 +144,7 @@ const DonarList = () => {
             </button>
           </div>
         </div>
-        {donars?.length === 0 ? (
+        {donars.length === 0 ? (
           <p className=" items-center text-center">No Donars Available</p>
         ) : (
           <div className="flex flex-col gap-4 min-h-[400px]">
@@ -161,7 +161,7 @@ const DonarList = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y">
-                  {donars?.filter((item) => {
+                  {donars.filter((item) => {
                       if (search == "") {
                         return item;
                       } else {

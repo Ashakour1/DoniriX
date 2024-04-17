@@ -13,7 +13,7 @@ const HowItworks = () => {
     <main className="max-w-[1140px] mx-auto">
       <div className="min-h-screen">
         <div className="text-center pt-10">
-          <h1 className="text-3xl font-bold text-green-600">
+          <h1 className="text-4xl font-bold text-green-600">
             How does it Work?
           </h1>
           <p className="pt-4">

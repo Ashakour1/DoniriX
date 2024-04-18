@@ -10,7 +10,7 @@ const About = () => {
         <h1 className=" text-2xl font-bold">About LifeCord</h1>
         <p className="text-justify mt-4 text-xl">
           LifeCord is a modern solution for blood donation, created by
-          <span className="font-bold  text-green-600 ">
+          <span className="font-bold  text-blue-500 ">
             {" "}
             Abdishakur Mohamed{" "}
           </span>
@@ -25,7 +25,7 @@ const About = () => {
       <div className="p-4 grid grid-cols-1 gap-6 md:grid-cols-3">
         <div className="flex flex-col md:border-r-2 md:border-t-0 border-t-2 p-4 rounded ">
           <div className="flex items-center">
-            <BsRocketTakeoffFill className="text-2xl text-green-600" />
+            <BsRocketTakeoffFill className="text-2xl text-blue-500" />
             <h2 className="text-2xl font-bold pl-2 ">Our Mission</h2>
           </div>
 
@@ -37,7 +37,7 @@ const About = () => {
         </div>
         <div className="flex flex-col md:border-r-2 md:border-t-0 border-t-2 p-4 rounded ">
           <div className="flex items-center">
-            <FaRegEye className="text-2xl text-green-600" />
+            <FaRegEye className="text-2xl text-blue-500" />
             <h2 className="text-2xl font-bold pl-2 ">Our Vision</h2>
           </div>
           <p className="text-justify text-base pt-2">
@@ -49,7 +49,7 @@ const About = () => {
         <div className="flex flex-col md:border-r-2 md:border-t-0 border-t-2 p-4 rounded ">
           <div>
             <div className="flex items-center">
-              <IoMdPersonAdd className="text-2xl text-green-600" />
+              <IoMdPersonAdd className="text-2xl text-blue-500" />
               <h2 className="text-2xl font-bold pl-2 ">Join Us</h2>
             </div>
           </div>

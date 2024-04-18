@@ -32,7 +32,7 @@ const Sidebar = () => {
         </ul>
       </nav>
       <button
-        className="bg-green-600 text-white mt-80 flex items-center py-3 px-10 font-semibold rounded ml-5"
+        className="bg-blue-500 text-white mt-80 flex items-center py-3 px-10 font-semibold rounded ml-5"
         onClick={logOut}
       >
         <FaSignOutAlt />

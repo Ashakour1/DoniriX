@@ -67,14 +67,14 @@ const Login = () => {
     <main className="min-h-screen flex items-center justify-center">
       <section className="w-[450px] p-6 bg-white  shadow-xl	 rounded">
         <header>
-          <h2 className="text-2xl font-bold text-green-600">Login</h2>
+          <h2 className="text-2xl font-bold text-blue-500">Login</h2>
           <p className="mt-2 text-gray-500">
             Enter your email below to login to your account.
           </p>
         </header>
         <form className="mt-4" onSubmit={handleSubmit}>
           <div className="space-y-2">
-            <label className="block text-green-600" htmlFor="email">
+            <label className="block text-blue-500" htmlFor="email">
               Email<span className="text-red-600">*</span>
             </label>
             <input
@@ -88,7 +88,7 @@ const Login = () => {
             />
           </div>
           <div className="space-y-2 mt-5">
-            <label className="block text-green-600" htmlFor="password">
+            <label className="block text-blue-500" htmlFor="password">
               Password<span className="text-red-600">*</span>
             </label>
             <input
@@ -101,7 +101,7 @@ const Login = () => {
             />
           </div>
           <button
-            className="w-full bg-green-600 text-white rounded-md  py-3 px-2 mt-5 "
+            className="w-full bg-blue-500 text-white rounded-md  py-3 px-2 mt-5 "
             type="submit"
           >
             {loading ? "login..." : "Login"}

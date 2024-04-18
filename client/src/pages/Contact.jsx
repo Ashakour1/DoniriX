@@ -5,7 +5,7 @@ const Contact = () => {
     <main className="max-w-[1040px] mx-auto mt-5 min-h-screen">
       <div className=" md:flex-row flex-col flex mt-5 gap-4">
         <div className="max-w-[500px] flex flex-col gap-2 mt-5 md:px-0 px-4">
-          <h2 className="text-2xl font-bold text-green-600">
+          <h2 className="text-2xl font-bold text-blue-500">
             Connect with Life Cord - Your Blood Donation Partner
           </h2>
           <p className="text-md font-normal text-gray-600">
@@ -78,7 +78,7 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <button className="w-full bg-green-500 text-white rounded mt-4 p-2">
+            <button className="w-full bg-blue-500 text-white rounded mt-4 p-2">
               Submit
             </button>
           </form>

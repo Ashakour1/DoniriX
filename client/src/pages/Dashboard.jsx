@@ -73,7 +73,7 @@ const Dashboard = () => {
         <div className="flex">
           <div className="flex-1 p-8 ml-64 ">
             <div className="grid grid-cols-3 gap-6">
-              <div className=" bg-gray-500 p-6 rounded-lg shadow">
+              <div className=" bg-blue-500 p-6 rounded-lg shadow">
                 <h3 className="text-2xl font-bold text-white mb-2">
                   {
                     donars?.filter((donar) => donar.status === "finished")
@@ -82,13 +82,13 @@ const Dashboard = () => {
                 </h3>
                 <p className="text-white">Donations</p>
               </div>
-              <div className="bg-gray-500 p-6 rounded-lg shadow">
+              <div className="bg-blue-500 p-6 rounded-lg shadow">
                 <h3 className="text-2xl font-bold text-white  mb-2">
                   {donars?.filter((donar) => donar.status === "pending").length}
                 </h3>
                 <p className="text-white ">Pending</p>
               </div>
-              <div className="bg-gray-500 p-6 rounded-lg shadow">
+              <div className="bg-blue-500 p-6 rounded-lg shadow">
                 <h3 className="text-2xl font-bold text-white mb-2">
                   {donars?.length}
                 </h3>
@@ -96,7 +96,7 @@ const Dashboard = () => {
               </div>
             </div>
             {donars?.length === 0 ? (
-              <div className="bg-gray-500 p-6 rounded-lg shadow mt-8">
+              <div className="bg-blue-500 p-6 rounded-lg shadow mt-8">
                 <h2 className="text-2xl font-bold text-white  mb-4">
                   No Donations Yet
                 </h2>
@@ -105,7 +105,7 @@ const Dashboard = () => {
                 </p>
               </div>
             ) : (
-              <div className=" bg-gray-500 p-6 rounded-lg shadow mt-8">
+              <div className=" bg-blue-500 p-6 rounded-lg shadow mt-8">
                 <h2 className="text-2xl font-bold text-white  mb-4">
                   Recent Donors
                 </h2>

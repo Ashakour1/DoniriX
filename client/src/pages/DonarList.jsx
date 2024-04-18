@@ -138,7 +138,7 @@ const DonarList = () => {
             </div>
             <button
               onClick={handleModalToggle}
-              className="text-white bg-green-400 px-2 py-2 rounded"
+              className="text-white bg-blue-500 px-2 py-2 rounded"
             >
               Add Donar
             </button>

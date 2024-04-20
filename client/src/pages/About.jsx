@@ -8,7 +8,7 @@ const About = () => {
     <main className="max-w-[1040px] mx-auto mt-5 min-h-screen">
       <div className="p-4">
         <h1 className=" text-2xl font-bold">About LifeCord</h1>
-        <p className="text-justify mt-4 text-xl">
+        <p className="text-lg mt-4">
           LifeCord is a modern solution for blood donation, created by
           <span className="font-bold  text-blue-500 ">
             {" "}

@@ -9,7 +9,7 @@ const Donars = () => {
         <p className="my-3 text-2xl">
           We are working on this page and it will be available soon. Thanks for
           your understanding and patience as we make sure everything is just
-          right
+          right.
         </p>
         <FaRegFaceLaughWink className="text-blue-500 text-5xl" />
       </div>

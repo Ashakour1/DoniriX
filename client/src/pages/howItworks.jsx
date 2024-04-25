@@ -44,10 +44,12 @@ const HowItworks = () => {
               blood.
             </p>
           </div>
-          <div className="bg-blue-500 p-7 rounded text-center flex flex-col items-center">
-            <MdContactPhone className="text-4xl text-white" />
+          <div className=" p-7 rounded text-center flex flex-col items-center">
+            <div className="bg-blue-200 p-2 rounded">
+              <MdContactPhone className="text-xl text-blue-500" />
+            </div>
 
-            <h2 className="md:text-2xl text-xl font-bold pt-2 text-white">
+            <h2 className="md:text-2xl text-xl font-bold pt-2 text-blue-500">
               Donor Contact
             </h2>
             <p className="pt-2">

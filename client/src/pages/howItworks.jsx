@@ -51,7 +51,7 @@ const HowItworks = () => {
               <MdContactPhone className="text-xl text-blue-500" />
             </div>
 
-            <h2 className="md:text-lg text-lg font-bold pt-2 text-blue-500">
+            <h2 className="md:text-lg text-lg font-bold pt-2 text-black">
               Donor Contact
             </h2>
             <p className="pt-2">

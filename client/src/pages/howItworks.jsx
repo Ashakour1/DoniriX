@@ -28,7 +28,7 @@ const HowItworks = () => {
             <h2 className="md:text-2xl text-xl font-bold text-white pt-2">
               Register as a donor
             </h2>
-            <p className="pt-2">
+            <p className="pt-2 text-base">
               Donors easily register on LifeCord's platform, providing their
               personal details and blood type.
             </p>
@@ -41,7 +41,7 @@ const HowItworks = () => {
             <h2 className="md:text-lg text-lg font-bold pt-2 text-black">
               Donor Search
             </h2>
-            <p className="pt-2">
+            <p className="pt-2 text-base">
               Administrators search the donor database when a patient needs
               blood.
             </p>
@@ -54,7 +54,7 @@ const HowItworks = () => {
             <h2 className="md:text-lg text-lg font-bold pt-2 text-black">
               Donor Contact
             </h2>
-            <p className="pt-2">
+            <p className="pt-2 text-base">
               Donors are contacted and invited to donate blood to save a life.
             </p>
           </div>

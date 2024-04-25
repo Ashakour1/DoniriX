@@ -12,7 +12,7 @@ const HowItworks = () => {
   return (
     <main className=" bg-gradient-to-br from-[#F0F9FF] to-[#FFFBEB] ">
       <div className="max-w-[1140px] mx-auto min-h-screen">
-        <div className="text-center pt-10">
+        <div className="text-center pt-24">
           <h1 className="md:text-3xl text-xl md:px-0 px-3 font-bold text-blue-500">
             How does it Work?
           </h1>

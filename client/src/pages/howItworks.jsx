@@ -27,7 +27,7 @@ const HowItworks = () => {
               <FaRegAddressCard className="text-xl text-yellow-500" />
             </div>
 
-            <h2 className="md:text-lg text-lg font-bold text-white pt-2">
+            <h2 className="md:text-lg text-lg font-bold text-black pt-2">
               Register as a donor
             </h2>
             <p className="pt-2 text-base">

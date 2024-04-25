@@ -10,8 +10,8 @@ const HowItworks = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <main className="max-w-[1140px] mx-auto">
-      <div className="min-h-screen">
+    <main className=" bg-gradient-to-br from-[#F0F9FF] to-[#FFFBEB] ">
+      <div className="max-w-[1140px] mx-auto min-h-screen">
         <div className="text-center pt-10">
           <h1 className="text-4xl md:px-0 px-3 font-bold text-blue-500">
             How does it Work?
@@ -33,10 +33,12 @@ const HowItworks = () => {
               personal details and blood type.
             </p>
           </div>
-          <div className="bg-slate-400 p-7 rounded text-center flex flex-col items-center">
-            <MdContentPasteSearch className="text-4xl text-white" />
+          <div className="p-7  text-center flex flex-col items-center">
+            <div className="bg-green-200 p-2 rounded-full">
+              <MdContentPasteSearch className="text-xl text-green-500" />
+            </div>
 
-            <h2 className="md:text-2xl text-xl font-bold pt-2 text-white">
+            <h2 className="md:text-2xl text-lg font-semibold pt-2 text-black">
               Donor Search
             </h2>
             <p className="pt-2">
@@ -45,11 +47,11 @@ const HowItworks = () => {
             </p>
           </div>
           <div className=" p-7 rounded text-center flex flex-col items-center">
-            <div className="bg-blue-200 p-2 rounded">
+            <div className="bg-blue-200 p-2 rounded-full">
               <MdContactPhone className="text-xl text-blue-500" />
             </div>
 
-            <h2 className="md:text-2xl text-xl font-bold pt-2 text-blue-500">
+            <h2 className="md:text-2xl text-lg font-semibold pt-2 text-blue-500">
               Donor Contact
             </h2>
             <p className="pt-2">

@@ -13,7 +13,7 @@ const HowItworks = () => {
     <main className=" bg-gradient-to-br from-[#F0F9FF] to-[#FFFBEB] ">
       <div className="max-w-[1140px] mx-auto min-h-screen">
         <div className="text-center pt-10">
-          <h1 className="text-4xl md:px-0 px-3 font-bold text-blue-500">
+          <h1 className="md:text-3xl text-xl md:px-0 px-3 font-bold text-blue-500">
             How does it Work?
           </h1>
           <p className="pt-4">
@@ -61,16 +61,7 @@ const HowItworks = () => {
             </p>
           </div>
         </div>
-        <div className="text-center mt-10">
-          <Button
-            onClick={handleModalToggle}
-            className="bg-blue-500 text-white font-bold py-4 my-10 px-8 rounded mt-4"
-          >
-            donate Now
-          </Button>
-        </div>
       </div>
-      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
     </main>
   );
 };

@@ -22,10 +22,12 @@ const HowItworks = () => {
         </div>
 
         <div className="grid px-3 grid-cols-1 md:grid-cols-3 gap-5 mt-10 ">
-          <div className="bg-blue-500 p-7 text-center flex flex-col items-center rounded">
-            <FaRegAddressCard className="text-4xl  text-white" />
+          <div className="p-7 text-center flex flex-col items-center">
+            <div className="bg-yellow-200 p-2 rounded-full">
+              <FaRegAddressCard className="text-xl text-yellow-500" />
+            </div>
 
-            <h2 className="md:text-2xl text-xl font-bold text-white pt-2">
+            <h2 className="md:text-lg text-lg font-bold text-white pt-2">
               Register as a donor
             </h2>
             <p className="pt-2 text-base">

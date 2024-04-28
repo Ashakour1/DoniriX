@@ -40,8 +40,8 @@ const About = () => {
         </div>
         <div className="flex flex-col md:border-r-2 md:border-t-0 border-t-2 p-4 rounded ">
           <div className="flex items-center">
-          <div className="bg-blue-300 p-2 rounded-full">
-            <FaRegEye className="text-2xl text-blue-500" />
+            <div className="bg-blue-300 p-2 rounded-full">
+              <FaRegEye className="text-2xl text-blue-500" />
             </div>
             <h2 className="text-2xl font-bold pl-2 ">Our Vision</h2>
           </div>
@@ -54,7 +54,9 @@ const About = () => {
         <div className="flex flex-col md:border-r-2 md:border-t-0 border-t-2 p-4 rounded ">
           <div>
             <div className="flex items-center">
-              <IoMdPersonAdd className="text-2xl text-blue-500" />
+              <div className="bg-blue-300 p-2 rounded-full">
+                <IoMdPersonAdd className="text-2xl text-blue-500" />
+              </div>
               <h2 className="text-2xl font-bold pl-2 ">Join Us</h2>
             </div>
           </div>

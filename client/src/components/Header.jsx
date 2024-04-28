@@ -83,7 +83,7 @@ const Header = () => {
               </Link>
               <button
                 onClick={handleModalToggle}
-                className="bg-green-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md"
+                className="bg-blue-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md"
               >
                 Donate Now
               </button>

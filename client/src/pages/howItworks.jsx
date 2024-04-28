@@ -16,7 +16,7 @@ const HowItworks = () => {
           <h1 className="md:text-3xl text-xl md:px-0 px-3 font-bold text-black">
             How does it Work?
           </h1>
-          <p className="pt-4">
+          <p className="pt-4 md:px-4">
             Here's How the process works for donors on LifeCord:
           </p>
         </div>

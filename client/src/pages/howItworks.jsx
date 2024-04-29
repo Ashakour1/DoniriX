@@ -27,7 +27,7 @@ const HowItworks = () => {
               <FaRegAddressCard className="text-xl text-yellow-500" />
             </div>
 
-            <h2 className="md:text-lg text-base font-bold text-black pt-2">
+            <h2 className="md:text-lg text-sm font-bold text-black pt-2">
               Register as a donor
             </h2>
             <p className="pt-2 text-base">
@@ -40,7 +40,7 @@ const HowItworks = () => {
               <MdContentPasteSearch className="text-xl text-green-500" />
             </div>
 
-            <h2 className="md:text-lg text-base font-bold pt-2 text-black">
+            <h2 className="md:text-lg text-sm font-bold pt-2 text-black">
               Donor Search
             </h2>
             <p className="pt-2 text-base">
@@ -53,7 +53,7 @@ const HowItworks = () => {
               <MdContactPhone className="text-xl text-blue-500" />
             </div>
 
-            <h2 className="md:text-lg text-base font-bold pt-2 text-black">
+            <h2 className="md:text-lg text-sm font-bold pt-2 text-black">
               Donor Contact
             </h2>
             <p className="pt-2 text-base">

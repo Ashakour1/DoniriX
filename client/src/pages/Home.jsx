@@ -15,38 +15,36 @@ const Home = () => {
   return (
     <main className="max-w-[1040px] mx-auto mt-12 min-h-screen">
       <div className="flex justify-between md:gap-20 gap-0 md:px-0 px-4 md:flex-row flex-col pb-2">
-      <div
-                    className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-                    aria-hidden="true"
-                >
-                    <div
-                        className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#1815b3] to-[#ba1b80] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                        style={{
-                            clipPath:
-                                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                        }}
-                    />
-                </div>
-        <div className="max-w-[550px] flex flex-col gap-4">
+        <div
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          aria-hidden="true"
+        >
+          <div
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#1815b3] to-[#ba1b80] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+            }}
+          />
+        </div>
+        <div className="max-w-[550px] flex flex-col gap-3">
           <h1 className="text-4xl font-bold">
             At <span className="text-blue-500">LifeCord</span> we're dedicated
             to saving lives through the power of LifeCord.
           </h1>
           <p className="text-md text-justify ">
-            Our mission is to safeguard lives by facilitating the vital
-            connection between compassionate donors and individuals in critical
-            need of life-saving blood transfusions. We firmly believe that every
-            single drop of blood holds the power to make a profound and positive
-            impact in someone's life.
+            Our mission is to save lives by connecting donors with people who
+            need blood transfusions. We believe every drop of blood can make a
+            big difference in someone's life.
           </p>
           <div className="flex gap-4">
-            <Button
+            <button
               onClick={handleModalToggle}
-              className="bg-black text-blue-500 font-bold py-2 px-4 rounded mt-4"
+              className="bg-black text-white font-bold py-2 px-4  mt-4"
             >
               donate Now
-            </Button>
-            <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded mt-4">
+            </button>
+            <button className="border-1 border-black text-blue-500 font-bold py-2 px-4  mt-4">
               <Link to="/contact">Contact Us</Link>
             </button>
           </div>
@@ -72,7 +70,6 @@ const Home = () => {
           />
         </div>
       </div>
-
 
       <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
     </main>

@@ -32,7 +32,7 @@ const Home = () => {
             At <span className="text-blue-500">LifeCord</span> we're dedicated
             to saving lives through the power of LifeCord.
           </h1>
-          <p className="text-md text-justify ">
+          <p className="text-base">
             Our mission is to save lives by connecting donors with people who
             need blood transfusions. We believe every drop of blood can make a
             big difference in someone's life.

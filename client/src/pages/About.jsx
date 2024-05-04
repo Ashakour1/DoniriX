@@ -32,7 +32,7 @@ const About = () => {
             <h2 className="text-xl font-bold pl-2 ">Our Mission</h2>
           </div>
 
-          <p className="text-justify text-base pt-2 ">
+          <p className="text-base pt-2 ">
             LifeCord's mission is to save lives through blood donation. We make
             it easy for donors to give blood and for patients to receive it
             quickly.
@@ -45,7 +45,7 @@ const About = () => {
             </div>
             <h2 className="text-xl font-bold pl-2 ">Our Vision</h2>
           </div>
-          <p className="text-justify text-base pt-2">
+          <p className="text-base pt-2">
             LifeCord aims to swiftly provide lifesaving blood, making donation
             easy for donors and access fast for patients, saving lives
             efficiently.
@@ -61,7 +61,7 @@ const About = () => {
             </div>
           </div>
 
-          <p className="text-justify text-bas pt-2">
+          <p className="text-bas pt-2">
             Join LifeCord as a donor, recipient, or supporter to save lives and
             build a healthier future.
           </p>

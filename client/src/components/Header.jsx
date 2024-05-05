@@ -43,14 +43,12 @@ const Header = () => {
           </div>
         </div>
         <div className="hidden md:flex">
-          <Link className="p-2">
-            <button
-              onClick={handleModalToggle}
-              className="bg-blue-500 font-bold text-white py-2 items-center px-4 rounded-md"
-            >
-              Donate Now
-            </button>
-          </Link>
+          <button
+            onClick={handleModalToggle}
+            className="bg-blue-500 font-bold text-white py-2 items-center px-4 rounded-md"
+          >
+            Donate Now
+          </button>
         </div>
       </div>
 

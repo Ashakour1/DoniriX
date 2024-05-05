@@ -44,9 +44,12 @@ const Home = () => {
             >
               donate Now
             </button>
-            <button className="border-1 border-black text-blue-500 font-bold py-2 px-4  mt-4">
-              <Link to="/contact">Contact Us</Link>
-            </button>
+            
+            <Link to="/contact">
+              <button className="border-1 border-black text-blue-500 font-bold py-2 px-4  mt-4">
+                Contact Us
+              </button>
+            </Link>
           </div>
           <img className="w-32" src="/arrow.png" alt="" />
         </div>

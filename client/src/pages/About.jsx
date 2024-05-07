@@ -8,7 +8,7 @@ const About = () => {
     <main className="max-w-[1040px] mx-auto mt-5 min-h-screen">
       <div className="p-4">
         <h1 className=" text-2xl font-bold">About LifeCord</h1>
-        <p className="text-lg mt-4">
+        <p className="text-lg text-gray-600 mt-4">
           LifeCord is a modern solution for blood donation, created by
           <span className="font-bold  text-blue-500 ">
             {" "}
@@ -61,7 +61,7 @@ const About = () => {
             </div>
           </div>
 
-          <p className="text-bas pt-2">
+          <p className="text-base pt-2">
             Join LifeCord as a donor, recipient, or supporter to save lives and
             build a healthier future.
           </p>

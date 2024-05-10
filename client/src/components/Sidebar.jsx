@@ -8,7 +8,8 @@ const Sidebar = () => {
 
   return (
     <div className="bg-gray-500 w-64 p-6 border-r  fixed h-full top-[55px]">
-      <h2 className="text-2xl font-bold text-white mb-6">Dashboard</h2>
+      <h2 className="text-2xl font-bold text-white mb-6">
+      </h2>
       <nav>
         <ul className="space-y-4">
           <li>

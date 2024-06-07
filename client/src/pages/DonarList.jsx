@@ -93,7 +93,7 @@ const DonarList = () => {
         setLoading(false);
       }
     } catch (err) {
-      toast.error(err.response.data.error)
+      toast.error(err.response.data.error);
       setLoading(false);
       console.log(err);
     }
@@ -117,10 +117,10 @@ const DonarList = () => {
   };
   return (
     <div className="w-full overflow-auto">
-      <div className="container pl-72 pt-20 px-10 grid gap-4">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
+      <div className="container pl-72 pt-20 px-10 grid gap-4 ">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 ">
           <div className="grid gap-1">
-            <h1 className="text-2xl font-bold tracking-tight">
+            <h1 className="text-2xl font-bold tracking-tight ">
               Donors & Supporters
             </h1>
             <p className="text-gray-500 dark:text-gray-400">List of donors.</p>
@@ -161,12 +161,14 @@ const DonarList = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y">
-                  {donars.filter((item) => {
+                  {donars
+                    .filter((item) => {
                       if (search == "") {
                         return item;
                       } else {
                         if (
-                          item.bloodType && item.fullname
+                          item.bloodType &&
+                          item.fullname
                             .toLowerCase()
                             .includes(search.toLowerCase())
                         ) {

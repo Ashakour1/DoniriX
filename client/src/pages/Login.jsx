@@ -30,7 +30,7 @@ const Login = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // console.log(formData);
+    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -54,11 +54,10 @@ const Login = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      if(error){
-        toast.error(error.message)
-      }else{
+      if (error) {
+        toast.error(error.message);
+      } else {
         toast.error(error.response.data.message);
-      
       }
     }
   };

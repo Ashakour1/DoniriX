@@ -73,7 +73,7 @@ const Dashboard = () => {
         <div className="flex">
           <div className="flex-1 p-8 ml-64 ">
             <div className="grid grid-cols-3 gap-6">
-              <div className=" bg-blue-500 p-6 rounded-lg shadow">
+              <div className=" bg-blue-500 p-6 rounded-lg shadow-xl">
                 <h3 className="text-2xl font-bold text-white mb-2">
                   {
                     donars?.filter((donar) => donar.status === "finished")

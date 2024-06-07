@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 // import { generateToken } from "../tokens/GenerateToken.js";
 
 export const loginAdmin = asyncHandler(async (req, res) => {
+
   const { email, password } = req.body;
 
   if (!email || !password) {

@@ -43,7 +43,7 @@ export const updateDonar = asyncHandler(async (req, res) => {
       address,
       motherNumber,
       bloodType,
-      status: "Donated",
+      status,
     },
   });
 
@@ -52,6 +52,6 @@ export const updateDonar = asyncHandler(async (req, res) => {
   res.status(200).json({
     success: true,
     error: false,
-    message: "Donar updated successfully",
+    message: "updated successfully",
   });
 });

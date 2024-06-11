@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const UserContext = createContext(null);
 
@@ -7,11 +7,26 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const logOut = () => {
-  
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Logged out!",
+          text: "You have been successfully logged out.",
+          icon: "success",
+        });
+      }
       localStorage.removeItem("userData");
       localStorage.removeItem("expiresIn");
       setUser(null);
-    
+    });
   };
 
   useEffect(() => {

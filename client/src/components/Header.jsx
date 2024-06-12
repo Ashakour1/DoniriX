@@ -24,10 +24,10 @@ const Header = () => {
     <header className=" text-blue-500  p-2 ">
       <div className=" max-w-[1040px] mx-auto flex justify-between items-center md:px-0 px-2">
         <Link to="/">
-          <h1 className="text-lg font-bold">Life Cord</h1>
+          <h1 className="text-base font-medium">Life Cord</h1>
         </Link>
         <div>
-          <div className=" text-sm md:flex font-bold hidden">
+          <div className=" text-sm md:flex font-medium hidden">
             <Link className="p-4" to="/">
               Home
             </Link>
@@ -45,7 +45,7 @@ const Header = () => {
         <div className="hidden md:flex">
           <button
             onClick={handleModalToggle}
-            className="bg-blue-500 font-bold text-white py-2 items-center px-4 rounded-md"
+            className="bg-blue-500 font-semibold text-white py-2 items-center px-4 rounded-md"
           >
             Donate Now
           </button>

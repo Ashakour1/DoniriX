@@ -21,13 +21,13 @@ const Header = () => {
     setNavIsOpen(!navIsOpen);
   };
   return (
-    <header className=" text-blue-500  p-2 ">
+    <header className="p-2 ">
       <div className=" max-w-[1040px] mx-auto flex justify-between items-center md:px-0 px-2">
         <Link to="/">
-          <h1 className="text-base font-medium">Life Cord</h1>
+          <h1 className="text-base text-blue-500 font-medium">Life Cord</h1>
         </Link>
         <div>
-          <div className=" text-sm md:flex font-medium hidden">
+          <div className=" text-sm md:flex font-medium hidden text-gray-800">
             <Link className="p-4" to="/">
               Home
             </Link>

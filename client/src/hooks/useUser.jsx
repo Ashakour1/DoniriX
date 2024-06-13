@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 
 const UserContext = createContext(null);
 
@@ -6,11 +7,11 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const logOut = () => {
-    if (confirm("Are you sure you want to") === true) {
+  
       localStorage.removeItem("userData");
       localStorage.removeItem("expiresIn");
       setUser(null);
-    }
+    
   };
 
   useEffect(() => {

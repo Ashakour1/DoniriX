@@ -53,11 +53,12 @@ const Login = () => {
 
       setLoading(false);
     } catch (error) {
+      console.log(error)
       setLoading(false);
-      if (error) {
-        toast.error(error.message);
-      } else {
+      if (error.response && error.response.data && error.response.data.message) {
         toast.error(error.response.data.message);
+      } else {
+        toast.error(error.message || "An error occurred, please try again.");
       }
     }
   };

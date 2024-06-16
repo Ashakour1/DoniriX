@@ -74,7 +74,7 @@ function App() {
               }
             />
             <Route
-              path="/donar-list"
+              path="/donors"
               element={
                 <>
                   <AdminHeader />
@@ -84,7 +84,7 @@ function App() {
               }
             />
             <Route
-              path="/donars"
+              path="/donors_home"
               element={
                 <>
                   <Header />

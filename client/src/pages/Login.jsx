@@ -4,6 +4,8 @@ import { publicRequest } from "../requestMethod";
 import { redirect, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useUser } from "../hooks/useUser";
+import Swal from 'sweetalert2'
+
 const Login = () => {
   const [loading, setLoading] = useState(false);
 

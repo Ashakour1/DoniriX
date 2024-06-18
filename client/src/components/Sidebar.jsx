@@ -18,7 +18,7 @@ const Sidebar = () => {
               <Link
                 to="/dashboard"
                 className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  hover:bg-blue-300"
-                prefetch={false}
+                
               >
                 <MdDashboard className="h-5 w-5" />
                 Dashboard
@@ -28,7 +28,7 @@ const Sidebar = () => {
               <Link
                 to="/donors"
                 className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  hover:bg-blue-300"
-                prefetch={false}
+             
               >
                 <BiDonateBlood className="h-5 w-5" />
                 donors
@@ -38,7 +38,7 @@ const Sidebar = () => {
               <Link
                 to="/dashboard"
                 className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  hover:bg-blue-300"
-                prefetch={false}
+                
               >
                 <MdBloodtype className="h-5 w-5" />
                 Blood Types
@@ -52,7 +52,7 @@ const Sidebar = () => {
             <li>
               <Link
                 className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700"
-                prefetch={false}
+              
                 onClick={logOut}
               >
                 <MdLogout className="h-5 w-5" />

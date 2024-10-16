@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
-import { showModal } from "../utils/modal";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../hooks/useUser";
-import ModalComponent from "./Modal";
 const Header = () => {
   const [navIsOpen, setNavIsOpen] = useState(false);
-
-  const { user, logOut } = useUser();
 
   const navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleModalToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  // const handleModalToggle = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   const openNav = () => {
     setNavIsOpen(!navIsOpen);
@@ -24,7 +19,9 @@ const Header = () => {
     <header className="p-2 ">
       <div className=" max-w-[1040px] mx-auto flex justify-between items-center md:px-0 px-2">
         <Link to="/">
-          <h1 className="text-base text-blue-500 font-medium">Life Cord</h1>
+          <h1 className="text-xl text-blue-500 font-medium">
+            Bad<span className="text-black">baadiye</span>
+          </h1>
         </Link>
         <div>
           <div className=" text-sm md:flex font-medium hidden text-gray-800">
@@ -44,7 +41,7 @@ const Header = () => {
         </div>
         <div className="hidden md:flex">
           <button
-            onClick={handleModalToggle}
+            onClick={() => navigate("/donorForm")}
             className="bg-blue-500 font-semibold text-white py-2 items-center px-4 rounded-md"
           >
             Donate Now
@@ -80,7 +77,7 @@ const Header = () => {
                 Donars
               </Link>
               <button
-                onClick={handleModalToggle}
+                onClick={() => navigate("/donorForm")}
                 className="bg-blue-600 font-bold text-white py-2 items-center m-2 px-4 rounded-md"
               >
                 Donate Now
@@ -89,7 +86,7 @@ const Header = () => {
           </div>
         ) : null}
       </div>
-      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
+      {/* <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} /> */}
     </header>
   );
 };

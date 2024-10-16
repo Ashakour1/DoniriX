@@ -1,17 +1,14 @@
 import React, { useRef, useState } from "react";
-import { showModal } from "../utils/modal";
-import { publicRequest } from "../requestMethod";
-import axios from "axios";
 
-import { Link } from "react-router-dom";
-import { Button } from "@nextui-org/react";
-import ModalComponent from "../components/Modal";
+import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const handleModalToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  // const handleModalToggle = () => {
+  //   setIsOpen(!isOpen);
+  const navigate = useNavigate();
+  // };
+
   return (
     <main className="max-w-[1040px] mx-auto mt-12 min-h-screen">
       <div className="flex justify-between md:gap-20 gap-0 md:px-0 px-4 md:flex-row flex-col pb-2">
@@ -39,15 +36,15 @@ const Home = () => {
           </p>
           <div className="flex gap-4">
             <button
-              onClick={handleModalToggle}
+              onClick={() => navigate("/donorForm")}
               className="bg-black text-white font-bold py-2 px-4  mt-4"
             >
               donate Now
             </button>
-            
+
             <Link to="/contact">
               <button className="border-1 border-black text-blue-500 font-bold py-2 px-4  mt-4">
-                Contact Us
+                Request A demo
               </button>
             </Link>
           </div>
@@ -73,8 +70,6 @@ const Home = () => {
           />
         </div>
       </div>
-
-      <ModalComponent isOpen={isOpen} onOpenChange={() => setIsOpen(!isOpen)} />
     </main>
   );
 };

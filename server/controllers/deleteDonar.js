@@ -4,10 +4,12 @@ import prisma from "../config/prisma.js";
 export const deleteDonar = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
+  console.log(id);
+
   // check if donar exists
   const donarExists = await prisma.donar.findUnique({
     where: {
-      id: Number(id),
+      id,
     },
   });
 
@@ -21,7 +23,7 @@ export const deleteDonar = asyncHandler(async (req, res) => {
 
   const deletedDonar = await prisma.donar.delete({
     where: {
-      id: Number(id),
+      id,
     },
   });
 

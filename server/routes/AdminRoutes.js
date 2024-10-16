@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.post("/", RegisterAdmin);
 router.post("/login", loginAdmin);
-router.get("/data",AuthMiddleware,GetAdminData);
+router.get("/data",GetAdminData);
 router.put("/:id", AuthMiddleware,UpdateAdmin);
 router.delete("/:id", AuthMiddleware,deleteAdmin);
 

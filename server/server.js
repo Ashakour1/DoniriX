@@ -5,12 +5,13 @@ import ErrorHandler from "./middlewares/errorMiddleware.js";
 import dotenv from "dotenv";
 import sendEmail from "./routes/sendEmailRoutes.js";
 import cors from "cors";
+import RecipientRouter from "./routes/recipientRoutes.js";
 dotenv.config();
 const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
@@ -19,10 +20,10 @@ app.use(
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/donar", Donars);
-app.use("/api/send", sendEmail);
+app.use("/api/donars", Donars);
+app.use("/api/recipients",RecipientRouter)
 app.use("/api/admin", Admin);
 
 app.get("*", (req, res) => {

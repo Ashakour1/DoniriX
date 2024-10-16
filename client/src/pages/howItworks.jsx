@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { FaRegAddressCard } from "react-icons/fa";
 import { MdContactPhone, MdContentPasteSearch } from "react-icons/md";
 import { Button } from "@nextui-org/react";
-import ModalComponent from "../components/Modal";
+// import ModalComponent from "../components/Modal";
 const HowItworks = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const handleModalToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  // const [isOpen, setIsOpen] = useState(false);
+  // const handleModalToggle = () => {
+  //   setIsOpen(!isOpen);
+  // };
   return (
     <main className=" bg-gradient-to-br from-[#F0F9FF] to-[#FFFBEB] ">
       <div className="max-w-[1140px] mx-auto min-h-screen">

@@ -3,23 +3,19 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Contact from "./pages/Contact";
-import { Toaster, toast } from "sonner";
+import { Toaster } from "react-hot-toast";
 import About from "./pages/About";
 import Footer from "./components/Footer";
-import AdminHeader from "./components/AdminHeader";
 import HowItworks from "./pages/howItworks";
 import { NextUIProvider } from "@nextui-org/react";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import Sidebar from "./components/Sidebar";
-import DonarList from "./pages/DonarList";
 import Donars from "./pages/Donars";
+import DonorFormPage from "./pages/DonorFormPage";
 
 function App() {
   return (
     <>
       <NextUIProvider>
-        <Toaster richColors position="top-center" />
+        <Toaster />
         <Router>
           <Routes>
             <Route
@@ -62,8 +58,8 @@ function App() {
                 </>
               }
             />
-            <Route path="/login" element={<Login />} />
-            <Route
+            {/* <Route path="/login" element={<Login />} /> */}
+            {/* <Route
               path="/dashboard"
               element={
                 <>
@@ -80,6 +76,17 @@ function App() {
                   <AdminHeader />
                   <Sidebar />
                   <DonarList />
+                </>
+              }
+            /> */}
+
+            <Route
+              path="/donorForm"
+              element={
+                <>
+                  <Header />
+                  <DonorFormPage />
+                  <Footer />
                 </>
               }
             />

@@ -4,6 +4,8 @@ import { setDonar } from "../controllers/SetDonar.js";
 import { updateDonar } from "../controllers/updateDonar.js";
 import { deleteDonar } from "../controllers/deleteDonar.js";
 import { AuthMiddleware } from "../middlewares/authMiddleware.js";
+import { getDonar } from "../controllers/getDonor.js";
+// import { canDonate } from "../middlewares/canDonate.js";
 
 const router = express.Router();
 
@@ -15,12 +17,13 @@ const router = express.Router();
  *@returns          All donars
  
 */
-router.get("/", AuthMiddleware, getAllDonars);
+router.get("/", getAllDonars);
+router.get("/:id", getDonar);
 
 router.post("/", setDonar);
 
-router.put("/:id", AuthMiddleware, updateDonar);
+router.put("/:id", updateDonar);
 
-router.delete("/:id", AuthMiddleware, deleteDonar);
+router.delete("/:id", deleteDonar);
 
 export default router;

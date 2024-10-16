@@ -27,10 +27,10 @@ export const getAllDonars = asyncHandler(async (req, res) => {
   res.status(200).json({
     success: true,
     error: null,
-    results: {
-      data: {
-        donars,
-      },
+
+    data: {
+      donars,
     },
   });
 });
+

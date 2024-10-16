@@ -7,20 +7,25 @@ export const updateDonar = asyncHandler(async (req, res) => {
 
   // get donar data from body
   const {
-    fullname,
+    name,
     email,
     phone,
+    sex,
     age,
     weight,
     address,
-    motherNumber,
+    nextOfKin,
+    hp,
     bloodType,
+    status,
+    amount,
+    location,
   } = req.body;
 
   // check if donar exists
   const donarExists = await prisma.donar.findUnique({
     where: {
-      id: Number(id),
+      id,
     },
   });
 
@@ -32,18 +37,22 @@ export const updateDonar = asyncHandler(async (req, res) => {
 
   const updatedDonar = await prisma.donar.update({
     where: {
-      id: Number(id),
+      id,
     },
     data: {
-      fullname,
+      name,
       email,
       phone,
-      age,
-      weight,
+      sex,
+      age: Number(age),
+      weight: Number(weight),
       address,
-      motherNumber,
+      nextOfKin,
+      hp,
       bloodType,
       status,
+      amount: Number(amount),
+      location,
     },
   });
 

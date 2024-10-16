@@ -1,8 +1,69 @@
 import "./App.css";
 import Dashboard from "./pages/Dashboard";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import { Toaster } from "react-hot-toast";
+import Layout from "./components/Layout/Layout";
+import DonarList from "./pages/DonarList";
+import AdminHeader from "./components/AdminHeader";
+import Sidebar from "./components/Sidebar";
+import DonorForm from "./components/DonorForm";
+import DonorFormPage from "./pages/DonorFormPage";
+import { DonorDetail } from "./components/DonorDetail";
+import DonorDetailPage from "./pages/DonorDetailPage";
+import RecipientFormPage from "./pages/RecipientFormPage";
+import RecipientsLists from "./pages/RecipientsLists";
 function App() {
-  return <Dashboard />;
+  return (
+    <>
+      <Toaster />
+      <Router>
+        <Routes>
+          <Route path="/" element={<h1>Hello world</h1>} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/recipients" element={<RecipientsLists />} />
+          <Route path="/recipient/update/:id" element={<RecipientFormPage />} />
+          <Route
+            path="/donors"
+            element={
+              <>
+                <DonarList />
+              </>
+            }
+          />
+          <Route path="*" element={<h1>Not Found</h1>} />
+          <Route
+            path="/donors/register"
+            element={
+              <>
+                <DonorFormPage />
+              </>
+            }
+          />
+          <Route
+            path="/donors/:id"
+            element={
+              <>
+                <DonorFormPage />
+              </>
+            }
+          />
+          <Route path="/recipient/register" element={<RecipientFormPage />} />
+          <Route
+            path="/donor/detail/:id"
+            element={
+              <>
+                {/* <AdminHeader /> */}
+                <DonorDetailPage />
+                {/* <Sidebar/> */}
+              </>
+            }
+          />
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
 export default App;

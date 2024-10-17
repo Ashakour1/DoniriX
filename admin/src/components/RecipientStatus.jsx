@@ -3,7 +3,11 @@ import React from "react";
 const RecipientStatus = ({ recipient }) => {
   return (
     <div>
-      {recipient.status === "Registered" ? (
+      {recipient.status === "pending" ? (
+        <span className="text-white bg-blue-300 px-2 py-1 rounded">
+          {recipient.status}
+        </span>
+      ) : recipient.status === "Registered" ? (
         <span className="text-yellow-500 bg-yellow-100 px-2 py-1 rounded">
           {recipient.status}
         </span>

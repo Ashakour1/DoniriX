@@ -80,7 +80,7 @@ const RecipientLists = () => {
                 />
               </div>
               <button
-                onClick={() => navigate("/recipients/register")}
+                onClick={() => navigate("/recipient/register")}
                 className="text-white bg-blue-500 px-2 py-2 rounded"
               >
                 Add Recipient

@@ -13,6 +13,8 @@ import { DonorDetail } from "./components/DonorDetail";
 import DonorDetailPage from "./pages/DonorDetailPage";
 import RecipientFormPage from "./pages/RecipientFormPage";
 import RecipientsLists from "./pages/RecipientsLists";
+import { RecipientDetail } from "./components/Recipient-detail";
+import RecipientDetailPage from "./pages/Recipient-detail-page";
 function App() {
   return (
     <>
@@ -22,8 +24,13 @@ function App() {
           <Route path="/" element={<h1>Hello world</h1>} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/recipient/register" element={<RecipientFormPage />} />
           <Route path="/recipients" element={<RecipientsLists />} />
           <Route path="/recipient/update/:id" element={<RecipientFormPage />} />
+          <Route
+            path="/recipient/detail/:id"
+            element={<RecipientDetailPage />}
+          />
           <Route
             path="/donors"
             element={
@@ -49,7 +56,7 @@ function App() {
               </>
             }
           />
-          <Route path="/recipient/register" element={<RecipientFormPage />} />
+
           <Route
             path="/donor/detail/:id"
             element={

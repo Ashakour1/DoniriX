@@ -11,13 +11,29 @@ import {
   Hospital,
   ClipboardList,
 } from "lucide-react";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Spinner from "./Spinner";
+import { useUser } from "@/hooks/useUser";
 
 export const RecipientDetail = () => {
   const [recipientDetail, setRecipientDetail] = useState(null);
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+
+  const { user } = useUser();
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const redirectTo = location.pathname;
+
+  useEffect(() => {
+    if (!user) {
+      navigate(`/login?redirectTo=${redirectTo}`);
+    }
+  }, [user]);
 
   console.log(id);
 
@@ -28,7 +44,9 @@ export const RecipientDetail = () => {
       );
       const recipientData = data;
       setRecipientDetail(recipientData);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error(error);
     }
   };
@@ -50,8 +68,8 @@ export const RecipientDetail = () => {
     }
   };
 
-  if (!recipientDetail) {
-    return <div>Loading...</div>;
+  if (loading) {
+    return <Spinner />;
   }
 
   return (

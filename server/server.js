@@ -22,8 +22,8 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/donars", Donars);
-app.use("/api/recipients",RecipientRouter)
+app.use("/api/donors", Donars);
+app.use("/api/recipients", RecipientRouter);
 app.use("/api/admin", Admin);
 
 app.get("*", (req, res) => {

@@ -1,25 +1,17 @@
-// components/DashboardContent.js
 import React, { useEffect, useState } from "react";
-import {
-  Droplet,
-  Users,
-  Calendar,
-  AlertTriangle,
-  ArrowUpRight,
-  ArrowDownRight,
-  Heart,
-} from "lucide-react";
+import { Droplet, Users, Heart } from "lucide-react";
 import { useUser } from "@/hooks/useUser";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import RecentDonars from "./RecentDonars-Table";
+import Spinner from "./Spinner";
 
 export default function DashboardContent() {
   const { user } = useUser();
-  const [donars, setDonars] = useState([]); // Initialize with an empty array
+  const [donars, setDonars] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // Handle potential errors
+  const [error, setError] = useState(null);
   const location = useLocation();
   const redirectTo = location.pathname;
   const [userData, setUserData] = useState(null);
@@ -29,39 +21,63 @@ export default function DashboardContent() {
     if (!user) {
       navigate(`/login?redirectTo=${redirectTo}`);
     }
-  }, [user]);
-  // Fetch donors data from the API
-  useEffect(() => {
-    const getDonars = async () => {
-      try {
-        const response = await axios.get("http://localhost:22000/api/donars");
+  }, [user, redirectTo]);
 
-        console.log(response);
-        setDonars(response.data.data.donars); // Default to empty array
-        setLoading(false);
-      } catch (err) {
-        console.log(err);
-        setError(err);
-        setLoading(false);
-      }
-    };
-    getDonars();
+  const fetchUserData = () => {
+    const loginUser = localStorage.getItem("userData");
+    if (loginUser) {
+      setUserData(JSON.parse(loginUser));
+    }
+  };
+  useEffect(() => {
+    fetchUserData();
   }, []);
 
-  const donatedDonors = donars.filter((donor) => donor.status === "finished");
-  const pendingDonors = donars.filter((donor) => donor.status === "pending");
+  const getDonars = async () => {
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userData.token}`,
+        },
+      };
 
-  if (error) {
-    return <div className="text-red-500">{error.message}</div>; // Display error if there's any
+      const response = await axios.get(
+        "http://localhost:22000/api/donors",
+        config
+      );
+      setDonars(response.data.data.donars || []); // Default to empty array if undefined
+    } catch (err) {
+      console.error(err);
+      setError(err);
+    } finally {
+      setLoading(false); // Set loading to false after the attempt
+    }
+  };
+
+  useEffect(() => {
+    if (userData) {
+      getDonars();
+    }
+  }, [userData]);
+
+  if (loading) {
+    return <Spinner />;
   }
 
-  console.log(donars);
+  if (error) {
+    return (
+      <div className="text-red-500">{error.message || "An error occurred"}</div>
+    );
+  }
+
+  const donatedDonors = donars.filter((donor) => donor.status === "finished");
+
   return (
     <div>
       <h1 className="text-xl font-bold text-gray-800 mb-4">Dashboard</h1>
 
       {/* Stats Grid */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3  mb-8">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
         <Card className="!bg-transparent !text-black">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
@@ -71,9 +87,6 @@ export default function DashboardContent() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{donatedDonors.length}</div>
-            {/* <p className="text-xs text-muted-foreground">
-              +20.1% from last month
-            </p> */}
           </CardContent>
         </Card>
         <Card className="!bg-transparent !text-black">
@@ -85,9 +98,6 @@ export default function DashboardContent() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">862</div>
-            {/* <p className="text-xs text-muted-foreground">
-              +15.3% from last month
-            </p> */}
           </CardContent>
         </Card>
         <Card className="!bg-transparent !text-black">
@@ -99,41 +109,12 @@ export default function DashboardContent() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{donars.length}</div>
-            {/* <p className="text-xs text-muted-foreground">
-              +7.5% from last month
-            </p> */}
           </CardContent>
         </Card>
       </div>
 
-      {/* Blood Inventory Table */}
-      {/* <div className="card !bg-transparent  rounded-lg mb-8">
-        <div className="p-4">
-          <h2 className="font-bold mb-2">Blood Inventory Status</h2>
-       
-          <table className="min-w-full">
-            <thead>
-              <tr>
-                <th className="border px-4 py-2">Blood Type</th>
-                <th className="border px-4 py-2">Available Units</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border px-4 py-2">A+</td>
-                <td className="border px-4 py-2">50</td>
-              </tr>
-              <tr>
-                <td className="border px-4 py-2">O-</td>
-                <td className="border px-4 py-2">5</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div> */}
-
       {/* Recent Donors Table */}
-      <RecentDonars />
+      <RecentDonars donors={donars} />
     </div>
   );
 }

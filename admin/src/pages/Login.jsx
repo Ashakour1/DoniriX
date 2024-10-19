@@ -26,7 +26,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/dashboard");
+      redirectTo ? navigate(`/${redirectTo}`) : navigate("/dashboard");
     }
   }, [user, redirectTo]);
 

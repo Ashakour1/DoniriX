@@ -15,6 +15,7 @@ import RecipientFormPage from "./pages/RecipientFormPage";
 import RecipientsLists from "./pages/RecipientsLists";
 import { RecipientDetail } from "./components/Recipient-detail";
 import RecipientDetailPage from "./pages/Recipient-detail-page";
+import BloodTypes from "./components/blood-types";
 function App() {
   return (
     <>
@@ -32,6 +33,16 @@ function App() {
             element={<RecipientDetailPage />}
           />
           <Route
+            path="/blood-types"
+            element={
+              <>
+                <Layout>
+                  <BloodTypes />
+                </Layout>
+              </>
+            }
+          />
+          <Route
             path="/donors"
             element={
               <>
@@ -39,6 +50,7 @@ function App() {
               </>
             }
           />
+          <Route path="/donors/:bloodType" element={<DonarList />} />
           <Route path="*" element={<h1>Not Found</h1>} />
           <Route
             path="/donors/register"
@@ -49,7 +61,7 @@ function App() {
             }
           />
           <Route
-            path="/donors/:id"
+            path="/donors/:id/edit"
             element={
               <>
                 <DonorFormPage />

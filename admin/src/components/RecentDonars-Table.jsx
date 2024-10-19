@@ -1,39 +1,8 @@
 import React from "react";
 import { Badge } from "@nextui-org/react";
 
-const RecentDonars = () => {
-  const donors = [
-    {
-      name: "Alice Johnson",
-      bloodType: "A+",
-      donationTime: "Oct 12, 2023, 09:30 AM",
-      location: "Central Hospital",
-    },
-    {
-      name: "Bob Smith",
-      bloodType: "O-",
-      donationTime: "Oct 11, 2023, 02:45 PM",
-      location: "Community Center",
-    },
-    {
-      name: "Carol Williams",
-      bloodType: "B+",
-      donationTime: "Oct 10, 2023, 11:15 AM",
-      location: "Mobile Blood Drive",
-    },
-    {
-      name: "David Brown",
-      bloodType: "AB+",
-      donationTime: "Oct 9, 2023, 04:00 PM",
-      location: "Red Cross Center",
-    },
-    {
-      name: "Eva Davis",
-      bloodType: "A-",
-      donationTime: "Oct 8, 2023, 10:30 AM",
-      location: "University Clinic",
-    },
-  ];
+const RecentDonars = ({donors}) => {
+ 
 
   return (
     <div className="w-full max-w-5xl mx-auto p-6 bg-transparent border border-black rounded-lg">

@@ -17,13 +17,13 @@ const router = express.Router();
  *@returns          All donars
  
 */
-router.get("/", getAllDonars);
-router.get("/:id", getDonar);
+router.get("/", AuthMiddleware, getAllDonars);
+router.get("/:id", AuthMiddleware, getDonar);
 
 router.post("/", setDonar);
 
-router.put("/:id", updateDonar);
+router.put("/:id", AuthMiddleware, updateDonar);
 
-router.delete("/:id", deleteDonar);
+router.delete("/:id", AuthMiddleware, deleteDonar);
 
 export default router;

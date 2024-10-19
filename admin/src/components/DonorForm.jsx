@@ -10,6 +10,7 @@ const DonorForm = () => {
   console.log(id);
   // name, email, phone, age, weight, address, nextOfKin, hp, bloodType
   const [Loading, setLoading] = useState(false);
+  const [userData, setUserData] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,19 +27,31 @@ const DonorForm = () => {
     status: "",
   });
 
-  const fetchDonor = async () => {
-    try {
-      const { data } = await axios.get(`/api/donars/${id}`);
-      console.log(data);
-      setFormData(data.data.donar);
-    } catch (error) {
-      console.log(error);
+  const fetchUserData = async () => {
+    // Fetch user data from wherever it's stored (e.g., local storage, session storage, etc.)
+    const loginUser = localStorage.getItem("userData");
+    // console.log(JSON.parse(loginUser));
+    if (loginUser) {
+      setUserData(JSON.parse(loginUser));
     }
   };
 
-  useEffect(() => {
-    fetchDonor();
-  }, []);
+  const fetchDonor = async () => {
+    try {
+      if (userData && userData.token) {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${userData.token}`,
+          },
+        };
+        const { data } = await axios.get(`/api/donors/${id}`, config);
+        setFormData(data.data.donar);
+      }
+    } catch (error) {
+      console.error(error);
+      // toast.error("Error fetching donor data");
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -68,27 +81,36 @@ const DonorForm = () => {
     setLoading(true);
     // console.log(formData);
     try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userData?.token}`,
+        },
+      };
+
       if (id) {
-        const { data } = await axios.put(`/api/donars/${id}`, formData);
-
-        // console.log(response.data);
+        const { data } = await axios.put(`/api/donors/${id}`, formData, config);
         toast.success(data.message);
-        clearData();
-        navigate("/donors");
       } else {
-        const response = await axios.post("/api/donars", formData);
-
-        console.log(response.data);
-        toast.success(response.data.message);
-        clearData();
-        navigate("/donors");
+        const { data } = await axios.post("/api/donors", formData);
+        toast.success(data.message);
       }
+      clearData();
+      navigate("/donors");
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error);
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+  useEffect(() => {
+    if (userData) {
+      fetchDonor();
+    }
+  }, [userData]);
 
   return (
     <div className="w-[800px] rounded-lg mx-auto text-black p-8 ">

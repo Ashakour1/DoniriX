@@ -13,29 +13,66 @@ import {
   Droplet,
   ClipboardList,
 } from "lucide-react";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Spinner from "./Spinner";
+import { useUser } from "@/hooks/useUser";
 
 export const DonorDetail = () => {
   const [donorDetail, setDonorDetail] = useState(null);
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState(null);
 
-  console.log(id);
-
-  const fetchDonorDetails = async (req, res) => {
-    try {
-      const { data } = await axios.get(
-        `http://localhost:22000/api/donars/${id}`
-      );
-      const donarData = data.data.donar;
-      setDonorDetail(donarData);
-    } catch (error) {}
+  const fetchUserData = async () => {
+    // Fetch user data from wherever it's stored (e.g., local storage, session storage, etc.)
+    const loginUser = localStorage.getItem("userData");
+    // console.log(JSON.parse(loginUser));
+    if (loginUser) {
+      setUserData(JSON.parse(loginUser));
+    }
   };
 
   useEffect(() => {
-    fetchDonorDetails();
-  }, [id]);
+    fetchUserData();
+  }, []);
+  const { user } = useUser();
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const redirectTo = location.pathname;
+
+  useEffect(() => {
+    if (!user) {
+      navigate(`/login?redirectTo=${redirectTo}`);
+    }
+  }, [user]);
+
+  console.log(id);
+
+  const fetchDonorDetails = async () => {
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userData.token}`,
+        },
+      };
+      const { data } = await axios.get(`/api/donors/${id}`, config);
+      const donarData = data.data.donar;
+      setDonorDetail(donarData);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    if (userData) {
+      fetchDonorDetails();
+    }
+  }, [id, userData]);
   //   const donor = dummyDonor;
 
   console.log(donorDetail);
@@ -58,8 +95,8 @@ export const DonorDetail = () => {
   const testStatus = "finished";
   console.log(getStatusColor(testStatus));
 
-  if (!donorDetail) {
-    return <div>Loading...</div>; // Optional loading state
+  if (loading) {
+    return <Spinner />;
   }
 
   return (

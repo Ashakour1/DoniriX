@@ -1,5 +1,6 @@
 // components/Sidebar.js
 import { LayoutDashboard, Activity, Settings, Users } from "lucide-react";
+import { MdBloodtype } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -30,6 +31,13 @@ const Sidebar = () => {
           >
             <Users className="mr-3 h-5 w-5" />
             Recipients
+          </Link>
+          <Link
+            to="/blood-types"
+            className="flex active:bg-gray-500 items-center px-4 py-2 mt-2 text-gray-600 hover:bg-gray-200 rounded-md"
+          >
+            <MdBloodtype className="mr-3 h-5 w-5" />
+            Blood Types
           </Link>
           <Link
             to="/settings"

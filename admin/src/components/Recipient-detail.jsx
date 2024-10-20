@@ -21,6 +21,7 @@ export const RecipientDetail = () => {
   const [recipientDetail, setRecipientDetail] = useState(null);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState(null);
 
   const { user } = useUser();
 
@@ -28,6 +29,15 @@ export const RecipientDetail = () => {
 
   const location = useLocation();
   const redirectTo = location.pathname;
+
+  const fetchUserData = async () => {
+    // Fetch user data from wherever it's stored (e.g., local storage, session storage, etc.)
+    const loginUser = localStorage.getItem("userData");
+    // console.log(JSON.parse(loginUser));
+    if (loginUser) {
+      setUserData(JSON.parse(loginUser));
+    }
+  };
 
   useEffect(() => {
     if (!user) {
@@ -39,8 +49,14 @@ export const RecipientDetail = () => {
 
   const fetchRecipientDetails = async () => {
     try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userData.token}`,
+        },
+      };
       const { data } = await axios.get(
-        `http://localhost:22000/api/recipients/${id}` // API endpoint
+        `http://localhost:22000/api/recipients/${id}`,
+        config // API endpoint
       );
       const recipientData = data;
       setRecipientDetail(recipientData);
@@ -52,8 +68,14 @@ export const RecipientDetail = () => {
   };
 
   useEffect(() => {
-    fetchRecipientDetails();
-  }, [id]);
+    fetchUserData();
+  }, []);
+
+  useEffect(() => {
+    if (userData) {
+      fetchRecipientDetails();
+    }
+  }, [id, userData]);
 
   const getStatusColor = (status) => {
     if (!status) return "bg-gray-500";

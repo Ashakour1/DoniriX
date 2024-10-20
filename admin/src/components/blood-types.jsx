@@ -1,11 +1,23 @@
 import { Droplet } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useUser } from "@/hooks/useUser";
+import { useEffect } from "react";
 
 const bloodTypes = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
 
 export const BloodTypes = () => {
+  const { user } = useUser();
+
+  const location = useLocation();
+
+  const redirectTo = location.pathname;
+  useEffect(() => {
+    if (!user) {
+      navigate(`/login?redirectTo=${redirectTo}`);
+    }
+  });
   const navigate = useNavigate();
-//   console.log(navigate);
+  //   console.log(navigate);
   return (
     <div className="max-w-[1400px] mx-auto bg-gray-100 flex flex-col items-center justify-center ">
       <h1 className="text-4xl font-bold mb-8 text-gray-800">Blood Types</h1>

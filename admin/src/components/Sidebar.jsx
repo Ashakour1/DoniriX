@@ -50,7 +50,7 @@ const Sidebar = () => {
           </Link>
           <Link
             onClick={logOut}
-            className="flex items-center px-4 mt-[400px] py-2 text-gray-600 hover:bg-gray-200 rounded-md"
+            className="flex items-center px-4 mt-[200px] py-2 text-gray-600 hover:bg-gray-200 rounded-md"
           >
             <LogOut className="mr-3 h-5 w-5" />
             Logout

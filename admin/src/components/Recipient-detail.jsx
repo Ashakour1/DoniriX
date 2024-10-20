@@ -173,7 +173,7 @@ export const RecipientDetail = () => {
           </div>
 
           {/* Donation History (optional section if needed later) */}
-          <Card className="mt-6 !bg-white !text-black">
+          {/* <Card className="mt-6 !bg-white !text-black">
             <CardHeader>
               <CardTitle className="text-xl">Donation History</CardTitle>
             </CardHeader>
@@ -185,7 +185,7 @@ export const RecipientDetail = () => {
                 </span>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </CardContent>
       </Card>
     </div>

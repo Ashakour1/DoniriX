@@ -159,17 +159,18 @@ const DonorsLists = () => {
                 <tbody className="divide-y">
                   {donars
                     ?.filter((item) => {
-                      if (search == "") {
-                        return item;
+                      if (search === "") {
+                        return true; // Return all items if search is empty
                       } else {
-                        if (
-                          item.bloodType &&
-                          item.number
-                            .toLowerCase()
-                            .includes(search.toLowerCase())
-                        ) {
-                          return item;
-                        }
+                        const searchLower = search.toLowerCase();
+                        return (
+                          (item.name &&
+                            item.name.toLowerCase().includes(searchLower)) || // Search by name
+                          (item.phone &&
+                            item.phone.toLowerCase().includes(searchLower)) || // Search by phone
+                          (item.bloodType &&
+                            item.bloodType.toLowerCase().includes(searchLower)) // Search by blood type
+                        );
                       }
                     })
                     .map((donar) => (

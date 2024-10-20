@@ -14,11 +14,21 @@ const RecipientsList = () => {
   const [recipients, setRecipients] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [userData, setUserData] = useState(null);
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const redirectTo = location.pathname;
+
+  const fetchUserData = async () => {
+    // Fetch user data from wherever it's stored (e.g., local storage, session storage, etc.)
+    const loginUser = localStorage.getItem("userData");
+    // console.log(JSON.parse(loginUser));
+    if (loginUser) {
+      setUserData(JSON.parse(loginUser));
+    }
+  };
 
   useEffect(() => {
     if (!user) {
@@ -42,7 +52,15 @@ const RecipientsList = () => {
   // get all recipients
   const getRecipients = async () => {
     try {
-      const response = await axios.get("http://localhost:22000/api/recipients");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userData.token}`,
+        },
+      };
+      const response = await axios.get(
+        "http://localhost:22000/api/recipients",
+        config
+      );
       console.log(response);
       setRecipients(response.data);
       setLoading(false);
@@ -52,8 +70,14 @@ const RecipientsList = () => {
   };
 
   useEffect(() => {
-    getRecipients();
+    fetchUserData();
   }, []);
+
+  useEffect(() => {
+    if (userData) {
+      getRecipients();
+    }
+  }, [userData]);
 
   if (loading) {
     return <Spinner />;
@@ -108,16 +132,15 @@ const RecipientsList = () => {
                   {recipients
                     ?.filter((item) => {
                       if (search === "") {
-                        return item;
+                        return true; // Return all items if search is empty
                       } else {
-                        if (
-                          item.bloodType &&
-                          item.fullname
-                            .toLowerCase()
-                            .includes(search.toLowerCase())
-                        ) {
-                          return item;
-                        }
+                        const searchLower = search.toLowerCase();
+                        return (
+                          (item.name &&
+                            item.name.toLowerCase().includes(searchLower)) || // Search by name
+                          (item.phone &&
+                            item.phone.toLowerCase().includes(searchLower))
+                        );
                       }
                     })
                     .map((recipient) => (

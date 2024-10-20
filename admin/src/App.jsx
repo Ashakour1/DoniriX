@@ -25,9 +25,12 @@ function App() {
           <Route path="/" element={<h1>Hello world</h1>} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/recipient/register" element={<RecipientFormPage />} />
+          <Route path="/register" element={<RecipientFormPage />} />
           <Route path="/recipients" element={<RecipientsLists />} />
-          <Route path="/recipient/update/:id" element={<RecipientFormPage />} />
+          <Route
+            path="/recipients/update/:id"
+            element={<RecipientFormPage />}
+          />
           <Route
             path="/recipient/detail/:id"
             element={<RecipientDetailPage />}

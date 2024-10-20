@@ -188,7 +188,7 @@ export const DonorDetail = () => {
               </CardContent>
             </Card>
           </div>
-          <Card className="mt-6 !bg-white !text-black">
+          {/* <Card className="mt-6 !bg-white !text-black">
             <CardHeader>
               <CardTitle className="text-xl">Donation History</CardTitle>
             </CardHeader>
@@ -200,7 +200,7 @@ export const DonorDetail = () => {
                 </span>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </CardContent>
       </Card>
     </div>

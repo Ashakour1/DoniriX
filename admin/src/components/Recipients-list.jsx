@@ -102,7 +102,7 @@ const RecipientsList = () => {
             <div className="flex items-center gap-2">
               <input
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-[200px] p-2 border-1 border-black rounded sm:w-[300px]"
+                className="w-[200px] p-2 border-1 border-black rounded sm:w-[300px] cursor-pointer"
                 id="search"
                 placeholder="Search"
                 type="search"

@@ -40,7 +40,12 @@ const RecipientsList = () => {
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to delete this recipient?")) return;
     try {
-      const { data } = await axios.delete(`/api/recipients/${id}`);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userData.token}`,
+        },
+      };
+      const { data } = await axios.delete(`/api/recipients/${id}`, config);
       getRecipients();
       toast.success(data.message);
     } catch (err) {
@@ -104,7 +109,7 @@ const RecipientsList = () => {
               />
             </div>
             <button
-              onClick={() => navigate("/recipient/register")}
+              onClick={() => navigate("/register")}
               className="text-white bg-blue-500 px-2 py-2 rounded"
             >
               Add Recipient
@@ -166,7 +171,7 @@ const RecipientsList = () => {
                           <Tooltip showArrow={true} content="Edit Recipient">
                             <button
                               onClick={() =>
-                                navigate(`/recipient/update/${recipient.id}`)
+                                navigate(`/recipients/update/${recipient.id}`)
                               }
                               className="text-white bg-green-400 px-2 py-1.5 rounded"
                             >

@@ -29,7 +29,7 @@ const DonorForm = () => {
     // console.log(formData);
     try {
       const response = await axios.post(
-        "http://localhost:22000/api/donars",
+        "http://localhost:22000/api/donors",
         formData
       );
       console.log(response.data);

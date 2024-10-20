@@ -29,7 +29,7 @@ export const BloodTypes = () => {
             className="
               aspect-square rounded-lg shadow-md
               flex flex-col items-center justify-center
-              bg-white text-gray-800
+              bg-white text-gray-800 cursor-pointer
             "
           >
             <Droplet className="mb-2 fill-red-500" size={32} />

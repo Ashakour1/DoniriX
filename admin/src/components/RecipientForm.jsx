@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const RecipientForm = () => {
   const { id } = useParams();
 
   const [Loading, setLoading] = useState(false);
+  const [userData, setUserData] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,11 +21,27 @@ const RecipientForm = () => {
     reasonForBloodNeed: "",
   });
 
+  const navigate = useNavigate();
+
+  const fetchUserData = async () => {
+    // Fetch user data from wherever it's stored (e.g., local storage, session storage, etc.)
+    const loginUser = localStorage.getItem("userData");
+    // console.log(JSON.parse(loginUser));
+    if (loginUser) {
+      setUserData(JSON.parse(loginUser));
+    }
+  };
+
   const fetchRecipient = async () => {
+    if (!id) return; // Skip if there's no ID
+
     try {
-      const { data } = await axios.get(
-        `/api/recipients/${id}`
-      );
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userData.token}`,
+        },
+      };
+      const { data } = await axios.get(`/api/recipients/${id}`, config);
       console.log(data);
       setFormData(data);
     } catch (error) {
@@ -33,10 +50,14 @@ const RecipientForm = () => {
   };
 
   useEffect(() => {
-    if (id) {
-      fetchRecipient();
+    fetchUserData();
+  }, []);
+
+  useEffect(() => {
+    if (userData) {
+      fetchRecipient(); // Fetch recipient data when userData is ready
     }
-  }, [id]);
+  }, [userData, id]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -61,21 +82,27 @@ const RecipientForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userData?.token}`, // Include token in headers
+        },
+      };
+
       if (id) {
         const { data } = await axios.put(
           `/api/recipients/${id}`,
-          formData
+          formData,
+          config
         );
-        clearData();
+
         toast.success(data.message);
       } else {
-        const response = await axios.post(
-          "/api/recipients",
-          formData
-        );
-        clearData();
+        const response = await axios.post("/api/recipients", formData);
+
         toast.success(response.data.message);
       }
+      clearData();
+      navigate("/recipients");
     } catch (error) {
       toast.error(error.response?.data?.message || "An error occurred");
     }

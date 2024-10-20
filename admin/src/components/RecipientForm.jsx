@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useUser } from "@/hooks/useUser";
 
 const RecipientForm = () => {
   const { id } = useParams();
@@ -20,8 +21,18 @@ const RecipientForm = () => {
     preferredHospital: "",
     reasonForBloodNeed: "",
   });
-
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const redirectTo = location.pathname;
+
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (!user) {
+      navigate(`/login?redirectTo=${redirectTo}`);
+    }
+  }, [user]);
 
   const fetchUserData = async () => {
     // Fetch user data from wherever it's stored (e.g., local storage, session storage, etc.)
@@ -97,7 +108,7 @@ const RecipientForm = () => {
 
         toast.success(data.message);
       } else {
-        const response = await axios.post("/api/recipients", formData);
+        const response = await axios.post("/api/recipients", formData, config);
 
         toast.success(response.data.message);
       }

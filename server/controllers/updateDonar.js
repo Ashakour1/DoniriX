@@ -61,6 +61,6 @@ export const updateDonar = asyncHandler(async (req, res) => {
   res.status(200).json({
     success: true,
     error: false,
-    message: "updated successfully",
+    message: "Updated successfully",
   });
 });

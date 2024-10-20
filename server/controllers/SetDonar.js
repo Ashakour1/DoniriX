@@ -4,16 +4,6 @@ import prisma from "../config/prisma.js";
 export const setDonar = asyncHandler(async (req, res) => {
   console.log(req.body);
 
-  // fullname  String
-  // email     String   @unique
-  // phone     String
-  // age       Int
-  // weight    Float
-  // address  String
-  // nextOfkin String
-  // hp String
-  // bloodType     String
-  // status    String
   const {
     name,
     email,
@@ -100,6 +90,6 @@ export const setDonar = asyncHandler(async (req, res) => {
   res.status(201).json({
     success: true,
     error: false,
-    message: "You are successfully registered as a donar",
+    message: "Registered Successfully",
   });
 });

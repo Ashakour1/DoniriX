@@ -6,8 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "postinstall": "prisma generate",
-    "build": "npm run postinstall",
+    "build": "react-scripts build",
     "db-push": "npx prisma db push"
   },
   "author": "a.shakour",

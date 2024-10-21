@@ -3,7 +3,7 @@ import Donars from "./routes/DonarRoutes.js";
 import Admin from "./routes/AdminRoutes.js";
 import ErrorHandler from "./middlewares/errorMiddleware.js";
 import dotenv from "dotenv";
-import sendEmail from "./routes/sendEmailRoutes.js";
+// import sendEmail from "./routes/sendEmailRoutes.js";
 import cors from "cors";
 import RecipientRouter from "./routes/recipientRoutes.js";
 dotenv.config();
@@ -25,6 +25,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/donors", Donars);
 app.use("/api/recipients", RecipientRouter);
 app.use("/api/admin", Admin);
+app.use("", (req, res) => {
+  res.send("Email sent");
+});
 
 app.get("*", (req, res) => {
   res.status(404);

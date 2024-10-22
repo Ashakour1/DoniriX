@@ -1,9 +1,7 @@
 import React from "react";
 import { Badge } from "@nextui-org/react";
 
-const RecentDonars = ({donors}) => {
- 
-
+const RecentDonars = ({ donors }) => {
   return (
     <div className="w-full max-w-5xl mx-auto p-6 bg-transparent border border-black rounded-lg">
       <h2 className="text-2xl font-bold text-black">Recent Blood Donors</h2>
@@ -46,7 +44,7 @@ const RecentDonars = ({donors}) => {
                   {donor.bloodType}
                 </td>
                 <td className="border border-gray-200 px-6 py-4 text-sm text-gray-700">
-                  {donor.donationTime}
+                  {donor.updatedAt.slice(0, 10)}
                 </td>
                 <td className="border border-gray-200 px-6 py-4 text-right text-sm text-gray-700">
                   {donor.location}

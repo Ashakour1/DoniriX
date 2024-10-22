@@ -9,7 +9,7 @@ import { MdOutlineDelete } from "react-icons/md";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import Spinner from "@/components/Spinner";
-
+import { URL } from "../services/api";
 const DonorsLists = () => {
   const { bloodType } = useParams();
 
@@ -58,7 +58,7 @@ const DonorsLists = () => {
             Authorization: `Bearer ${userData?.token}`,
           },
         };
-        const { data } = await axios.delete(`/api/donors/${id}`, config);
+        const { data } = await axios.delete(`${URL}/api/donors/${id}`, config);
         toast.success(data.message);
         getDonars();
         // setLoading(false);
@@ -82,7 +82,7 @@ const DonorsLists = () => {
             bloodType,
           },
         };
-        const response = await axios.get(`/api/donors`, config);
+        const response = await axios.get(`${URL}/api/donors`, config);
         console.log(donars);
         setDonars(response.data.data.donars); // Default to empty array
         // console.log();

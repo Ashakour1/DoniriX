@@ -15,6 +15,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
+import { URL } from "../services/api";
 import { useUser } from "@/hooks/useUser";
 
 export const RecipientDetail = () => {
@@ -55,7 +56,7 @@ export const RecipientDetail = () => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:22000/api/recipients/${id}`,
+        `${URL}/api/recipients/${id}`,
         config // API endpoint
       );
       const recipientData = data;

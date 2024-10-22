@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://api-badbaadiye.vercel.app/",
+      "/api": "https://api-badbaadiye.vercel.app",
     },
   },
   resolve: {

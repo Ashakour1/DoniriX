@@ -6,6 +6,7 @@ import axios from "axios";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import RecentDonars from "./RecentDonars-Table";
 import Spinner from "./Spinner";
+import { URL } from "../services/api";
 
 export default function DashboardContent() {
   const { user } = useUser();
@@ -62,7 +63,7 @@ export default function DashboardContent() {
           Authorization: `Bearer ${userData.token}`,
         },
       };
-      const { data } = await axios.get("/api/recipients/", config);
+      const { data } = await axios.get(`${URL}/api/recipients/`, config);
       setRecipients(data);
     } catch (err) {
       console.error(err);

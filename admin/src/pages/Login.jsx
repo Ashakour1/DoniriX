@@ -52,13 +52,13 @@ const Login = () => {
       toast.success(data.message);
       login(data, data.expiresIn);
     } catch (error) {
-      setLoading(false);
-
-      // Check if error response exists and extract the message
-      const errorMessage =
-        error.response?.data?.message || "An unexpected error occurred.";
       console.log(error);
-      toast.error(errorMessage);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.response.data.message,
+      });
+      setLoading(false);
     }
   };
 

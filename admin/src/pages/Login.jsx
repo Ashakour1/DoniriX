@@ -41,7 +41,7 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const { data } = await axios.post(`${URL}/api/admin/login`, formData);
+      const { data } = await axios.post(`https://api-badbaadiye.vercel.app/api/admin/login`, formData);
 
       console.log(data.expiresIn);
       toast.success(data.message);

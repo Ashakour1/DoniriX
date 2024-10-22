@@ -35,7 +35,7 @@ export default function DashboardContent() {
     fetchUserData();
   }, []);
 
-  const getDonars = async () => {
+  const getData = async () => {
     try {
       const config = {
         headers: {
@@ -43,11 +43,17 @@ export default function DashboardContent() {
         },
       };
 
-      const response = await axios.get(
-        "http://localhost:22000/api/donors",
-        config
-      );
-      setDonars(response.data.data.donars || []); // Default to empty array if undefined
+      // Use Promise.all to make both requests concurrently
+      const [donorsResponse, recipientsResponse] = await Promise.all([
+        axios.get(`${URL}/api/donors`, config),
+        axios.get(`${URL}/api/recipients/`, config),
+      ]);
+
+      // Handle donors data
+      setDonars(donorsResponse.data.data.donars || []); // Default to empty array if undefined
+
+      // Handle recipients data
+      setRecipients(recipientsResponse.data);
     } catch (err) {
       console.error(err);
       setError(err);
@@ -56,25 +62,9 @@ export default function DashboardContent() {
     }
   };
 
-  const getRecipients = async () => {
-    try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${userData.token}`,
-        },
-      };
-      const { data } = await axios.get(`${URL}/api/recipients/`, config);
-      setRecipients(data);
-    } catch (err) {
-      console.error(err);
-      setError(err);
-    }
-  };
-
   useEffect(() => {
     if (userData) {
-      getDonars();
-      getRecipients();
+      getData();
     }
   }, [userData]);
 

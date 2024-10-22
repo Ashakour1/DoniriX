@@ -9,12 +9,7 @@ import RecipientRouter from "./routes/recipientRoutes.js";
 dotenv.config();
 const app = express();
 
-app.use(
-  cors({
-    origin: "*", // Allow all origins (adjust if needed)
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  })
-);
+app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 

@@ -52,7 +52,7 @@ const Login = () => {
       // Check if error response exists and extract the message
       const errorMessage =
         error.response?.data?.message || "An unexpected error occurred.";
-      console.log(errorMessage);
+      console.log(error);
       toast.error(errorMessage);
     }
   };

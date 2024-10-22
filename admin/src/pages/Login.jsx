@@ -17,6 +17,8 @@ const Login = () => {
     password: "",
   });
 
+  console.log(formData);
+
   const location = useLocation();
 
   const redirectTo = location.search.split("/")[1];
@@ -41,7 +43,10 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const { data } = await axios.post(`https://api-badbaadiye.vercel.app/api/admin/login`, formData);
+      const { data } = await axios.post(
+        `https://api-badbaadiye.vercel.app/api/admin/login`,
+        formData
+      );
 
       console.log(data.expiresIn);
       toast.success(data.message);

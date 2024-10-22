@@ -23,17 +23,29 @@ const DonorForm = () => {
     console.log(formData);
   };
 
+  const clearData = () => {
+    setFormData({
+      name: "",
+      email: "",
+      sex: "",
+      phone: "",
+      age: "",
+      weight: "",
+      address: "",
+      nextOfKin: "",
+      hp: "",
+      bloodType: "",
+    });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     // console.log(formData);
     try {
-      const response = await axios.post(
-        "http://localhost:22000/api/donors",
-        formData
-      );
-      console.log(response.data);
+      const response = await axios.post("api/donors", formData);
+      // console.log(response.data);
       toast.success(response.data.message);
+      clearData();
       //   console.log(data);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -64,6 +76,7 @@ const DonorForm = () => {
             placeholder="Enter donor name"
             type="text"
             name="name"
+            value={formData.name}
             onChange={handleChange}
           />
         </div>
@@ -80,6 +93,7 @@ const DonorForm = () => {
             placeholder="Email Address"
             name="email"
             type="email"
+            value={formData.email}
             onChange={handleChange}
           />
         </div>
@@ -94,6 +108,7 @@ const DonorForm = () => {
             name="sex"
             className="rounded-md border border-gray-300 p-2 text-sm text-black focus:border-primary focus:ring-primary"
             id="sex"
+            value={formData.sex}
             onChange={handleChange}
           >
             <option value="">Select Sex</option>
@@ -114,6 +129,7 @@ const DonorForm = () => {
             id="phone"
             placeholder="Enter the donor's phone number"
             name="phone"
+            value={formData.phone}
             onChange={handleChange}
           />
         </div>
@@ -132,6 +148,7 @@ const DonorForm = () => {
               placeholder="Enter the donor's age"
               type="number"
               name="age"
+              value={formData.age}
               onChange={handleChange}
             />
           </div>
@@ -148,6 +165,7 @@ const DonorForm = () => {
               placeholder="Enter the donor's weight"
               type="number"
               name="weight"
+              value={formData.weight}
               onChange={handleChange}
             />
           </div>
@@ -164,6 +182,7 @@ const DonorForm = () => {
             name="bloodType"
             className="rounded-md border border-gray-300 p-2 text-sm text-black focus:border-primary focus:ring-primary"
             id="bloodType"
+            value={formData.bloodType}
             onChange={handleChange}
           >
             <option value="">Select Blood Type</option>
@@ -190,6 +209,7 @@ const DonorForm = () => {
             placeholder="Enter the donor's hp"
             type="text"
             name="hp"
+            value={formData.hp}
             onChange={handleChange}
           />
         </div>
@@ -207,6 +227,7 @@ const DonorForm = () => {
             placeholder="Enter the donor's address"
             type="text"
             name="address"
+            value={formData.address}
             onChange={handleChange}
           />
         </div>
@@ -224,6 +245,7 @@ const DonorForm = () => {
             placeholder="Enter the donor's next of kin"
             type="text"
             name="nextOfKin"
+            value={formData.nextOfKin}
             onChange={handleChange}
           />
         </div>

@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { URL } from "../services/api";
 const DonorForm = () => {
   const { id } = useParams();
 
@@ -44,7 +45,7 @@ const DonorForm = () => {
             Authorization: `Bearer ${userData.token}`,
           },
         };
-        const { data } = await axios.get(`/api/donors/${id}`, config);
+        const { data } = await axios.get(`${URL}/api/donors/${id}`, config);
         setFormData(data.data.donar);
       }
     } catch (error) {
@@ -88,10 +89,14 @@ const DonorForm = () => {
       };
 
       if (id) {
-        const { data } = await axios.put(`/api/donors/${id}`, formData, config);
+        const { data } = await axios.put(
+          `${URL}/api/donors/${id}`,
+          formData,
+          config
+        );
         toast.success(data.message);
       } else {
-        const { data } = await axios.post("/api/donors", formData);
+        const { data } = await axios.post(`${URL}/api/donors`, formData);
         toast.success(data.message);
       }
       clearData();

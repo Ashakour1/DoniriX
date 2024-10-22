@@ -45,22 +45,15 @@ const Login = () => {
 
       console.log(data.expiresIn);
       toast.success(data.message);
-      // console.log(data.expiresIn);
       login(data, data.expiresIn);
-
-      setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        toast.error(error.response.data.message);
-      } else {
-        toast.error(error.message || "An error occurred, please try again.");
-      }
+
+      // Check if error response exists and extract the message
+      const errorMessage =
+        error.response?.data?.message || "An unexpected error occurred.";
+      console.log(errorMessage);
+      toast.error(errorMessage);
     }
   };
 

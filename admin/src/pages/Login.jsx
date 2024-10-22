@@ -40,9 +40,7 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const { data } = await axios.post("/api/admin/login", formData, {
-        withCredentials: true,
-      });
+      const { data } = await axios.post("/api/admin/login", formData);
 
       console.log(data.expiresIn);
       toast.success(data.message);

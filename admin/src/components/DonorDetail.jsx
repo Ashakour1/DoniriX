@@ -18,6 +18,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 import { useUser } from "@/hooks/useUser";
+import { URL } from "../services/api";
 
 export const DonorDetail = () => {
   const [donorDetail, setDonorDetail] = useState(null);
@@ -59,7 +60,7 @@ export const DonorDetail = () => {
           Authorization: `Bearer ${userData.token}`,
         },
       };
-      const { data } = await axios.get(`/api/donors/${id}`, config);
+      const { data } = await axios.get(`${URL}/api/donors/${id}`, config);
       const donarData = data.data.donar;
       setDonorDetail(donarData);
       setLoading(false);

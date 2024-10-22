@@ -5,6 +5,7 @@ import { redirect, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useUser } from "../hooks/useUser";
 import Swal from "sweetalert2";
+import { URL } from "../services/api";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -40,7 +41,7 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const { data } = await axios.post("/api/admin/login", formData);
+      const { data } = await axios.post(`${URL}/api/admin/login`, formData);
 
       console.log(data.expiresIn);
       toast.success(data.message);

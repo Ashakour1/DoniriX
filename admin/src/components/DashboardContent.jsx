@@ -10,6 +10,7 @@ import Spinner from "./Spinner";
 export default function DashboardContent() {
   const { user } = useUser();
   const [donars, setDonars] = useState([]);
+  const [recipients, setRecipients] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const location = useLocation();
@@ -54,9 +55,25 @@ export default function DashboardContent() {
     }
   };
 
+  const getRecipients = async () => {
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userData.token}`,
+        },
+      };
+      const { data } = await axios.get("/api/recipients/", config);
+      setRecipients(data);
+    } catch (err) {
+      console.error(err);
+      setError(err);
+    }
+  };
+
   useEffect(() => {
     if (userData) {
       getDonars();
+      getRecipients();
     }
   }, [userData]);
 
@@ -71,6 +88,7 @@ export default function DashboardContent() {
   }
 
   const donatedDonors = donars.filter((donor) => donor.status === "finished");
+  const pendingDonors = donars.filter((donor) => donor.status === "pending");
 
   return (
     <div>
@@ -92,12 +110,12 @@ export default function DashboardContent() {
         <Card className="!bg-transparent !text-black">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Available Blood Units
+              Total Recipients
             </CardTitle>
             <Heart className="h-4 w-4 text-red-500" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">862</div>
+            <div className="text-2xl font-bold">{recipients.length}</div>
           </CardContent>
         </Card>
         <Card className="!bg-transparent !text-black">
@@ -114,7 +132,7 @@ export default function DashboardContent() {
       </div>
 
       {/* Recent Donors Table */}
-      <RecentDonars donors={donars} />
+      <RecentDonars donors={donatedDonors} />
     </div>
   );
 }

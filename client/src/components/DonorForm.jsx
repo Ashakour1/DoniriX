@@ -40,9 +40,10 @@ const DonorForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    const URL = "https://api-badbaadiye.vercel.app/api/donors";
     // console.log(formData);
     try {
-      const response = await axios.post("api/donors", formData);
+      const response = await axios.post(URL, formData);
       // console.log(response.data);
       toast.success(response.data.message);
       clearData();

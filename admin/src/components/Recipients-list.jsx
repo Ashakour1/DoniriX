@@ -8,6 +8,8 @@ import axios from "axios";
 import RecipientStatus from "@/components/RecipientStatus";
 import { useUser } from "@/hooks/useUser";
 import Spinner from "./Spinner";
+import { URL } from "../services/api";
+
 const RecipientsList = () => {
   const { user } = useUser();
   // const [selectedRecipient, setSelectedRecipient] = useState(null);
@@ -45,7 +47,10 @@ const RecipientsList = () => {
           Authorization: `Bearer ${userData.token}`,
         },
       };
-      const { data } = await axios.delete(`/api/recipients/${id}`, config);
+      const { data } = await axios.delete(
+        `${URL}/api/recipients/${id}`,
+        config
+      );
       getRecipients();
       toast.success(data.message);
     } catch (err) {
@@ -62,10 +67,7 @@ const RecipientsList = () => {
           Authorization: `Bearer ${userData.token}`,
         },
       };
-      const response = await axios.get(
-        "http://localhost:22000/api/recipients",
-        config
-      );
+      const response = await axios.get(`${URL}/api/recipients`, config);
       console.log(response);
       setRecipients(response.data);
       setLoading(false);

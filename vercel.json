@@ -7,11 +7,9 @@
     }
   ],
   "routes": [
-    { "src": "/api/donors/(.*)", "dest": "/server.js" },
-    { "src": "/api/recipients/(.*)", "dest": "/server.js" },
-    { "src": "/api/recipients/(.*)", "dest": "/server.js" },
-    { "src": "/api/admin(.*)", "dest": "/server.js" },
-    { "src": "/", "dest": "/server.js" }
-  ],
-  "outputDirectory": "."
+    {
+      "src": "/api/(.*)",
+      "dest": "/server.js"
+    }
+  ]
 }

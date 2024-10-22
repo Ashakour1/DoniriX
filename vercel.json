@@ -1,17 +1,20 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "./server.js",
-        "use": "@vercel/node"
+  "version": 2,
+  "builds": [
+    {
+      "src": "./server.js",
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "npm run build"
       }
-    ],
-    "routes": [
-      {
-        "src": "/api/.*",
-        "dest": "/server.js"
-      }
-    ],
-    "outputDirectory": "."
-  }
-  
+    }
+  ],
+  "routes": [
+    { "src": "/api/donors/(.*)", "dest": "/server.js" },
+    { "src": "/api/recipients/(.*)", "dest": "/server.js" },
+    { "src": "/api/recipients/(.*)", "dest": "/server.js" },
+    { "src": "/api/admin(.*)", "dest": "/server.js" },
+    { "src": "/", "dest": "/server.js" }
+  ],
+  "outputDirectory": "."
+}

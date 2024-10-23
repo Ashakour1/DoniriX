@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#005B96",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, log out!",
     }).then((result) => {
@@ -22,10 +22,12 @@ export const UserProvider = ({ children }) => {
           text: "You have been successfully logged out.",
           icon: "success",
         });
+        localStorage.removeItem("userData");
+        localStorage.removeItem("expiresIn");
+        setUser(null);
+      } else {
+        return;
       }
-      localStorage.removeItem("userData");
-      localStorage.removeItem("expiresIn");
-      setUser(null);
     });
   };
 

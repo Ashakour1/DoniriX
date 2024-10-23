@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}", // Adjust this based on your project structure
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        Accent: "#005B96",
+
+      },
+    },
   },
   plugins: [],
 };

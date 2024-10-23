@@ -8,7 +8,7 @@ import axios from "axios";
 import RecipientStatus from "@/components/RecipientStatus";
 import { useUser } from "@/hooks/useUser";
 import Spinner from "./Spinner";
-import {URL} from "../services/Api"
+import { URL } from "../services/Api";
 
 const RecipientsList = () => {
   const { user } = useUser();
@@ -94,7 +94,9 @@ const RecipientsList = () => {
       <div className="grid gap-4">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
           <div className="grid gap-1">
-            <h1 className="text-2xl font-bold tracking-tight">Recipients</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-Accent">
+              Recipients
+            </h1>
             <p className="text-gray-500 dark:text-gray-400">
               List of recipients available.
             </p>
@@ -112,7 +114,7 @@ const RecipientsList = () => {
             </div>
             <button
               onClick={() => navigate("/register")}
-              className="text-white bg-blue-500 px-2 py-2 rounded"
+              className="text-white bg-Accent px-2 py-2 rounded"
             >
               Add Recipient
             </button>
@@ -126,7 +128,7 @@ const RecipientsList = () => {
             <div className="overflow-auto rounded-md">
               <table className="min-w-full">
                 <thead>
-                  <tr className="border-y text-sm font-semibold bg-slate-400">
+                  <tr className="border-y text-sm font-semibold bg-Accent">
                     <th className="px-2 py-2 text-left">Name</th>
                     <th className="px-2 py-2 text-left">Email</th>
                     <th className="px-2 py-2 text-left">Phone</th>
@@ -160,34 +162,29 @@ const RecipientsList = () => {
                         </td>
                         <td className="px-2 py-2">{recipient.bloodType}</td>
                         <td className="px-2 py-2">
-                          <Tooltip showArrow={true} content="View All Info">
-                            <button
-                              onClick={() =>
-                                navigate(`/recipient/detail/${recipient.id}`)
-                              }
-                              className="text-white bg-blue-400 px-2 py-1 rounded mx-2"
-                            >
-                              View All
-                            </button>
-                          </Tooltip>
-                          <Tooltip showArrow={true} content="Edit Recipient">
-                            <button
-                              onClick={() =>
-                                navigate(`/recipients/update/${recipient.id}`)
-                              }
-                              className="text-white bg-green-400 px-2 py-1.5 rounded"
-                            >
-                              <BiEdit />
-                            </button>
-                          </Tooltip>
-                          <Tooltip showArrow={true} content="Delete Recipient">
-                            <button
-                              onClick={() => handleDelete(recipient.id)}
-                              className="text-white bg-red-900 px-2 py-1.5 rounded mx-2"
-                            >
-                              <MdOutlineDelete />
-                            </button>
-                          </Tooltip>
+                          <button
+                            onClick={() =>
+                              navigate(`/recipient/detail/${recipient.id}`)
+                            }
+                            className="text-white bg-Accent px-2 py-1 rounded mx-2"
+                          >
+                            View All
+                          </button>
+
+                          <button
+                            onClick={() =>
+                              navigate(`/recipients/update/${recipient.id}`)
+                            }
+                            className="text-white bg-green-400 px-2 py-1.5 rounded"
+                          >
+                            <BiEdit />
+                          </button>
+                          <button
+                            onClick={() => handleDelete(recipient.id)}
+                            className="text-white bg-red-900 px-2 py-1.5 rounded mx-2"
+                          >
+                            <MdOutlineDelete />
+                          </button>
                         </td>
                       </tr>
                     ))}

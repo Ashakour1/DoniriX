@@ -179,7 +179,7 @@ const DonorsLists = () => {
                       <tr className="text-sm" key={donar.id}>
                         <td className="px-2 py-2">{donar.name}</td>
                         <td className="px-2 py-2">{donar.email}</td>
-                        <td className="px-2 py-2">{donar.phone}</td>
+                        <td className="px-2 py-2">{donar.phone.toString()}</td>
                         <td className="px-2 py-2">{donar.age}</td>
                         <td className="px-2 py-2">{donar.bloodType}</td>
                         <td className="px-2 py-2">

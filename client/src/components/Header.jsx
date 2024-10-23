@@ -19,9 +19,7 @@ const Header = () => {
     <header className="p-2 ">
       <div className=" max-w-[1040px] mx-auto flex justify-between items-center md:px-0 px-2">
         <Link to="/">
-          <h1 className="text-xl text-blue-500 font-medium">
-            Bad<span className="text-black">baadiye</span>
-          </h1>
+          <img src="/logo.png" alt="logo.png" className="w-40" />
         </Link>
         <div>
           <div className=" text-sm md:flex font-medium hidden text-gray-800">

@@ -9,7 +9,7 @@ import { MdOutlineDelete } from "react-icons/md";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import Spinner from "@/components/Spinner";
-import {URL} from "../services/Api"
+import { URL } from "../services/Api";
 const DonorsLists = () => {
   const { bloodType } = useParams();
 
@@ -116,10 +116,12 @@ const DonorsLists = () => {
       <div className="  grid gap-4 ">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 ">
           <div className="grid gap-1">
-            <h1 className="text-2xl font-bold tracking-tight ">
+            <h1 className="text-2xl text-Accent font-bold tracking-tight ">
               Donors & Supporters
             </h1>
-            <p className="text-gray-500 dark:text-gray-400">List of donors.</p>
+            <p className="text-gray-500 dark:text-gray-400">
+              list of donors and supporters available
+            </p>
           </div>
 
           <div className="flex gap-4 md:ml-auto">
@@ -134,7 +136,7 @@ const DonorsLists = () => {
             </div>
             <button
               onClick={() => navigate("/donors/register")}
-              className="text-white bg-blue-500 px-2 py-2 rounded"
+              className="text-white bg-Accent px-2 py-2 rounded"
             >
               Add Donar
             </button>
@@ -147,7 +149,7 @@ const DonorsLists = () => {
             <div className="overflow-auto rounded-md">
               <table className="min-w-full">
                 <thead>
-                  <tr className="border-y text-sm font-semibold bg-slate-400 ">
+                  <tr className="border-y text-sm font-semibold bg-Accent ">
                     <th className="px-2 py-2 text-left">Name</th>
                     <th className="px-2 py-2 text-left">Email</th>
                     <th className="px-2 py-2 text-left">Phone</th>
@@ -186,7 +188,7 @@ const DonorsLists = () => {
                               onClick={() =>
                                 navigate(`/donor/detail/${donar.id}`)
                               }
-                              className="text-white bg-blue-400 px-2 py-1 rounded mx-2"
+                              className="text-white bg-Accent px-2 py-1 rounded mx-2"
                             >
                               View All
                             </button>

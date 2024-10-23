@@ -25,8 +25,8 @@ model Admin {
 model Donar {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
   name  String
-  email     String   @unique
-  phone     String    
+  email     String  
+  phone     Int    
   sex String
   age       Int
   weight    Float

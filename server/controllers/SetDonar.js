@@ -18,7 +18,7 @@ export const setDonar = asyncHandler(async (req, res) => {
     amount,
   } = req.body;
 
-  // check if all fields are filled
+  // Check if all fields are filled
   if (
     !name ||
     !email ||
@@ -50,25 +50,30 @@ export const setDonar = asyncHandler(async (req, res) => {
     throw new Error("Please enter a valid phone number");
   }
 
-  // if (motherNumber.length < 0) {
-  //   res.status(400);
-  //   throw new Error("Please enter a valid mother phone number");
-  // }
-
-  // check if donar exists
+  // Check if donor exists
   const donarExists = await prisma.donar.findUnique({
     where: {
       email,
     },
   });
 
-  // if donar exists
+  // If donor exists
   if (donarExists) {
-    res.status(400);
-    throw new Error("Donar already exists");
+    const { updatedAt } = donarExists;
+
+    // Check if last donation was more than 3 months ago
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+
+    if (updatedAt > threeMonthsAgo) {
+      res.status(400);
+      throw new Error(
+        "You cannot donate yet. Please wait until 3 months have passed since your last donation."
+      );
+    }
   }
 
-  // create donar
+  // Create donor
   const Donar = await prisma.donar.create({
     data: {
       name,
@@ -86,7 +91,7 @@ export const setDonar = asyncHandler(async (req, res) => {
     },
   });
 
-  // return donar response
+  // Return donor response
   res.status(201).json({
     success: true,
     error: false,

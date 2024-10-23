@@ -26,8 +26,8 @@ const Home = () => {
         </div>
         <div className="max-w-[550px] flex flex-col gap-3">
           <h1 className="text-4xl font-bold">
-            At <span className="text-blue-500">LifeCord</span> we're dedicated
-            to saving lives through the power of LifeCord.
+            At <span className="text-blue-500">donoriX</span> we're dedicated to
+            saving lives through the power of LifeCord.
           </h1>
           <p className="text-base">
             Our mission is to save lives by connecting donors with people who

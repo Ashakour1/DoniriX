@@ -8,7 +8,7 @@ import { AuthMiddleware } from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
 router.post("/", RegisterAdmin);
-router.post("/login", AuthMiddleware, loginAdmin);
+router.post("/login", loginAdmin);
 router.get("/data", GetAdminData);
 router.put("/:id", AuthMiddleware, UpdateAdmin);
 router.delete("/:id", AuthMiddleware, deleteAdmin);

@@ -6,7 +6,7 @@ import axios from "axios";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import RecentDonars from "./RecentDonars-Table";
 import Spinner from "./Spinner";
-import { URL } from "../services/api";
+import {URL} from "../services/Api"
 
 export default function DashboardContent() {
   const { user } = useUser();

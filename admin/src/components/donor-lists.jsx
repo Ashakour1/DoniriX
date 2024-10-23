@@ -9,7 +9,7 @@ import { MdOutlineDelete } from "react-icons/md";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import Spinner from "@/components/Spinner";
-import { URL } from "../services/api";
+import {URL} from "../services/Api"
 const DonorsLists = () => {
   const { bloodType } = useParams();
 

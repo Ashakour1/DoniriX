@@ -15,7 +15,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
-import { URL } from "../services/api";
+import {URL} from "../services/Api"
 import { useUser } from "@/hooks/useUser";
 
 export const RecipientDetail = () => {

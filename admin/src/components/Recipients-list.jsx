@@ -8,7 +8,7 @@ import axios from "axios";
 import RecipientStatus from "@/components/RecipientStatus";
 import { useUser } from "@/hooks/useUser";
 import Spinner from "./Spinner";
-import { URL } from "../services/api";
+import {URL} from "../services/Api"
 
 const RecipientsList = () => {
   const { user } = useUser();

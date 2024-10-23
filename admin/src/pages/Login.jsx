@@ -5,7 +5,7 @@ import { redirect, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useUser } from "../hooks/useUser";
 import Swal from "sweetalert2";
-import { URL } from "../services/api";
+import { URL } from "../services/Api";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);

@@ -18,7 +18,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 import { useUser } from "@/hooks/useUser";
-import { URL } from "../services/api";
+import {URL} from "../services/Api"
 
 export const DonorDetail = () => {
   const [donorDetail, setDonorDetail] = useState(null);

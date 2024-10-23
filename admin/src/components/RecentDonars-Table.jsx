@@ -3,8 +3,8 @@ import { Badge } from "@nextui-org/react";
 
 const RecentDonars = ({ donors }) => {
   return (
-    <div className="w-full max-w-5xl mx-auto p-6 bg-transparent border border-black rounded-lg">
-      <h2 className="text-2xl font-bold text-black">Recent Blood Donors</h2>
+    <div className="w-full max-w-5xl mx-auto p-6 bg-transparent border border-Accent rounded-lg">
+      <h2 className="text-2xl font-bold text-Accent">Recent Blood Donors</h2>
       <p className="mt-2 text-gray-600">
         This table shows our most recent blood donors, their blood types,
         donation times, and locations.

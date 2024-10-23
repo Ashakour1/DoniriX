@@ -15,7 +15,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
-import {URL} from "../services/Api"
+import { URL } from "../services/Api";
 import { useUser } from "@/hooks/useUser";
 
 export const RecipientDetail = () => {
@@ -97,7 +97,7 @@ export const RecipientDetail = () => {
 
   return (
     <div className="max-w-[1040px] mx-auto px-4 py-10">
-      <Card className="!bg-transparent text-black border-none">
+      <Card className="!bg-none text-black border-0">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <div className="flex items-center space-x-4">
             <Avatar className="w-20 h-20">
@@ -127,7 +127,9 @@ export const RecipientDetail = () => {
             {/* Personal Information */}
             <Card className="!bg-white !text-black">
               <CardHeader>
-                <CardTitle className="text-xl">Personal Information</CardTitle>
+                <CardTitle className="text-xl text-Accent">
+                  Personal Information
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="flex items-center space-x-2">
@@ -152,7 +154,9 @@ export const RecipientDetail = () => {
             {/* Medical Information */}
             <Card className="!bg-white !text-black">
               <CardHeader>
-                <CardTitle className="text-xl">Medical Information</CardTitle>
+                <CardTitle className="text-xl text-Accent">
+                  Medical Information
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="flex items-center space-x-2">

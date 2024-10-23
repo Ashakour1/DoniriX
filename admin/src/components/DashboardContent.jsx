@@ -6,7 +6,7 @@ import axios from "axios";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import RecentDonars from "./RecentDonars-Table";
 import Spinner from "./Spinner";
-import {URL} from "../services/Api"
+import { URL } from "../services/Api";
 
 export default function DashboardContent() {
   const { user } = useUser();
@@ -83,11 +83,11 @@ export default function DashboardContent() {
 
   return (
     <div>
-      <h1 className="text-xl font-bold text-gray-800 mb-4">Dashboard</h1>
+      <h1 className="text-xl font-bold text-Accent mb-4">Dashboard</h1>
 
       {/* Stats Grid */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
-        <Card className="!bg-transparent !text-black">
+        <Card className="!bg-transparent !text-Accent">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Total Donations
@@ -98,7 +98,7 @@ export default function DashboardContent() {
             <div className="text-2xl font-bold">{donatedDonors.length}</div>
           </CardContent>
         </Card>
-        <Card className="!bg-transparent !text-black">
+        <Card className="!bg-transparent !text-Accent">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Total Recipients
@@ -109,7 +109,7 @@ export default function DashboardContent() {
             <div className="text-2xl font-bold">{recipients.length}</div>
           </CardContent>
         </Card>
-        <Card className="!bg-transparent !text-black">
+        <Card className="!bg-transparent !text-Accent">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Registered Donors

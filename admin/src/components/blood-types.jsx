@@ -19,8 +19,16 @@ export const BloodTypes = () => {
   const navigate = useNavigate();
   //   console.log(navigate);
   return (
-    <div className="max-w-[1400px] mx-auto bg-gray-100 flex flex-col items-center justify-center ">
-      <h1 className="text-4xl font-bold mb-8 text-gray-800">Blood Types</h1>
+    <div className="max-w-[1400px] mx-auto bg-gray-100 flex flex-col justify-center ">
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold  text-Accent text-start ">
+          Blood Types
+        </h1>
+        <p>
+          Click on a blood type to view donors with that blood type. You can
+          also search for donors using the search bar.
+        </p>
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4  w-full">
         {bloodTypes.map((type) => (
           <div

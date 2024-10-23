@@ -53,11 +53,11 @@ export const setDonar = asyncHandler(async (req, res) => {
   // Check if donor exists
   const donarExists = await prisma.donar.findUnique({
     where: {
-      email,
+      email: email, // Ensure this is unique in your schema
     },
   });
 
-  // If donor exists
+  // If donor exists, check eligibility
   if (donarExists) {
     const { updatedAt } = donarExists;
 
@@ -73,12 +73,12 @@ export const setDonar = asyncHandler(async (req, res) => {
     }
   }
 
-  // Create donor
+  // Create new donor record (allow multiple entries)
   const Donar = await prisma.donar.create({
     data: {
       name,
       email,
-      phone : Number(phone),
+      phone,
       sex,
       age: Number(age),
       weight: Number(weight),
@@ -88,6 +88,7 @@ export const setDonar = asyncHandler(async (req, res) => {
       bloodType,
       amount: Number(amount),
       status: "pending",
+      updatedAt: new Date(), // Set updatedAt to the current date
     },
   });
 

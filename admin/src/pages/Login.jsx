@@ -53,11 +53,7 @@ const Login = () => {
       login(data, data.expiresIn);
     } catch (error) {
       console.log(error);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: error.response.data.message,
-      });
+      toast.error(error.response.data.message);
       setLoading(false);
     }
   };

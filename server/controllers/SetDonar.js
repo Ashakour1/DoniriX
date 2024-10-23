@@ -45,10 +45,10 @@ export const setDonar = asyncHandler(async (req, res) => {
     throw new Error("You are underweight");
   }
 
-  if (phone.length < 0) {
-    res.status(400);
-    throw new Error("Please enter a valid phone number");
-  }
+  // if (phone.length < 0) {
+  //   res.status(400);
+  //   throw new Error("Please enter a valid phone number");
+  // }
 
   // Check if donor exists
   const donarExists = await prisma.donar.findUnique({

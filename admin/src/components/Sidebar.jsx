@@ -1,61 +1,73 @@
 // components/Sidebar.js
-import {
-  LayoutDashboard,
-  Activity,
-  Settings,
-  Users,
-  LogOut,
-} from "lucide-react";
+import { LayoutDashboard, Activity, Users, LogOut } from "lucide-react";
 import { useUser } from "@/hooks/useUser";
 import { MdBloodtype } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Sidebar = () => {
   const { logOut } = useUser();
 
   return (
-    <aside className="w-64 bg-white shadow-md">
-      <div className="p-4">
-        <h2 className="text-xl text-blue-400 font-bold text-primary mb-6">
-          Badbaadiye
-        </h2>
+    <aside className="w-64 bg-white shadow-md flex flex-col">
+      <div className="p-4 flex-grow">
+        <div className="my-2">
+          <img src="/logo.png" alt="logo.png" className="w-32" />
+        </div>
         <nav>
-          <Link
+          <NavLink
             to="/dashboard"
-            className="flex items-center px-4 py-2 text-gray-700 bg-gray-200 rounded-md"
+            className={({ isActive }) =>
+              `flex items-center px-4 py-2 text-Accent rounded-md ${
+                isActive ? "bg-Accent text-white" : "hover:bg-gray-200"
+              }`
+            }
           >
             <LayoutDashboard className="mr-3 h-5 w-5" />
             Dashboard
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/donors"
-            className="flex active:bg-gray-500 items-center px-4 py-2 mt-2 text-gray-600 hover:bg-gray-200 rounded-md"
+            className={({ isActive }) =>
+              `flex active:bg-gray-500 items-center px-4 py-2 mt-2 text-Accent rounded-md ${
+                isActive ? "bg-Accent text-white" : "hover:bg-gray-200"
+              }`
+            }
           >
             <Activity className="mr-3 h-5 w-5" />
             Donations
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/recipients"
-            className="flex active:bg-gray-500 items-center px-4 py-2 mt-2 text-gray-600 hover:bg-gray-200 rounded-md"
+            className={({ isActive }) =>
+              `flex active:bg-gray-500 items-center px-4 py-2 mt-2 text-Accent rounded-md ${
+                isActive ? "bg-Accent text-white" : "hover:bg-gray-200"
+              }`
+            }
           >
             <Users className="mr-3 h-5 w-5" />
             Recipients
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/blood-types"
-            className="flex active:bg-gray-500 items-center px-4 py-2 mt-2 text-gray-600 hover:bg-gray-200 rounded-md"
+            className={({ isActive }) =>
+              `flex active:bg-gray-500 items-center px-4 py-2 mt-2 text-Accent rounded-md ${
+                isActive ? "bg-Accent text-white" : "hover:bg-gray-200"
+              }`
+            }
           >
             <MdBloodtype className="mr-3 h-5 w-5" />
             Blood Types
-          </Link>
-          <Link
-            onClick={logOut}
-            className="flex items-center px-4 mt-[200px] py-2 text-gray-600 hover:bg-gray-200 rounded-md"
-          >
-            <LogOut className="mr-3 h-5 w-5" />
-            Logout
-          </Link>
+          </NavLink>
         </nav>
+      </div>
+      <div className="p-4">
+        <Link
+          onClick={logOut}
+          className="flex items-center px-4 py-2 text-Accent hover:bg-gray-200 rounded-md"
+        >
+          <LogOut className="mr-3 h-5 w-5" />
+          Logout
+        </Link>
       </div>
     </aside>
   );

@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "@/hooks/useUser";
+import { URL } from "../services/Api";
 
 const RecipientForm = () => {
   const { id } = useParams();
@@ -52,7 +53,7 @@ const RecipientForm = () => {
           Authorization: `Bearer ${userData.token}`,
         },
       };
-      const { data } = await axios.get(`/api/recipients/${id}`, config);
+      const { data } = await axios.get(`${URL}/api/recipients/${id}`, config);
       console.log(data);
       setFormData(data);
     } catch (error) {
@@ -101,14 +102,18 @@ const RecipientForm = () => {
 
       if (id) {
         const { data } = await axios.put(
-          `/api/recipients/${id}`,
+          `${URL}/api/recipients/${id}`,
           formData,
           config
         );
 
         toast.success(data.message);
       } else {
-        const response = await axios.post("/api/recipients", formData, config);
+        const response = await axios.post(
+          `${URL}/api/recipients`,
+          formData,
+          config
+        );
 
         toast.success(response.data.message);
       }

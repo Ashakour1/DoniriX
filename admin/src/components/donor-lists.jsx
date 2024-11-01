@@ -149,7 +149,9 @@ const DonorsLists = () => {
             <div className="overflow-auto rounded-md">
               <table className="min-w-full">
                 <thead>
-                  <tr className="border-y text-sm font-semibold bg-Accent ">
+                  <tr className="border-y text-sm font-semibold bg-Accent text-gray
+                   ">
+                    <th className="px-2 py-2 text-left">ID</th>
                     <th className="px-2 py-2 text-left">Name</th>
                     <th className="px-2 py-2 text-left">Email</th>
                     <th className="px-2 py-2 text-left">Phone</th>
@@ -177,6 +179,7 @@ const DonorsLists = () => {
                     })
                     .map((donar) => (
                       <tr className="text-sm" key={donar.id}>
+                        <td className="px-2 py-2">{donar.donorId}</td>
                         <td className="px-2 py-2">{donar.name}</td>
                         <td className="px-2 py-2">{donar.email}</td>
                         <td className="px-2 py-2">{donar.phone.toString()}</td>

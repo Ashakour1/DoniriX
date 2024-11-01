@@ -1,9 +1,9 @@
 import asyncHandler from "express-async-handler";
 import prisma from "../config/prisma.js";
+import generateDonorId from "../utils/generate-id.js";
 
 export const setDonar = asyncHandler(async (req, res) => {
-  console.log(req.body);
-
+  // console.log(req.body);
   const {
     name,
     email,
@@ -73,9 +73,12 @@ export const setDonar = asyncHandler(async (req, res) => {
     }
   }
 
+  const donorId = generateDonorId(); // Generate unique donor ID only on successful registration
+
   // Create new donor record (allow multiple entries)
   const Donar = await prisma.donar.create({
     data: {
+      donorId,
       name,
       email,
       phone,

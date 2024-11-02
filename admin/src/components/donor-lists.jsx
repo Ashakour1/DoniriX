@@ -149,8 +149,10 @@ const DonorsLists = () => {
             <div className="overflow-auto rounded-md">
               <table className="min-w-full">
                 <thead>
-                  <tr className="border-y text-sm font-semibold bg-Accent text-gray
-                   ">
+                  <tr
+                    className="border-y text-sm font-semibold bg-Accent text-gray
+                   "
+                  >
                     <th className="px-2 py-2 text-left">ID</th>
                     <th className="px-2 py-2 text-left">Name</th>
                     <th className="px-2 py-2 text-left">Email</th>
@@ -186,34 +188,27 @@ const DonorsLists = () => {
                         <td className="px-2 py-2">{donar.age}</td>
                         <td className="px-2 py-2">{donar.bloodType}</td>
                         <td className="px-2 py-2">
-                          <Tooltip showArrow={true} content="View All Info">
-                            <button
-                              onClick={() =>
-                                navigate(`/donor/detail/${donar.id}`)
-                              }
-                              className="text-white bg-Accent px-2 py-1 rounded mx-2"
-                            >
-                              View All
-                            </button>
-                          </Tooltip>
-                          <Tooltip showArrow={true} content="Edit Donar">
-                            <button
-                              onClick={() =>
-                                navigate(`/donors/${donar.id}/edit`)
-                              }
-                              className="text-white bg-green-400 px-2 py-1.5 rounded"
-                            >
-                              <BiEdit />
-                            </button>
-                          </Tooltip>
-                          <Tooltip showArrow={true} content="Delete Donar">
-                            <button
-                              onClick={() => handleDelete(donar.id)}
-                              className="text-white bg-red-900 px-2 py-1.5 rounded mx-2"
-                            >
-                              <MdOutlineDelete />
-                            </button>
-                          </Tooltip>
+                          <button
+                            onClick={() =>
+                              navigate(`/donor/detail/${donar.id}`)
+                            }
+                            className="text-white bg-Accent px-2 py-1 rounded mx-2"
+                          >
+                            View All
+                          </button>
+
+                          <button
+                            onClick={() => navigate(`/donors/${donar.id}/edit`)}
+                            className="text-white bg-green-400 px-2 py-1.5 rounded"
+                          >
+                            <BiEdit />
+                          </button>
+                          <button
+                            onClick={() => handleDelete(donar.id)}
+                            className="text-white bg-red-900 px-2 py-1.5 rounded mx-2"
+                          >
+                            <MdOutlineDelete />
+                          </button>
                         </td>
                       </tr>
                     ))}

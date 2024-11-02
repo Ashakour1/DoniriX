@@ -51,15 +51,15 @@ export const setDonar = asyncHandler(async (req, res) => {
   // }
 
   // Check if donor exists
-  const donarExists = await prisma.donar.findUnique({
+  const donorExists = await prisma.donar.findFirst({
     where: {
-      email: email, // Ensure this is unique in your schema
+      OR: [{ email }, { phone }],
     },
   });
 
   // If donor exists, check eligibility
-  if (donarExists) {
-    const { updatedAt } = donarExists;
+  if (donorExists) {
+    const { updatedAt } = donorExists;
 
     // Check if last donation was more than 3 months ago
     const threeMonthsAgo = new Date();
@@ -73,7 +73,8 @@ export const setDonar = asyncHandler(async (req, res) => {
     }
   }
 
-  const donorId = generateDonorId(); // Generate unique donor ID only on successful registration
+  const donorId = generateDonorId();
+  // Generate unique donor ID only on successful registration
 
   // Create new donor record (allow multiple entries)
   const Donar = await prisma.donar.create({

@@ -129,7 +129,7 @@ export const DonorDetail = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="!bg-white !text-black">
+            <Card className="!bg-transparent !text-black">
               <CardHeader>
                 <CardTitle className="text-xl text-Accent">
                   Personal Information
@@ -167,9 +167,11 @@ export const DonorDetail = () => {
                 ) : null}
               </CardContent>
             </Card>
-            <Card className="!bg-white !text-black">
+            <Card className="!bg-transparent !text-black">
               <CardHeader>
-                <CardTitle className="text-xl text-Accent">Medical Information</CardTitle>
+                <CardTitle className="text-xl text-Accent">
+                  Medical Information
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="flex items-center space-x-2">

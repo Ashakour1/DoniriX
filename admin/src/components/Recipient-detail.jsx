@@ -97,7 +97,7 @@ export const RecipientDetail = () => {
 
   return (
     <div className="max-w-[1040px] mx-auto px-4 py-10">
-      <Card className="!bg-none text-black border-0">
+      <Card className="!bg-transparent text-black border-0">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <div className="flex items-center space-x-4">
             <Avatar className="w-20 h-20">
@@ -125,7 +125,7 @@ export const RecipientDetail = () => {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Personal Information */}
-            <Card className="!bg-white !text-black">
+            <Card className="!bg-transparent !text-black">
               <CardHeader>
                 <CardTitle className="text-xl text-Accent">
                   Personal Information
@@ -152,7 +152,7 @@ export const RecipientDetail = () => {
             </Card>
 
             {/* Medical Information */}
-            <Card className="!bg-white !text-black">
+            <Card className="!bg-transparent !text-black">
               <CardHeader>
                 <CardTitle className="text-xl text-Accent">
                   Medical Information

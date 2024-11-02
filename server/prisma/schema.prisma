@@ -46,7 +46,7 @@ model Recipient {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
   name  String
   email     String   @unique
-  phone     String
+  phone     String @unique
   amount Int
   address String
   bloodType     String

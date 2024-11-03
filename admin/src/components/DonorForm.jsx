@@ -12,14 +12,21 @@ const DonorForm = () => {
   // name, email, phone, age, weight, address, nextOfKin, hp, bloodType
   const [Loading, setLoading] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [age, setAge] = useState("");
 
+  // ... other functions
+
+  const handleDateChange = (calculatedAge) => {
+    setAge(calculatedAge); // Update the age state with the calculated age
+    setFormData({ ...formData, age: calculatedAge }); // Update formData
+  };
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     sex: "",
     phone: 0,
-    age: "",
+
     weight: "",
     address: "",
     nextOfKin: "",
@@ -142,7 +149,7 @@ const DonorForm = () => {
         );
         toast.success(data.message);
       } else {
-        const { data } = await axios.post(`/api/donors`, formData);
+        const { data } = await axios.post(`${URL}/api/donors`, formData);
         toast.success(data.message);
       }
       clearData();

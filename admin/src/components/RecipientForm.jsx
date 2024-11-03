@@ -19,7 +19,6 @@ const RecipientForm = () => {
     bloodType: "",
     status: "",
     dateOfBirth: "",
-    preferredHospital: "",
     reasonForBloodNeed: "",
   });
   const navigate = useNavigate();
@@ -276,7 +275,7 @@ const RecipientForm = () => {
         </div>
 
         {/* Preferred Hospital */}
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <label
             className="mb-1 text-sm font-medium text-gray-700"
             htmlFor="preferredHospital"
@@ -292,7 +291,7 @@ const RecipientForm = () => {
             onChange={handleChange}
             value={formData.preferredHospital}
           />
-        </div>
+        </div> */}
 
         {/* Reason for Blood Need */}
         <div className="flex flex-col">

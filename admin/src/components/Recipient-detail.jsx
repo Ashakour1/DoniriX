@@ -167,12 +167,12 @@ export const RecipientDetail = () => {
                   <Droplet className="w-5 h-5 text-muted-foreground" />
                   <span>Amount: {recipientDetail.amount} ml</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                {/* <div className="flex items-center space-x-2">
                   <Hospital className="w-5 h-5 text-muted-foreground" />
                   <span>
                     Preferred Hospital: {recipientDetail.preferredHospital}
                   </span>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           </div>

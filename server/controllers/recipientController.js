@@ -26,7 +26,6 @@ const createRecipient = asyncHandler(async (req, res) => {
     address,
     bloodType,
     dateOfBirth,
-    preferredHospital,
     reasonForBloodNeed,
   } = req.body;
 
@@ -38,7 +37,6 @@ const createRecipient = asyncHandler(async (req, res) => {
     !address ||
     !bloodType ||
     !dateOfBirth ||
-    !preferredHospital ||
     !reasonForBloodNeed
   ) {
     res.status(400);
@@ -55,7 +53,6 @@ const createRecipient = asyncHandler(async (req, res) => {
       bloodType,
       status: "pending",
       dateOfBirth,
-      preferredHospital,
       reasonForBloodNeed,
     },
   });

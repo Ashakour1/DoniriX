@@ -24,6 +24,8 @@ const generateDonorId = async () => {
     }
   }
 
+  console.log("from generate" ,donorId);
+
   return donorId;
 };
 

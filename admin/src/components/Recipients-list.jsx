@@ -138,8 +138,7 @@ const RecipientsList = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y">
-                  {recipients
-                    ?.filter((item) => {
+                  {recipients?.filter((item) => {
                       if (search === "") {
                         return true; // Return all items if search is empty
                       } else {

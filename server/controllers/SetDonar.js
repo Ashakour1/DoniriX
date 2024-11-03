@@ -3,7 +3,6 @@ import prisma from "../config/prisma.js";
 import generateDonorId from "../utils/generate-id.js";
 
 export const setDonar = asyncHandler(async (req, res) => {
-  // console.log(req.body);
   const {
     name,
     email,
@@ -45,11 +44,6 @@ export const setDonar = asyncHandler(async (req, res) => {
     throw new Error("You are underweight");
   }
 
-  // if (phone.length < 0) {
-  //   res.status(400);
-  //   throw new Error("Please enter a valid phone number");
-  // }
-
   // Check if donor exists
   const donorExists = await prisma.donar.findFirst({
     where: {
@@ -73,13 +67,14 @@ export const setDonar = asyncHandler(async (req, res) => {
     }
   }
 
-  const donorId = generateDonorId();
-  // Generate unique donor ID only on successful registration
+  const donorId = await generateDonorId(); // Ensure this returns a valid string
+
+  console.log(donorId);
 
   // Create new donor record (allow multiple entries)
   const Donar = await prisma.donar.create({
     data: {
-      donorId,
+      donorId: donorId,
       name,
       email,
       phone,
@@ -101,5 +96,6 @@ export const setDonar = asyncHandler(async (req, res) => {
     success: true,
     error: false,
     message: "Registered Successfully",
+    donor: Donar, // Include the created donor in the response
   });
 });
